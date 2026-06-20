@@ -228,6 +228,17 @@ CONCEPTS = {
 }
 DIAGRAM_CONCEPTS = ["CVSS", "EPSS", "CISA KEV", "IDS/IPS", "Privacy Impact", "SLA Governance", "Exposure Score"]
 
+# Fuller, plain-English explanations shown in the sidebar concept guide.
+CONCEPT_DETAILS = {
+    "CVSS": "**Common Vulnerability Scoring System.** An industry-standard score from **0 to 10** rating a vulnerability's *technical severity* \u2014 how damaging it could be if exploited \u2014 published in the NVD. Bands: Low (0.1\u20133.9), Medium (4\u20136.9), High (7\u20138.9), Critical (9\u201310). It measures impact only, **not** whether anyone is actually exploiting it, so the platform combines it with real-world threat and business context.",
+    "EPSS": "**Exploit Prediction Scoring System** (by FIRST). A **probability (0\u20131)** that a CVE will be exploited in the wild within the next **30 days** \u2014 a high value means attackers are likely to use it soon. The platform uses the EPSS percentile to weight *likelihood* alongside severity, so vulnerabilities attackers actually use rise to the top.",
+    "CISA KEV": "**Known Exploited Vulnerabilities** \u2014 the U.S. CISA catalogue of CVEs **confirmed to be exploited in real attacks**. If a CVE is on this list, exploitation is not theoretical, it is happening now. The platform treats KEV membership as a strong escalator of priority.",
+    "IDS/IPS": "**Intrusion Detection / Prevention Systems** \u2014 network sensors that *detect* (IDS) or *block* (IPS) malicious traffic. Their alerts are correlated to your vulnerable assets, so a host that is **both vulnerable and currently being targeted** is flagged for urgent action \u2014 the live \u201cis it under attack now?\u201d signal scanners miss.",
+    "Privacy Impact": "**How much sensitive or personal data an asset holds, and how exposed it is.** The platform weighs **PII** presence, data sensitivity, **encryption status**, and regulatory impact (e.g. GDPR / HIPAA). An unencrypted system holding regulated personal data raises both the exposure score and the compliance stakes.",
+    "SLA Governance": "**Service-Level governance for remediation.** Each exposure gets a priority-based **due date** (Critical = 7 days, High = 15, Medium = 30, Low = 90) and is tracked as **Within SLA / Due Soon / Breached**, with escalations for overdue items. This turns \u201cwe should fix this\u201d into an accountable, time-bound commitment.",
+    "Exposure Score": "**The platform's headline number** \u2014 a single, **explainable 0\u2013100 score** combining threat intelligence (35%), network exposure (20%), business impact (15%), IDS correlation (15%), privacy impact (10%) and SLA governance (5%). It maps to a Low / Medium / High / Critical priority, and because every point traces back to a factor, the result is **defensible, not a black box**.",
+}
+
 
 def render_header() -> None:
     st.markdown(
@@ -236,11 +247,10 @@ def render_header() -> None:
           <div class="cegp-header-row">
             <span class="cegp-logo">{CYBER_LOGO_SVG}</span>
             <div>
-              <div class="cegp-title">Cyber Exposure Governance Platform</div>
+              <div class="cegp-title">Cyber Exposure Governance Platform (CEGP)</div>
               <div class="cegp-authors">Dwaipayan Mojumder &middot; Deblina Das &nbsp;|&nbsp; M.Sc. Cyber Security (4th Sem) &nbsp;|&nbsp; Under the guidance of Prof. Sanjay Pal</div>
               <div class="cegp-tag">Risk-based vulnerability prioritization &middot; remediation governance &middot; audit-ready evidence</div>
             </div>
-            <span class="cegp-badge">v1</span>
           </div>
         </div>
         """,
@@ -318,19 +328,19 @@ def _diagram_svg(concept: str) -> str:
 def render_sidebar_concepts() -> None:
     """Tucked-away concept guide at the bottom of the sidebar (only if expanded)."""
     with st.expander("\u2139\ufe0f  Concept guide", expanded=False):
+        st.caption("What each metric means and how the platform uses it.")
         choice = st.selectbox(
-            "View a concept", ["\u2014 select \u2014"] + DIAGRAM_CONCEPTS,
+            "View a concept", ["\u2014 all concepts \u2014"] + DIAGRAM_CONCEPTS,
             index=0, key="concept_pick", label_visibility="collapsed",
         )
-        if choice and choice != "\u2014 select \u2014":
-            st.markdown(
-                f'<div class="cegp-conceptcard"><b>{choice}</b> &mdash; {CONCEPTS[choice]}</div>',
-                unsafe_allow_html=True,
-            )
+        if choice and choice != "\u2014 all concepts \u2014":
             st.markdown(_diagram_svg(choice), unsafe_allow_html=True)
+            st.markdown(CONCEPT_DETAILS.get(choice, CONCEPTS.get(choice, "")))
         else:
-            for k, v in CONCEPTS.items():
-                st.markdown(f"**{k}** \u2014 {v.split(' \u2014 ', 1)[-1]}")
+            for k in DIAGRAM_CONCEPTS:
+                st.markdown(f"#### {k}")
+                st.markdown(CONCEPT_DETAILS.get(k, CONCEPTS.get(k, "")))
+                st.divider()
 
 
 @st.dialog("Project Documentation", width="large")

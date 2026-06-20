@@ -688,6 +688,16 @@ Look at how CEGP reads and writes its audit log, snapshots, and any saved histor
   ```
   > The volume-mount route (b) is the smallest code change — the app still writes to `data/`, but `data/` now lives in the bucket.
 
+  > 🟢 **Built-in option (no volume mount): the Assessment History archive can write directly to a bucket.** CEGP's history module already supports Cloud Storage natively — it switches on automatically when the `CEGP_GCS_BUCKET` environment variable is set, and otherwise falls back to local disk with no change in behaviour. To enable it:
+  > 1. Add `google-cloud-storage` to `requirements.txt` and rebuild the image (Part 4), so the package is in the container.
+  > 2. Grant the bucket access (the `add-iam-policy-binding` command above already does this).
+  > 3. Point the service at the bucket via environment variables:
+  >    ```bash
+  >    gcloud run services update $SERVICE --region $REGION \
+  >      --set-env-vars CEGP_GCS_BUCKET=${PROJECT_ID}-cegp-data,CEGP_GCS_PREFIX=cegp
+  >    ```
+  > The **Assessment History** tab then shows *"Currently persisting to: Cloud Storage bucket"*, and every run's archive and registry are stored under `gs://${PROJECT_ID}-cegp-data/cegp/runs/…`, surviving restarts. `CEGP_GCS_PREFIX` is optional (a folder prefix inside the bucket). If the variable is unset or the package/bucket is unavailable, the app silently uses local disk — nothing breaks.
+
 - **Cloud SQL (PostgreSQL/MySQL)** — best for the **structured audit trail** you will want to query and report on. This matches the "database backend" item on the project roadmap. Create an instance, then connect the service:
   ```bash
   gcloud run services update $SERVICE --region $REGION \

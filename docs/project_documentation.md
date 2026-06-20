@@ -16,30 +16,32 @@
 1. [Executive Summary](#1-executive-summary)
 2. [Problem & Motivation](#2-problem--motivation)
 3. [Solution Overview](#3-solution-overview)
-4. [Core Capabilities](#4-core-capabilities)
-5. [How It Works — The Processing Pipeline](#5-how-it-works--the-processing-pipeline)
-6. [The Scoring Model](#6-the-scoring-model)
-7. [The Dashboard & Views](#7-the-dashboard--views)
-8. [Inputs & Data Model](#8-inputs--data-model)
-9. [Security, Integrity & Governance](#9-security-integrity--governance)
-10. [Bundled Datasets](#10-bundled-datasets)
-11. [Technology Stack](#11-technology-stack)
-12. [Running the Application Locally](#12-running-the-application-locally)
+4. [Cybersecurity Strategies & Techniques Used](#4-cybersecurity-strategies--techniques-used)
+5. [Why This Approach Is Good](#5-why-this-approach-is-good)
+6. [Core Capabilities](#6-core-capabilities)
+7. [How It Works — The Processing Pipeline](#7-how-it-works--the-processing-pipeline)
+8. [The Scoring Model](#8-the-scoring-model)
+9. [The Dashboard & Views](#9-the-dashboard--views)
+10. [Inputs & Data Model](#10-inputs--data-model)
+11. [Security, Integrity & Governance](#11-security-integrity--governance)
+12. [Bundled Datasets](#12-bundled-datasets)
+13. [Technology Stack](#13-technology-stack)
+14. [Running the Application Locally](#14-running-the-application-locally)
 
 **Part B — Scaling Up: Integrations, Automation & Deployment**
-13. [From Static Files to Live Data — Future Integrations](#13-from-static-files-to-live-data--future-integrations)
-14. [Integration Mechanisms](#14-integration-mechanisms)
-15. [Automation Possibilities](#15-automation-possibilities)
-16. [Deploying for Real-Time, Multi-User Access](#16-deploying-for-real-time-multi-user-access)
-17. [Authentication & Access Control](#17-authentication--access-control)
-18. [Production Security & Compliance](#18-production-security--compliance)
+15. [From Static Files to Live Data — Future Integrations](#15-from-static-files-to-live-data--future-integrations)
+16. [Integration Mechanisms](#16-integration-mechanisms)
+17. [Automation Possibilities](#17-automation-possibilities)
+18. [Deploying for Real-Time, Multi-User Access](#18-deploying-for-real-time-multi-user-access)
+19. [Authentication & Access Control](#19-authentication--access-control)
+20. [Production Security & Compliance](#20-production-security--compliance)
 
 **Part C — Reference**
-19. [Outcomes & Benefits](#19-outcomes--benefits)
-20. [Scope & Limitations](#20-scope--limitations)
-21. [Roadmap Summary](#21-roadmap-summary)
-22. [Glossary](#22-glossary)
-23. [References & Links](#23-references--links)
+21. [Outcomes & Benefits](#21-outcomes--benefits)
+22. [Scope & Limitations](#22-scope--limitations)
+23. [Roadmap Summary](#23-roadmap-summary)
+24. [Glossary](#24-glossary)
+25. [References & Links](#25-references--links)
 
 ---
 
@@ -84,7 +86,88 @@ The platform is delivered as a clean, browser-based dashboard. A security analys
 
 ---
 
-## 4. Core Capabilities
+## 4. Cybersecurity Strategies & Techniques Used
+
+CEGP is not a single trick — it is a deliberate combination of recognised cybersecurity strategies, each contributing one part of the risk picture. This section names each technique, explains it briefly, and **points to exactly where it appears in the application** so the link between theory and the UI is explicit.
+
+### 4.1 Technique-to-UI map
+
+| # | Strategy / technique | What it is | Where it appears in the app (navigation → element) |
+|---|---|---|---|
+| 1 | **Risk-Based Vulnerability Management (RBVM)** | Prioritising fixes by *real-world risk* rather than raw severity. This is the core philosophy of the whole tool. | **Analyst View** → the entire *Security Analyst Exposure Queue*; **Executive View** → *Exposure Score* KPIs. |
+| 2 | **Threat-Intelligence Enrichment** | Augmenting each CVE with external intelligence (KEV, EPSS, CVSS). | **Executive View** → *KEV vs Non-KEV* chart, *EPSS Percentile Distribution*; **Analyst View** → `cvss_score`, `epss_score`, `kev_status` columns. |
+| 3 | **Exploit Prediction (EPSS) — likelihood-based prioritisation** | Using the probability a CVE will be exploited soon, not just how bad it is. | **Executive View** → *Risk Matrix* **Y-axis (likelihood)** and the *EPSS Percentile Distribution* histogram. |
+| 4 | **Known-Exploited prioritisation (CISA KEV)** | Escalating vulnerabilities confirmed to be exploited in the wild — "weaponised first." | **Executive View** → *CISA KEV vs Non-KEV Exposures* bar; **Analyst View** → colour-coded `kev_status` column. |
+| 5 | **Attack-Surface / Network-Exposure analysis (Defence-in-Depth)** | Judging how reachable an asset is — internet exposure, zone, open ports, firewall, VPN. | **Network Exposure** tab → *Risk by Network Zone*, *Risk by Asset Type*, and the per-asset exposure table. |
+| 6 | **Detection & Response correlation (IDS/IPS)** | Correlating live intrusion alerts to vulnerable hosts to find assets under active attack. | **IDS/IPS Correlation** tab → *Correlated Alert Severity* chart and the `ids_alert_count` / `exploit_attempt_detected` columns. |
+| 7 | **Data-Centric Security & Privacy protection** | Weighting PII, data sensitivity, encryption status and regulatory impact. | **Privacy Impact** tab → *Privacy Impact Distribution* and the `pii_present` / `encryption_status` / `regulatory_impact` columns. |
+| 8 | **Business Impact Analysis (BIA)** | Weighting risk by asset criticality, environment and business process. | **Executive View** → *Top Business Processes by Aggregate Risk*, *Aggregate Risk by Environment*. |
+| 9 | **Security Governance & SLA Management** | Time-bound remediation with due dates, breach tracking and escalation. | **Remediation Governance** tab → *SLA Governance Status* chart, `remediation_due_date`, `sla_status`, `escalation_required`. |
+| 10 | **Risk Acceptance / Exception Management** | Formally accepting or deferring risk with expiry and compensating controls. | **Remediation Governance** tab → `exception_status`, `acceptance_reason`, `exception_validity` columns. |
+| 11 | **Security Control Mapping** | Mapping each exposure to cybersecurity control domains. | **Remediation Governance** tab → *Exposures by Cybersecurity Control Area* chart. |
+| 12 | **What-If / Risk-Reduction Simulation** | Modelling remediation strategies before spending effort. | **Simulation** tab → scenario selector and predicted risk-reduction output. |
+| 13 | **Tamper-Evident Reporting (HMAC-SHA256)** | Cryptographically signing reports so they cannot be silently altered. | **Reports & Integrity** tab → signed report export and the *verify integrity* tool. |
+| 14 | **Secure Output Handling (injection prevention)** | Sanitising exported spreadsheets against CSV/formula-injection. | **Reports & Integrity** tab → all exports are sanitised before download. |
+| 15 | **Attributed Audit Logging (non-repudiation)** | Recording who did what and when. | **Audit Log** tab → the action history table. |
+| 16 | **Input Validation & Data-Quality Assurance** | Catching malformed CVEs, bad values and duplicates without halting the run. | **Audit Log** tab → *Data Quality Notices* section. |
+| 17 | **Explainable / Defensible Scoring** | Every priority traces back to its contributing factors. | **Executive View** → *Risk Matrix*; colour-coded priority across all tables; `score_drivers`. |
+
+### 4.2 The unifying strategy
+
+The single overarching strategy is **multi-signal, business-aware risk prioritisation with governance and evidence**. Threat intelligence (techniques 2–4) answers *"how likely and how bad?"*, exposure and business analysis (5, 8) answer *"how reachable and how important?"*, detection and privacy (6, 7) answer *"is it under attack and what data is at stake?"*, and the governance, simulation, reporting and audit layers (9–16) turn that into accountable, provable action. Explainability (17) ties it together so the output is defensible.
+
+---
+
+## 5. Why This Approach Is Good
+
+A fair question is: *plenty of tools score vulnerabilities — why this design, and why these techniques?* This section answers it directly.
+
+### 5.1 What other options exist in the market?
+
+| Option | What it does | Limitation it leaves open |
+|---|---|---|
+| **CVSS-only triage** (spreadsheets, scanner default sort) | Ranks by technical severity. | Ignores exploitation likelihood, business value and live threat — the four gaps in §2. |
+| **Native scanner dashboards** (Tenable, Qualys, Rapid7) | Show findings from that scanner. | Tied to one data source; limited business/IDS/privacy correlation in the base product. |
+| **SIEM dashboards** (Splunk, Sentinel) | Show alerts and detections. | Strong on detection, weak on vulnerability prioritisation and remediation governance. |
+| **GRC platforms** (Archer, ServiceNow GRC) | Track risk and compliance. | Governance-heavy, not vulnerability-prioritisation engines. |
+| **Quantitative risk methods** (e.g. FAIR) | Express risk in financial terms. | Data-hungry and slow; overkill for day-to-day triage. |
+| **Decision frameworks** (CISA **SSVC**) | A decision tree for patch urgency. | Excellent and complementary, but coarser than a continuous score. |
+
+### 5.2 Are there competitors with similar capabilities?
+
+Yes — **Risk-Based Vulnerability Management (RBVM)** is an established commercial category. Representative platforms include **Tenable Vulnerability Management (with Lumin / VPR)**, **Qualys VMDR (TruRisk)**, **Rapid7 InsightVM**, **Microsoft Defender Vulnerability Management**, and specialised risk-prioritisation tools such as **Cisco Vulnerability Management (formerly Kenna Security)**, **Nucleus Security**, **Brinqa**, and **Vulcan Cyber**.
+
+These are mature, powerful enterprise products. But they are also **expensive, complex, and often tied to a vendor's own scanner**, and several treat business context, live IDS correlation, data-privacy impact, and tamper-evident reporting as separate add-ons rather than a single explainable score. CEGP demonstrates the *same core idea* — risk-based, multi-signal prioritisation — in a **transparent, lightweight, vendor-neutral** form.
+
+### 5.3 What are this app's capabilities (the differentiators)?
+
+- **Five signals in one score** — threat intel **+** business **+** network **+** live IDS **+** privacy, not just severity.
+- **Fully explainable** — every point of the 0–100 score traces to a factor; nothing is a black box.
+- **Live-threat aware** — IDS/IPS correlation flags assets under active attack, a signal pure scanners lack.
+- **Privacy as a first-class dimension** — PII, encryption and regulatory impact are scored, not ignored.
+- **Governance + simulation + evidence built in** — SLAs, exceptions, what-if modelling, signed reports and an audit trail in the same tool.
+- **Vendor-neutral and integration-ready** — consumes any scanner's export today and is designed for live connectors tomorrow (Part B).
+- **Transparent and low-cost** — runs on open components, ideal for learning, SMBs, and rapid evaluation.
+
+### 5.4 What if a different technique were used instead?
+
+| Instead of the blended model… | Trade-off |
+|---|---|
+| **CVSS only** | Simple, but you over-invest in severe-yet-unexploited issues and miss exploited "Medium" ones. |
+| **EPSS only** | Captures likelihood but ignores how bad or how important the asset is. |
+| **KEV only** | A useful binary flag, but misses CVEs trending toward exploitation that aren't listed *yet*. |
+| **Pure quantitative (FAIR)** | Rigorous and financial, but heavy, data-hungry, and impractical for fast daily triage. |
+| **SSVC decision tree** | Transparent and excellent — CEGP's logic is compatible with it — but produces coarse buckets rather than a continuous, rankable score. |
+
+CEGP deliberately **blends** these into a weighted, tunable model: it keeps CVSS's severity, adds EPSS likelihood and KEV confirmation, and layers business, network, IDS and privacy context — capturing each technique's strength while compensating for its individual blind spot.
+
+### 5.5 Why should I use this product?
+
+Because it gives a security team the **one thing CVSS-only programmes cannot**: a ranked, defensible answer to *"what do we fix first, and why?"* that already accounts for real-world exploitation, business value, live attack evidence, and data sensitivity — and then carries that decision through to SLAs, simulation, signed reporting, and an audit trail. It is **explainable** (so it survives scrutiny from auditors and senior engineers), **lightweight and vendor-neutral** (so it fits any environment), and **integration-ready** (so it scales from a demo to a live enterprise service). For learning, evaluation, or a focused programme, it delivers enterprise-grade prioritisation thinking without enterprise cost or lock-in.
+
+---
+
+## 6. Core Capabilities
 
 The platform supports an end-to-end risk-management lifecycle:
 
@@ -105,7 +188,7 @@ The platform supports an end-to-end risk-management lifecycle:
 
 ---
 
-## 5. How It Works — The Processing Pipeline
+## 7. How It Works — The Processing Pipeline
 
 Each assessment flows through seven phases, every one adding a layer of intelligence.
 
@@ -132,7 +215,7 @@ Exports are sanitised against spreadsheet-injection risk and signed with a crypt
 
 ---
 
-## 6. The Scoring Model
+## 8. The Scoring Model
 
 The headline number is a **single, explainable 0–100 score** — every point can be traced back to a contributing factor, so the result is defensible rather than a black box. Contributions are weighted as follows (weights are configurable via policy):
 
@@ -158,7 +241,7 @@ This design deliberately ensures that a *moderately severe but actively exploite
 
 ---
 
-## 7. The Dashboard & Views
+## 9. The Dashboard & Views
 
 The interface is organised as a header (project identity), a row of headline KPI cards, and nine focused tabs.
 
@@ -178,7 +261,7 @@ Supporting material (a concept guide and project information) is tucked into the
 
 ---
 
-## 8. Inputs & Data Model
+## 10. Inputs & Data Model
 
 The platform's value comes from **correlation**, so it ingests four independent sources — mirroring how organisations actually store this data (CMDB, scanner, SIEM, GRC tool). Each can be supplied as CSV or Excel and swapped independently.
 
@@ -197,7 +280,7 @@ The platform's value comes from **correlation**, so it ingests four independent 
 
 ---
 
-## 9. Security, Integrity & Governance
+## 11. Security, Integrity & Governance
 
 Because this is a *security* tool, it holds itself to a higher standard than a typical dashboard:
 
@@ -209,17 +292,18 @@ Because this is a *security* tool, it holds itself to a higher standard than a t
 
 ---
 
-## 10. Bundled Datasets
+## 12. Bundled Datasets
 
 To make the platform demonstrable out of the box, it ships with realistic, fully offline data:
 
 - **Primary dataset** — a diversified set of roughly 300 exposures across several hundred assets, deliberately engineered to exercise **every** scoring path: all priority bands, all KEV/EPSS/CVSS combinations, all network zones, IDS exploit and multi-alert cases, every privacy level, SLA breached/due-soon/within states, and valid/expired/no-expiry exceptions. A few rows intentionally trigger non-blocking data-quality notices to demonstrate validation.
 - **Small demo set** — a compact set retained for quick walkthroughs, including an Excel copy to demonstrate file upload.
+- **Additional mock organisations** — three independent fictional companies (retail, healthcare, finance), each with all four input files, so the tool can be demonstrated on non-default data.
 - **Offline threat-intelligence** — bundled KEV/EPSS/CVSS reference data covering every CVE in the samples, so results are identical run-to-run without internet access.
 
 ---
 
-## 11. Technology Stack
+## 13. Technology Stack
 
 | Layer | Technology | Role |
 |---|---|---|
@@ -234,7 +318,7 @@ The codebase is organised modularly — a set of focused processing engines and 
 
 ---
 
-## 12. Running the Application Locally
+## 14. Running the Application Locally
 
 The application runs locally on Streamlit. From the project directory, create a virtual environment, install dependencies, and launch:
 
@@ -253,7 +337,7 @@ The interface opens automatically in the default browser at **http://localhost:8
 
 # Part B — Scaling Up: Integrations, Automation & Deployment
 
-## 13. From Static Files to Live Data — Future Integrations
+## 15. From Static Files to Live Data — Future Integrations
 
 Today the platform is fed **static files** — a snapshot exported from a scanner, an inventory spreadsheet, an alert dump. This is perfect for demonstrations and offline use, but the same architecture is built to consume **live, continuously updated data** from the systems an organisation already runs.
 
@@ -261,7 +345,7 @@ The crucial point is architectural: CEGP separates **where data comes from** (an
 
 Below are the integration categories, the real systems in each, what they would feed, and why it matters.
 
-### 13.1 Vulnerability Scanners → live findings
+### 15.1 Vulnerability Scanners → live findings
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -269,7 +353,7 @@ Below are the integration categories, the real systems in each, what they would 
 
 **How it connects:** most scanners expose a REST API or scheduled export. A connector pulls the latest findings, the normaliser maps them to the standard schema, and an assessment runs. ([Tenable](https://www.tenable.com), [Qualys](https://www.qualys.com), [Rapid7](https://www.rapid7.com), [Greenbone/OpenVAS](https://www.greenbone.net))
 
-### 13.2 Asset Inventory / CMDB → live business context
+### 15.2 Asset Inventory / CMDB → live business context
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -277,7 +361,7 @@ Below are the integration categories, the real systems in each, what they would 
 
 **How it connects:** CMDBs and cloud inventories provide APIs that return assets with ownership and criticality. A scheduled sync keeps the platform's asset picture live. ([ServiceNow](https://www.servicenow.com), [Device42](https://www.device42.com), [Lansweeper](https://www.lansweeper.com))
 
-### 13.3 SIEM / IDS-IPS / EDR → real-time attack evidence
+### 15.3 SIEM / IDS-IPS / EDR → real-time attack evidence
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -285,7 +369,7 @@ Below are the integration categories, the real systems in each, what they would 
 
 **How it connects:** SIEMs support search APIs, scheduled queries, or streaming outputs; sensors emit events to a collector. The platform consumes the alert stream and re-correlates against vulnerable assets. ([Splunk](https://www.splunk.com), [Microsoft Sentinel](https://azure.microsoft.com/products/microsoft-sentinel), [Elastic Security](https://www.elastic.co/security), [Suricata](https://suricata.io))
 
-### 13.4 Threat-Intelligence Feeds → always-current exploit context
+### 15.4 Threat-Intelligence Feeds → always-current exploit context
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -293,7 +377,7 @@ Below are the integration categories, the real systems in each, what they would 
 
 **How it connects:** these are already partially wired in via the platform's optional "live feeds" toggle, which queries the public KEV, EPSS, and NVD services. The same pattern extends to commercial feeds and MISP. ([NVD API](https://nvd.nist.gov/developers))
 
-### 13.5 ITSM / Ticketing / SOAR → close the remediation loop
+### 15.5 ITSM / Ticketing / SOAR → close the remediation loop
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -301,25 +385,25 @@ Below are the integration categories, the real systems in each, what they would 
 
 **How it connects:** ITSM/SOAR tools accept tickets via REST API or webhook. The platform's existing "ticket report" becomes a live ticket. ([ServiceNow](https://www.servicenow.com), [Jira](https://www.atlassian.com/software/jira), [PagerDuty](https://www.pagerduty.com))
 
-### 13.6 Cloud Security Posture (CSPM) → cloud exposure
+### 15.6 Cloud Security Posture (CSPM) → cloud exposure
 
 | Source systems | Feeds | Value |
 |---|---|---|
 | AWS Security Hub, Microsoft Defender for Cloud, GCP Security Command Center | Additional **findings + asset context** for cloud workloads | Extends the same prioritisation to cloud misconfigurations and cloud-native vulnerabilities, not just traditional hosts. |
 
-### 13.7 Identity & Directory → ownership and access
+### 15.7 Identity & Directory → ownership and access
 
 | Source systems | Feeds | Value |
 |---|---|---|
-| Microsoft Entra ID / Active Directory, Okta | Asset/owner resolution **and** user authentication (see §17) | Resolves "who owns this asset" automatically, and provides the identity backbone for secure multi-user access. |
+| Microsoft Entra ID / Active Directory, Okta | Asset/owner resolution **and** user authentication (see §19) | Resolves "who owns this asset" automatically, and provides the identity backbone for secure multi-user access. |
 
-### 13.8 Data Warehouse / BI → history and board reporting
+### 15.8 Data Warehouse / BI → history and board reporting
 
 | Source systems | Feeds | Value |
 |---|---|---|
 | Snowflake, BigQuery, Databricks; Power BI / Tableau for visualisation | **Outbound** — assessment history is persisted and published | Enables long-term trend analysis, board-level dashboards, and integration with enterprise reporting. |
 
-### 13.9 Collaboration / Notification → alerting
+### 15.9 Collaboration / Notification → alerting
 
 | Source systems | Feeds | Value |
 |---|---|---|
@@ -327,7 +411,7 @@ Below are the integration categories, the real systems in each, what they would 
 
 ---
 
-## 14. Integration Mechanisms
+## 16. Integration Mechanisms
 
 Different systems integrate in different ways. The platform's service layer can support all of the patterns below:
 
@@ -344,7 +428,7 @@ This layered approach means an organisation can start with the easiest pattern (
 
 ---
 
-## 15. Automation Possibilities
+## 17. Automation Possibilities
 
 Once data is live, the platform can move from "run on demand" to "always on":
 
@@ -358,7 +442,7 @@ Once data is live, the platform can move from "run on demand" to "always on":
 
 ---
 
-## 16. Deploying for Real-Time, Multi-User Access
+## 18. Deploying for Real-Time, Multi-User Access
 
 To let a whole team (or auditors) reach the platform from anywhere, it moves from a local script to a hosted service. There is a natural progression:
 
@@ -368,28 +452,30 @@ To let a whole team (or auditors) reach the platform from anywhere, it moves fro
 | **2. Single server** | Hosted on a Linux VM behind a reverse proxy (e.g. Nginx) with HTTPS/TLS. | First shared, always-on deployment for a small team. |
 | **3. Containerised** | Packaged as a Docker image for consistent, portable deployment. | Removes "works on my machine" problems; easy to ship. |
 | **4. Orchestrated** | Run on Kubernetes for scaling, high availability, and rolling updates. | For larger, resilient production use. |
-| **5. Managed cloud** | Deployed to a managed platform — Streamlit Community Cloud (demos), or Azure App Service / AWS App Runner / GCP Cloud Run (production). | Lowest operational overhead; built-in TLS and scaling. |
+| **5. Managed cloud** | Deployed to a managed platform — Streamlit Community Cloud (demos), or Google Cloud Run / Azure App Service / AWS App Runner (production). | Lowest operational overhead; built-in TLS and scaling. |
 
 **Reference production architecture:** users reach the app over **HTTPS** through a reverse proxy or cloud load balancer; the proxy enforces authentication (next section) before any request reaches the app; the app reads/writes a **managed database** instead of local files; secrets (the integrity key, API keys) live in a **secrets manager / vault**; and the app pulls live data from the integrations in Part B. This turns the prototype into a properly hosted, team-accessible service.
 
+> A complete, step-by-step Google Cloud deployment (Cloud Run + Secret Manager + Identity-Aware Proxy) is provided as a separate guide and is accessible in-app via the **Future Scope — Implementation using GCP** button.
+
 ---
 
-## 17. Authentication & Access Control
+## 19. Authentication & Access Control
 
 A security tool must not be openly reachable — exposing exposure data to the world would itself be a risk. In a hosted deployment, **no one should reach the dashboard without authenticating**, and different people should see different capabilities. The platform supports a layered model:
 
-### 17.1 Authentication (proving who you are)
+### 19.1 Authentication (proving who you are)
 
 - **Single Sign-On (SSO)** via the organisation's identity provider using **OIDC** or **SAML 2.0** — e.g. Microsoft Entra ID, Okta, or Google Workspace. Users log in with their existing corporate account; there is no separate password to manage.
 - **Multi-factor authentication (MFA)** — enforced by the identity provider, adding a second factor beyond the password.
 - **Enforcement options:**
   - *Application-level* — Streamlit's native authentication / OIDC login, so the app itself gates access.
   - *Proxy-level* — an authenticating reverse proxy (e.g. [oauth2-proxy](https://oauth2-proxy.github.io/oauth2-proxy/)) that blocks unauthenticated requests before they reach the app.
-  - *Platform-level* — built-in identity (e.g. Azure App Service Authentication) when hosted on a managed cloud.
+  - *Platform-level* — built-in identity (e.g. Google Cloud IAP, Azure App Service Authentication) when hosted on a managed cloud.
 
 The result: an anonymous visitor is redirected to a corporate login and **cannot see any data** until authenticated.
 
-### 17.2 Authorisation (what you're allowed to do)
+### 19.2 Authorisation (what you're allowed to do)
 
 Role-based access control (RBAC) maps each authenticated user to a role:
 
@@ -402,13 +488,13 @@ Role-based access control (RBAC) maps each authenticated user to a role:
 
 This enforces **least privilege** — for example, only an Approver can formally accept a risk, and only an Admin can change the scoring policy.
 
-### 17.3 Identity-aware audit
+### 19.3 Identity-aware audit
 
 The existing audit log already records the operator behind every action. With SSO in place, that operator becomes a **verified corporate identity** rather than a typed-in name, so the audit trail is trustworthy enough for compliance and incident review.
 
 ---
 
-## 18. Production Security & Compliance
+## 20. Production Security & Compliance
 
 Beyond login, a hosted deployment should apply standard production controls:
 
@@ -419,13 +505,13 @@ Beyond login, a hosted deployment should apply standard production controls:
 - **Standards alignment** — map controls and reporting to recognised frameworks: [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework), [CIS Controls](https://www.cisecurity.org/controls), ISO 27001, and [MITRE ATT&CK](https://attack.mitre.org/); optionally adopt [CISA SSVC](https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc) as a decision-output format.
 - **Backup & retention** — regular backups of assessment history and signed reports for audit retention requirements.
 
-Together, §16–§18 describe how the prototype becomes a **secure, authenticated, real-time, enterprise-accessible service**.
+Together, §18–§20 describe how the prototype becomes a **secure, authenticated, real-time, enterprise-accessible service**.
 
 ---
 
 # Part C — Reference
 
-## 19. Outcomes & Benefits
+## 21. Outcomes & Benefits
 
 | Benefit | What it delivers |
 |---|---|
@@ -438,31 +524,31 @@ Together, §16–§18 describe how the prototype becomes a **secure, authenticat
 
 ---
 
-## 20. Scope & Limitations
+## 22. Scope & Limitations
 
 The boundaries of v1 are deliberate and stated openly — knowing exactly where a tool is weak is part of good engineering. Each maps directly to the enhancements in Part B.
 
-- **Single-operator, file-based.** State is held in files (last-write-wins); designed for one analyst or a small team. → Addressed by §16 (database + hosting).
-- **No access control yet.** No authentication or roles in the local prototype. → Addressed by §17.
-- **Manual / file-based integration.** Data arrives as CSV/Excel. → Addressed by §13–§15 (live connectors).
+- **Single-operator, file-based.** State is held in files (last-write-wins); designed for one analyst or a small team. → Addressed by §18 (database + hosting).
+- **No access control yet.** No authentication or roles in the local prototype. → Addressed by §19.
+- **Manual / file-based integration.** Data arrives as CSV/Excel. → Addressed by §15–§17 (live connectors).
 - **Explainable, not certified.** The scoring model is transparent and configurable, but is a decision-support heuristic, not a certified quantitative risk model.
 
 ---
 
-## 21. Roadmap Summary
+## 23. Roadmap Summary
 
 | Theme | Enhancement | Detailed in |
 |---|---|---|
-| **Live data** | Connectors to scanners, CMDB, SIEM/IDS, threat-intel, cloud posture | §13 |
-| **Automation** | Scheduled & event-driven assessments, auto-ticketing, alerting | §15 |
-| **Hosting** | Containerised / cloud deployment for real-time, multi-user access | §16 |
-| **Security** | SSO, MFA, RBAC, secrets management, network controls | §17–§18 |
-| **Persistence** | Database backend and assessment history | §16 |
-| **Standards** | Mapping to NIST CSF, CIS, ISO 27001, MITRE ATT&CK; SSVC output | §18 |
+| **Live data** | Connectors to scanners, CMDB, SIEM/IDS, threat-intel, cloud posture | §15 |
+| **Automation** | Scheduled & event-driven assessments, auto-ticketing, alerting | §17 |
+| **Hosting** | Containerised / cloud deployment for real-time, multi-user access | §18 |
+| **Security** | SSO, MFA, RBAC, secrets management, network controls | §19–§20 |
+| **Persistence** | Database backend and assessment history | §18 |
+| **Standards** | Mapping to NIST CSF, CIS, ISO 27001, MITRE ATT&CK; SSVC output | §20 |
 
 ---
 
-## 22. Glossary
+## 24. Glossary
 
 | Term | Meaning |
 |---|---|
@@ -470,6 +556,9 @@ The boundaries of v1 are deliberate and stated openly — knowing exactly where 
 | **EPSS** | Exploit Prediction Scoring System — a probability that a CVE will be exploited in the wild within 30 days. |
 | **CISA KEV** | The U.S. CISA catalogue of vulnerabilities with confirmed real-world exploitation. |
 | **CVE** | Common Vulnerabilities and Exposures — a unique identifier for a publicly known vulnerability. |
+| **RBVM** | Risk-Based Vulnerability Management — prioritising remediation by real-world risk, not raw severity. |
+| **BIA** | Business Impact Analysis — assessing how important an asset/process is to the business. |
+| **SSVC** | Stakeholder-Specific Vulnerability Categorization — a CISA decision framework for patch urgency. |
 | **IDS / IPS** | Intrusion Detection / Prevention System — sensors that detect or block malicious network activity. |
 | **EDR** | Endpoint Detection and Response — agent-based detection on hosts. |
 | **SIEM** | Security Information and Event Management — central log/alert analytics platform. |
@@ -487,7 +576,7 @@ The boundaries of v1 are deliberate and stated openly — knowing exactly where 
 
 ---
 
-## 23. References & Links
+## 25. References & Links
 
 **Threat intelligence & standards**
 - CISA Known Exploited Vulnerabilities (KEV) — https://www.cisa.gov/known-exploited-vulnerabilities-catalog
@@ -499,15 +588,18 @@ The boundaries of v1 are deliberate and stated openly — knowing exactly where 
 - CISA SSVC — https://www.cisa.gov/stakeholder-specific-vulnerability-categorization-ssvc
 - MISP (threat-intel sharing) — https://www.misp-project.org/
 
+**Representative market / competitor platforms**
+- Tenable — https://www.tenable.com · Qualys — https://www.qualys.com · Rapid7 — https://www.rapid7.com
+- Microsoft Defender Vulnerability Management — https://www.microsoft.com/security · Nucleus Security — https://nucleussec.com
+
 **Representative integration targets**
-- Tenable — https://www.tenable.com · Qualys — https://www.qualys.com · Rapid7 — https://www.rapid7.com · Greenbone/OpenVAS — https://www.greenbone.net
 - ServiceNow — https://www.servicenow.com · Jira — https://www.atlassian.com/software/jira · PagerDuty — https://www.pagerduty.com
 - Splunk — https://www.splunk.com · Microsoft Sentinel — https://azure.microsoft.com/products/microsoft-sentinel · Elastic Security — https://www.elastic.co/security · Suricata — https://suricata.io
 
 **Platform & deployment**
 - Streamlit — https://streamlit.io · Docs — https://docs.streamlit.io
-- oauth2-proxy (authenticating reverse proxy) — https://oauth2-proxy.github.io/oauth2-proxy/
-- OpenID Connect — https://openid.net/connect/
+- Google Cloud Run — https://cloud.google.com/run/docs · Identity-Aware Proxy — https://cloud.google.com/iap/docs
+- oauth2-proxy — https://oauth2-proxy.github.io/oauth2-proxy/ · OpenID Connect — https://openid.net/connect/
 
 ---
 

@@ -824,6 +824,221 @@ def to_pdf_bytes(plan_df: pd.DataFrame, generated_by: str = "system") -> bytes:
     return buf.getvalue()
 
 
+def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> bytes:
+    """Export the Executive view (visualisations + data analysis) as a consulting-grade PDF.
+
+    Follows the house document standard: 0.5 cm margins, justified text, page number
+    bottom-right only, fixed-width tables/boxes that never overflow, formal palette.
+    Charts are rebuilt here (self-contained) and embedded as images; if static image
+    export is unavailable, the PDF is still produced with the KPIs and data tables.
+    """
+    from datetime import datetime
+    from xml.sax.saxutils import escape
+    import plotly.express as _px
+    import plotly.graph_objects as _go
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.units import cm
+    from reportlab.lib import colors
+    from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
+                                    Image as RLImage, KeepTogether)
+
+    C_NAVY = colors.HexColor("#15315C")
+    C_GREEN = colors.HexColor("#01A982")
+    C_GREY = colors.HexColor("#5B6675")
+    C_HAIR = colors.HexColor("#E3E8EF")
+    C_INK = colors.HexColor("#1F2937")
+
+    MARGIN = 0.5 * cm
+    USABLE = A4[0] - 2 * MARGIN
+
+    def t(x):
+        return escape(str(x)).replace("\n", "<br/>")
+
+    # ---- Rebuild the executive figures (mirrors the Executive tab; does not touch it) ----
+    figs = []  # (title, fig, width_px, height_px, full_width)
+    try:
+        cvss_labels = ["Low 0\u20133.9", "Medium 4\u20136.9", "High 7\u20138.9", "Critical 9\u201310"]
+        epss_labels = ["Low <0.50", "Medium 0.50\u20130.79", "High 0.80\u20130.94", "Very High \u22650.95"]
+
+        def _cb(v):
+            v = float(v or 0)
+            return 3 if v >= 9 else 2 if v >= 7 else 1 if v >= 4 else 0
+
+        def _eb(p):
+            p = float(p or 0)
+            return 3 if p >= 0.95 else 2 if p >= 0.80 else 1 if p >= 0.50 else 0
+
+        counts = [[0] * 4 for _ in range(4)]
+        for _, r in df.iterrows():
+            counts[_eb(r.get("epss_percentile", 0))][_cb(r.get("cvss_score", 0))] += 1
+        tier = [[(x + y) / 6 for x in range(4)] for y in range(4)]
+        text = [[str(counts[y][x]) if counts[y][x] else "" for x in range(4)] for y in range(4)]
+        mtx = _go.Figure(_go.Heatmap(
+            z=tier, x=cvss_labels, y=epss_labels, text=text, texttemplate="%{text}",
+            textfont=dict(size=18, color="#15315C"), showscale=False, xgap=4, ygap=4,
+            colorscale=[[0.0, "#DCEFE6"], [0.34, "#EFF3D9"], [0.5, "#F6ECC9"], [0.72, "#EFC9A6"], [1.0, "#EBB4B4"]],
+            zmin=0, zmax=1))
+        mtx = style_fig(mtx)
+        mtx.update_layout(title="Executive Risk Matrix \u2014 Severity \u00d7 Exploitation Likelihood", height=430)
+        mtx.update_xaxes(title="CVSS severity \u2192"); mtx.update_yaxes(title="EPSS likelihood \u2192")
+        figs.append(("matrix", mtx, 1000, 470, True))
+
+        pc = df["priority"].value_counts().reset_index()
+        pc.columns = ["Priority", "Count"]
+        donut = _px.pie(pc, names="Priority", values="Count", hole=0.55, title="Priority Mix",
+                        color="Priority", color_discrete_map=PRIORITY_COLORS,
+                        category_orders={"Priority": ["Critical", "High", "Medium", "Low"]})
+        donut.update_traces(textinfo="label+percent"); donut = style_fig(donut); donut.update_layout(showlegend=False)
+        figs.append(("donut", donut, 560, 420, False))
+
+        tb = df.groupby("business_process", dropna=False)["final_score"].sum().sort_values(ascending=False).head(10).reset_index()
+        tbfig = style_fig(_px.bar(tb, x="final_score", y="business_process", orientation="h", title="Top Business Processes by Aggregate Risk"), GREEN)
+        tbfig.update_yaxes(autorange="reversed", title=""); tbfig.update_xaxes(title="Aggregate risk score")
+        figs.append(("bp", tbfig, 560, 420, False))
+
+        kc = df["kev_status"].value_counts().reindex(["Yes", "No"]).fillna(0).reset_index()
+        kc.columns = ["KEV", "Count"]
+        kc["KEV"] = kc["KEV"].map({"Yes": "Known Exploited", "No": "Not in KEV"})
+        kfig = style_fig(_px.bar(kc, x="KEV", y="Count", color="KEV", title="CISA KEV vs Non-KEV",
+                                 color_discrete_map={"Known Exploited": RED, "Not in KEV": GREY}))
+        kfig.update_layout(showlegend=False)
+        figs.append(("kev", kfig, 560, 420, False))
+
+        hfig = style_fig(_px.histogram(df, x="epss_percentile", nbins=20, title="EPSS Percentile Distribution"), BLUE)
+        hfig.update_layout(bargap=0.05); hfig.update_xaxes(title="EPSS percentile"); hfig.update_yaxes(title="Exposures")
+        figs.append(("epss", hfig, 560, 420, False))
+
+        ev = df.groupby("environment")["final_score"].sum().sort_values(ascending=False).reset_index()
+        efig = style_fig(_px.bar(ev, x="environment", y="final_score", title="Aggregate Risk by Environment"), GREEN)
+        efig.update_yaxes(title="Total risk score")
+        figs.append(("env", efig, 560, 420, False))
+
+        ta = df.groupby("asset_name")["final_score"].sum().sort_values(ascending=False).head(10).reset_index()
+        tafig = style_fig(_px.bar(ta, x="final_score", y="asset_name", orientation="h", title="Top 10 Riskiest Assets"), RED)
+        tafig.update_yaxes(autorange="reversed", title=""); tafig.update_xaxes(title="Aggregate risk score")
+        figs.append(("assets", tafig, 560, 420, False))
+    except Exception:
+        figs = []
+
+    images, charts_ok = {}, True
+    try:
+        for name, fig, w, h, full in figs:
+            images[name] = fig.to_image(format="png", width=w, height=h, scale=2)
+    except Exception:
+        charts_ok = False
+
+    # ---- Document ----
+    buf = BytesIO()
+    doc = SimpleDocTemplate(buf, pagesize=A4, leftMargin=MARGIN, rightMargin=MARGIN,
+                            topMargin=MARGIN, bottomMargin=MARGIN,
+                            title="CEGP Executive Cyber Exposure Summary", author=generated_by)
+    ss = getSampleStyleSheet()
+    title_s = ParagraphStyle("t", parent=ss["Title"], fontSize=17, textColor=colors.white, alignment=TA_LEFT, leading=20)
+    sub_s = ParagraphStyle("s", parent=ss["Normal"], fontSize=8.5, textColor=colors.HexColor("#EAF6F1"), alignment=TA_LEFT, leading=11)
+    sec = ParagraphStyle("sec", parent=ss["Heading3"], fontSize=11, textColor=C_NAVY, spaceBefore=8, spaceAfter=4)
+    body = ParagraphStyle("bd", parent=ss["Normal"], fontSize=9, textColor=C_INK, leading=13, alignment=TA_JUSTIFY)
+    cap = ParagraphStyle("cap", parent=ss["Normal"], fontSize=8, textColor=C_GREY, leading=10, spaceBefore=2)
+    th = ParagraphStyle("th", parent=ss["Normal"], fontSize=8, textColor=colors.white, fontName="Helvetica-Bold", leading=10)
+    tv = ParagraphStyle("tv", parent=ss["Normal"], fontSize=14, textColor=C_NAVY, fontName="Helvetica-Bold", leading=16)
+    cell = ParagraphStyle("cell", parent=ss["Normal"], fontSize=8.5, textColor=C_INK, leading=11)
+
+    def _footer(canvas, doc_):
+        canvas.saveState()
+        canvas.setFont("Helvetica", 8); canvas.setFillColor(C_GREY)
+        canvas.drawRightString(A4[0] - MARGIN, MARGIN * 0.55, f"Page {doc_.page}")
+        canvas.restoreState()
+
+    # KPI metrics
+    s = executive_summary_report(df)
+    m = dict(zip(s["Metric"], s["Value"]))
+
+    title_tbl = Table([[Paragraph("CEGP \u2014 Executive Cyber Exposure Summary", title_s)],
+                       [Paragraph(f"Cyber Exposure Governance Platform &nbsp;|&nbsp; {len(df)} exposures &nbsp;|&nbsp; "
+                                  f"generated {datetime.now():%Y-%m-%d %H:%M} by {t(generated_by)}", sub_s)]],
+                      colWidths=[USABLE])
+    title_tbl.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), C_NAVY), ("LINEBELOW", (0, -1), (-1, -1), 2, C_GREEN),
+                                   ("LEFTPADDING", (0, 0), (-1, -1), 12), ("RIGHTPADDING", (0, 0), (-1, -1), 12),
+                                   ("TOPPADDING", (0, 0), (0, 0), 10), ("BOTTOMPADDING", (0, -1), (-1, -1), 9)]))
+
+    kpis = [("TOTAL", m.get("Total Exposures", len(df))), ("CRITICAL", m.get("Critical Exposures", 0)),
+            ("HIGH", m.get("High Exposures", 0)), ("CISA KEV", m.get("CISA KEV Exposures", 0)),
+            ("SLA BREACHED", m.get("SLA Breached Items", 0)), ("AVG SCORE", m.get("Average Risk Score", 0))]
+
+    def _kfmt(label, v):
+        if label == "AVG SCORE":
+            try:
+                return f"{float(v):.2f}"
+            except Exception:
+                return str(v)
+        try:
+            f = float(v)
+            return str(int(f)) if f == int(f) else str(v)
+        except Exception:
+            return str(v)
+
+    cwk = USABLE / 6.0
+    kpi_tbl = Table([[Paragraph(k, th) for k, _ in kpis], [Paragraph(_kfmt(k, v), tv) for k, v in kpis]],
+                    colWidths=[cwk] * 6)
+    kpi_tbl.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), C_NAVY), ("BACKGROUND", (0, 1), (-1, 1), colors.HexColor("#EEF1F5")),
+                                 ("BOX", (0, 0), (-1, -1), 0.5, C_HAIR), ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.white),
+                                 ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                                 ("TOPPADDING", (0, 0), (-1, -1), 6), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                                 ("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+
+    story = [title_tbl, Spacer(1, 8), kpi_tbl, Spacer(1, 6)]
+
+    def _img(name, width):
+        png = images.get(name)
+        if not png:
+            return Paragraph("(chart unavailable)", cap)
+        # preserve aspect ratio
+        for nm, fig, w, h, full in figs:
+            if nm == name:
+                return RLImage(BytesIO(png), width=width, height=width * h / w)
+        return RLImage(BytesIO(png), width=width)
+
+    if charts_ok and images:
+        story += [Paragraph("Risk Matrix \u2014 fix-first is the top-right band", sec),
+                  _img("matrix", USABLE),
+                  Paragraph("Each cell counts exposures in that CVSS severity \u00d7 EPSS likelihood band.", cap),
+                  Spacer(1, 6), Paragraph("Posture Breakdown", sec)]
+        pairs = [("donut", "bp"), ("kev", "epss"), ("env", "assets")]
+        colw = (USABLE - 8) / 2.0
+        for a, b in pairs:
+            row = Table([[_img(a, colw - 6), _img(b, colw - 6)]], colWidths=[colw, colw])
+            row.setStyle(TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 2), ("RIGHTPADDING", (0, 0), (-1, -1), 2),
+                                     ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                                     ("VALIGN", (0, 0), (-1, -1), "TOP")]))
+            story.append(row)
+    else:
+        story.append(Paragraph("Charts could not be rendered in this environment "
+                               "(install <b>kaleido</b> to embed visualisations). KPIs and data tables follow.", body))
+
+    # ---- Data analysis: top exposures table (fixed width, wrapped) ----
+    story += [Spacer(1, 6), Paragraph("Top 15 Business-Critical Exposures", sec)]
+    cols = [("Asset", "asset_name", 0.22), ("Business Process", "business_process", 0.22),
+            ("CVE", "cve_id", 0.16), ("Priority", "priority", 0.12), ("Score", "final_score", 0.10),
+            ("KEV", "kev_status", 0.18)]
+    head = [Paragraph(h, th) for h, _, _ in cols]
+    rows = [head]
+    top = df.sort_values("final_score", ascending=False).head(15)
+    for _, r in top.iterrows():
+        rows.append([Paragraph(t(r.get(c, "")), cell) for _, c, _ in cols])
+    data_tbl = Table(rows, colWidths=[USABLE * w for _, _, w in cols], repeatRows=1)
+    data_tbl.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), C_NAVY),
+                                  ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#FBFCFE")]),
+                                  ("BOX", (0, 0), (-1, -1), 0.5, C_HAIR), ("INNERGRID", (0, 0), (-1, -1), 0.4, C_HAIR),
+                                  ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                                  ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                                  ("VALIGN", (0, 0), (-1, -1), "MIDDLE")]))
+    story.append(data_tbl)
+
+    doc.build(story, onFirstPage=_footer, onLaterPages=_footer)
+    return buf.getvalue()
+
+
 def run_assessment(vuln_df, asset_df, ids_df, exceptions_df, import_type, use_live_feeds, nvd_api_key):
     vuln_df = normalize_vulnerability_input(vuln_df, import_type=import_type)
     vuln_df, vuln_errors, vuln_warnings = validate_vulnerability_df(vuln_df)
@@ -1122,17 +1337,31 @@ with tabs[0]:
         st.plotly_chart(tafig, use_container_width=True)
 
     section("Top 10 Business-Critical Exposures", GREEN)
-    cols = ["asset_name", "business_process", "cve_id", "priority", "final_score", "kev_status",
-            "ids_alert_count", "privacy_impact_level", "sla_status", "primary_action"]
+    cols = ["asset_name", "cve_id", "priority", "final_score"]
     render_table(df[cols].head(10))
+
+    section("Download Executive Summary", NAVY)
+    st.caption("A consulting-format PDF of this Executive view \u2014 risk matrix, posture charts, KPIs, and the "
+               "top business-critical exposures \u2014 signed for integrity.")
+    try:
+        exec_pdf = to_executive_pdf_bytes(df, generated_by=operator())
+        st.download_button("\u2b07\ufe0f  Download Executive Summary (PDF)", data=exec_pdf,
+                           file_name="cegp_executive_summary.pdf", mime="application/pdf")
+        st.caption("HMAC-SHA256")
+        st.code(generate_sha256(exec_pdf), language="text")
+    except ImportError:
+        st.warning("PDF export needs the `reportlab` package (and `kaleido` for embedded charts). "
+                   "Add them to requirements.txt and rebuild.")
+    except Exception as exc:
+        st.warning(f"Executive PDF unavailable: {exc}")
 
 with tabs[1]:
     section("Security Analyst Exposure Queue", NAVY)
+    st.caption("Threat & scoring lens \u2014 severity, exploitation likelihood, and why each exposure scored as it did. "
+               "Network, IDS, privacy, and remediation detail live in their own tabs.")
     analyst_cols = [
-        "asset_id", "asset_name", "application_name", "cve_id", "severity", "cvss_score",
-        "epss_score", "epss_percentile", "kev_status", "network_exposure_level",
-        "ids_alert_count", "privacy_impact_level", "final_score", "priority",
-        "score_drivers", "primary_action", "temporary_mitigation", "control_area",
+        "asset_name", "application_name", "cve_id", "severity", "cvss_score",
+        "epss_score", "epss_percentile", "kev_status", "score_drivers", "priority", "final_score",
     ]
     sub = df[[c for c in analyst_cols if c in df.columns]]
     render_table(sub)
@@ -1159,7 +1388,7 @@ with tabs[3]:
         isum.columns = ["Highest Alert Severity", "Exposure Count"]
         st.plotly_chart(style_fig(px.bar(isum, x="Highest Alert Severity", y="Exposure Count", title="Correlated IDS/IPS Alert Severity"), YELLOW), use_container_width=True)
     with c[1]:
-        cols = ["asset_name", "cve_id", "kev_status", "ids_alert_count", "highest_alert_severity",
+        cols = ["asset_name", "cve_id", "ids_alert_count", "highest_alert_severity",
                 "exploit_attempt_detected", "signatures", "ids_correlation_reason"]
         ids_view = df.sort_values(["ids_alert_count", "final_score"], ascending=False)[cols]
         render_table(ids_view)

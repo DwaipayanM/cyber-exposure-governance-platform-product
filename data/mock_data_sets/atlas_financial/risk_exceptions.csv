@@ -1,0 +1,7 @@
+asset_id,cve_id,exception_status,acceptance_reason,accepted_by,acceptance_expiry_date,compensating_control
+AFS-0020,CVE-2024-5027,Accepted,Compensating controls in place / patch scheduled,CISO Office,2026-05-31,Network restriction and monitoring enabled
+AFS-0019,CVE-2019-5021,Deferred,Compensating controls in place / patch scheduled,Cloud Platform,2026-07-20,Network restriction and monitoring enabled
+AFS-0023,CVE-2022-3786,Accepted,Compensating controls in place / patch scheduled,Core Banking Team,2026-07-20,Network restriction and monitoring enabled
+AFS-0010,CVE-2022-3786,Accepted,Compensating controls in place / patch scheduled,Digital Channels,2026-08-19,Network restriction and monitoring enabled
+AFS-0015,CVE-2019-5095,Accepted,Compensating controls in place / patch scheduled,Core Banking Team,2026-08-19,Network restriction and monitoring enabled
+AFS-0026,CVE-2023-23897,Deferred,Compensating controls in place / patch scheduled,DBA Team,2026-09-18,Network restriction and monitoring enabled

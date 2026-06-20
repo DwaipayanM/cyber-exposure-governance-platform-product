@@ -1,0 +1,15 @@
+alert_id,asset_id,alert_type,alert_severity,source_ip,destination_ip,timestamp,signature_name,confidence
+IDS-001,AST-001,Exploit Attempt,Critical,45.10.11.8,10.0.1.5,2026-06-20 10:20:00,Log4j JNDI Exploit,High
+IDS-002,AST-001,Port Scan,Medium,91.1.2.3,10.0.1.5,2026-06-20 11:00:00,External Port Scan,Medium
+IDS-003,AST-001,Web Attack,High,45.10.11.8,10.0.1.5,2026-06-20 11:05:00,Suspicious JNDI String,High
+IDS-004,AST-001,Exploit Attempt,High,45.10.11.9,10.0.1.5,2026-06-20 11:10:00,Log4j Callback,High
+IDS-005,AST-002,Suspicious Web Request,High,88.9.1.4,10.0.1.8,2026-06-20 11:15:00,Exchange Exploit Pattern,High
+IDS-006,AST-004,Exploit Attempt,Critical,185.33.44.10,10.0.2.7,2026-06-20 12:30:00,FortiOS SSL-VPN Exploit,High
+IDS-007,AST-007,Brute Force,Medium,203.0.113.88,10.0.9.15,2026-06-20 14:40:00,SSH Login Brute Force,Medium
+IDS-008,AST-008,Suspicious Web Request,Medium,198.51.100.4,10.0.4.11,2026-06-20 14:50:00,Malformed HTTP Request,Low
+IDS-009,AST-010,Exploit Attempt,High,45.77.22.10,10.0.5.20,2026-06-20 15:10:00,Struts OGNL Exploit,High
+IDS-010,AST-014,Exploit Attempt,Critical,185.220.101.5,10.0.6.2,2026-06-20 15:30:00,PAN-OS Command Injection,High
+IDS-011,AST-015,Recon,Low,91.200.12.7,10.0.6.9,2026-06-20 15:45:00,Device Fingerprinting,Low
+IDS-012,AST-025,Exploit Attempt,High,193.27.14.6,10.0.2.30,2026-06-20 16:00:00,Ivanti Auth Bypass,High
+IDS-013,AST-016,Data Exfil Attempt,High,45.9.148.3,10.0.7.4,2026-06-20 16:20:00,MOVEit Webshell Activity,High
+IDS-014,AST-024,Suspicious Attachment,Medium,102.54.9.1,10.0.8.12,2026-06-20 16:35:00,Malicious Email Payload,Medium

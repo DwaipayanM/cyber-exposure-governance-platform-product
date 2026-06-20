@@ -1,0 +1,238 @@
+asset_id,application_name,business_process,business_owner,network_zone,open_ports,firewall_status,vpn_required,asset_type,data_type,pii_present,data_sensitivity,encryption_status,regulatory_impact
+AST-0001,App-0001,Knowledge Management,R&D Lead,Internal,6379,Restricted,Yes,Server,Source Code,No,High,Encrypted,High
+AST-0002,App-0002,Partner File Exchange,DevOps Lead,Internal,"80,1521,3306",Restricted,Yes,Server,Source Code,No,Medium,Not Encrypted,Low
+AST-0003,App-0003,HR Operations,Data Platform Lead,VPN,"3306,8080",Restricted,Yes,Server,Operational Data,No,High,Encrypted,High
+AST-0004,App-0004,Identity Management,IT Operations Lead,Internal,443,Restricted,No,Workstation,Source Code,No,Medium,Encrypted,Medium
+AST-0005,App-0005,Customer API Services,Platform Eng Lead,Internet,443,Allowed,Yes,Mobile,Operational Data,No,Low,Unknown,None
+AST-0006,App-0006,HR Operations,R&D Lead,Internal,"3306,5000",Restricted,Yes,Workstation,Operational Data,No,Low,Encrypted,High
+AST-0007,App-0007,Remote Connectivity,WebOps Lead,Internet,"3389,8443",Allowed,No,Network Device,Internal Data,No,Low,Not Encrypted,None
+AST-0008,App-0008,Patient Records,Data Platform Lead,Internal,"80,5432",Restricted,Yes,Server,Partner Data,No,Low,Encrypted,Low
+AST-0009,App-0009,Partner Management,Partner IT Lead,DMZ,"23,5000",Allowed,No,Server,Payment Data,Yes,Medium,Encrypted,Medium
+AST-0010,App-0010,R&D,Email Security Lead,Internet,"80,443",Allowed,Yes,Network Device,Partner Data,Yes,Medium,Encrypted,High
+AST-0011,App-0011,Network Connectivity,R&D Lead,Internal,443,Restricted,Yes,Server,Partner Data,Yes,Medium,Not Encrypted,None
+AST-0012,App-0012,Remote Connectivity,Data Platform Lead,Internal,"80,443,1433,3306",None,No,Server,Employee Data,No,High,Encrypted,Medium
+AST-0013,App-0013,Partner File Exchange,R&D Lead,Internal,80,Restricted,No,Mobile,Internal Data,No,Medium,Encrypted,High
+AST-0014,App-0014,Remote Connectivity,DBA Team Lead,Internal,9090,None,No,Network Device,Health Data,No,High,Encrypted,Low
+AST-0015,App-0015,Field Operations,R&D Lead,Internet,443,Allowed,Yes,Server,HR Data,Yes,Medium,Encrypted,None
+AST-0016,App-0016,R&D,Platform Eng Lead,Internal,"8080,8443",Restricted,Yes,Server,Customer Data,No,High,Encrypted,High
+AST-0017,App-0017,Business Intelligence,API Platform Lead,Internal,443,Restricted,No,Network Device,Employee Access Data,Yes,High,Encrypted,High
+AST-0018,App-0018,Core Banking,DBA Team Lead,Internal,5000,Restricted,Yes,Server,Operational Data,No,High,Not Encrypted,High
+AST-0019,App-0019,Identity Management,Mobility Team Lead,VPN,"445,3306,8080,8443",Restricted,No,Database,HR Data,Yes,High,Not Encrypted,Low
+AST-0020,App-0020,Payments,Network Security Lead,Internal,"80,9000",None,Yes,Workstation,Employee Access Data,Yes,High,Unknown,Medium
+AST-0021,App-0021,Network Connectivity,Data Platform Lead,Internet,"80,443",Allowed,Yes,Workstation,Internal Data,No,Medium,Unknown,Medium
+AST-0022,App-0022,Network Connectivity,Infrastructure Lead,Internet,443,Allowed,No,Network Device,Operational Data,No,Medium,Unknown,None
+AST-0023,App-0023,Field Operations,Mobility Team Lead,Internal,"22,23,443",None,No,Server,Payment Data,Yes,High,Encrypted,High
+AST-0024,App-0024,Email Security,Infrastructure Lead,Internal,"443,5000",Restricted,Yes,Network Device,Partner Data,Yes,Medium,Not Encrypted,None
+AST-0025,App-0025,Knowledge Management,Payments Eng Lead,Internet,"22,443,9000",Allowed,Yes,Server,HR Data,Yes,Medium,Not Encrypted,None
+AST-0026,App-0026,Core Banking,Infrastructure Lead,DMZ,"80,8080",Allowed,Yes,Server,Source Code,No,Medium,Not Encrypted,Low
+AST-0027,App-0027,R&D,Platform Eng Lead,Internal,"22,23",None,No,Server,Payment Data,Yes,Medium,Encrypted,High
+AST-0028,App-0028,Partner Management,Mobility Team Lead,VPN,443,Restricted,Yes,Database,Health Data,Yes,Low,Unknown,None
+AST-0029,App-0029,Patient Records,API Platform Lead,Internal,"389,3389,9090",None,Yes,Wireless,Customer Data,Yes,Medium,Encrypted,None
+AST-0030,App-0030,Identity Management,R&D Lead,Internet,"1433,9090",Allowed,No,Wireless,HR Data,Yes,Low,Not Encrypted,None
+AST-0031,App-0031,Patient Records,HR IT Lead,VPN,"389,6379,8080",Restricted,No,Server,Operational Data,No,High,Encrypted,Low
+AST-0032,App-0032,Network Connectivity,Data Platform Lead,Internal,"443,1433,3389,8080",Restricted,Yes,Database,Customer Data,Yes,Medium,Encrypted,High
+AST-0033,App-0033,Software Delivery,HR IT Lead,DMZ,"22,3306",Allowed,Yes,Mobile,Payment Data,Yes,Medium,Encrypted,Medium
+AST-0034,App-0034,Payments,Infrastructure Lead,DMZ,"23,3306,8090,9090",Allowed,No,Network Device,Financial Data,No,High,Encrypted,High
+AST-0035,App-0035,Operations Support,Network Ops Lead,Internet,8080,Allowed,No,Workstation,Internal Data,No,Medium,Encrypted,Medium
+AST-0036,App-0036,Identity Management,Network Security Lead,Internet,389,Allowed,Yes,Network Device,Partner Data,Yes,Low,Encrypted,None
+AST-0037,App-0037,Online Sales,DBA Team Lead,Internal,443,Restricted,No,Mobile,Health Data,Yes,Medium,Unknown,None
+AST-0038,App-0038,Network Connectivity,Network Ops Lead,Internet,3389,Allowed,No,Workstation,Public Data,No,Medium,Not Encrypted,None
+AST-0039,App-0039,Business Intelligence,Partner IT Lead,Internet,"23,443,1521",Allowed,Yes,Server,Partner Data,Yes,Medium,Encrypted,Medium
+AST-0040,App-0040,Identity Management,Payments Eng Lead,Internal,"80,9000",Restricted,No,Server,Public Data,No,High,Encrypted,None
+AST-0041,App-0041,Online Sales,Identity Team Lead,DMZ,"23,445",Restricted,Yes,Mobile,Employee Data,Yes,High,Unknown,Medium
+AST-0042,App-0042,Software Delivery,R&D Lead,Internal,"25,3306,5900",None,No,Server,Health Data,Yes,High,Unknown,Low
+AST-0043,App-0043,Partner Management,WebOps Lead,Internal,443,None,No,Database,Operational Data,No,High,Unknown,Low
+AST-0044,App-0044,Partner Management,IT Operations Lead,Internal,443,Restricted,No,Workstation,Financial Data,Yes,High,Not Encrypted,None
+AST-0045,App-0045,Financial Reporting,Network Security Lead,Internet,"22,389,3306,5000",Allowed,Yes,Network Device,Operational Data,No,Medium,Encrypted,None
+AST-0046,App-0046,Payments,Email Security Lead,Internal,3306,Restricted,No,Workstation,Operational Data,No,Low,Encrypted,High
+AST-0047,App-0047,Network Connectivity,DBA Team Lead,Internal,443,Restricted,Yes,Database,Public Data,No,Low,Encrypted,None
+AST-0048,App-0048,Identity Management,IT Operations Lead,Internet,"80,8443",Allowed,Yes,Server,Public Data,No,High,Encrypted,High
+AST-0049,App-0049,Online Sales,DBA Team Lead,Internal,443,Restricted,Yes,Server,Source Code,No,High,Not Encrypted,Medium
+AST-0050,App-0050,Customer API Services,Internal Apps Lead,Internal,"22,389,9090",Restricted,No,Mobile,Employee Access Data,Yes,Low,Encrypted,None
+AST-0051,App-0051,Core Banking,Internal Apps Lead,Internal,"80,389",Restricted,Yes,Server,HR Data,Yes,Low,Not Encrypted,None
+AST-0052,App-0052,Knowledge Management,Network Security Lead,Internal,"8080,9000",Restricted,No,Server,Operational Data,No,High,Unknown,High
+AST-0053,App-0053,Customer API Services,Network Ops Lead,VPN,"80,9000",Restricted,Yes,Server,Operational Data,No,High,Encrypted,Medium
+AST-0054,App-0054,Online Sales,DevOps Lead,VPN,"445,5432",Restricted,No,Server,Financial Data,No,Low,Unknown,High
+AST-0055,App-0055,HR Operations,Mobility Team Lead,Internet,3306,Allowed,No,Workstation,Employee Data,Yes,Medium,Unknown,None
+AST-0056,App-0056,Network Connectivity,WebOps Lead,Internet,6379,Allowed,No,Server,Operational Data,No,Medium,Not Encrypted,High
+AST-0057,App-0057,Online Sales,Data Platform Lead,Internal,"1433,8090,9000",Restricted,No,Server,Public Data,No,Medium,Not Encrypted,High
+AST-0058,App-0058,HR Operations,DevOps Lead,Internet,443,Restricted,Yes,Network Device,HR Data,Yes,High,Encrypted,High
+AST-0059,App-0059,Corporate Email,Partner IT Lead,VPN,"5432,8090",Restricted,No,Workstation,Employee Access Data,Yes,Medium,Not Encrypted,Low
+AST-0060,App-0060,Network Connectivity,Mainframe Team Lead,Internal,"3389,6379",Restricted,Yes,Workstation,Internal Data,No,Medium,Encrypted,Low
+AST-0061,App-0061,Identity Management,Network Security Lead,Internal,"5432,9090",None,Yes,Server,Health Data,Yes,Medium,Encrypted,Low
+AST-0062,App-0062,Operations Support,Mobility Team Lead,Internet,8080,Restricted,No,Server,Partner Data,Yes,Medium,Encrypted,High
+AST-0063,App-0063,Software Delivery,Mainframe Team Lead,Unknown,9000,None,Yes,Wireless,Financial Data,Yes,High,Encrypted,Medium
+AST-0064,App-0064,Partner File Exchange,Infrastructure Lead,Internal,443,None,No,Workstation,Public Data,No,Medium,Unknown,None
+AST-0065,App-0065,Online Sales,Platform Eng Lead,Unknown,"5432,8443,9000",None,Yes,Server,Financial Data,Yes,High,Encrypted,None
+AST-0066,App-0066,Online Sales,Network Security Lead,Internet,"3306,3389",Allowed,Yes,Network Device,Source Code,No,Medium,Unknown,High
+AST-0067,App-0067,Field Operations,Identity Team Lead,Internal,443,None,Yes,Network Device,Employee Access Data,Yes,High,Encrypted,Medium
+AST-0068,App-0068,HR Operations,Platform Eng Lead,Internal,1521,None,No,Network Device,Public Data,No,Medium,Encrypted,None
+AST-0069,App-0069,Corporate Email,Email Security Lead,VPN,443,Restricted,No,Mobile,Public Data,No,High,Encrypted,High
+AST-0070,App-0070,Field Operations,Platform Eng Lead,DMZ,9000,Allowed,No,Server,Customer Data,No,Medium,Not Encrypted,High
+AST-0071,App-0071,Email Security,Infrastructure Lead,Internal,"3389,5000,9000",Restricted,No,Server,HR Data,Yes,Medium,Unknown,None
+AST-0072,App-0072,Corporate Email,Partner IT Lead,Internal,"1521,9000",None,Yes,Database,Employee Data,Yes,Medium,Not Encrypted,None
+AST-0073,App-0073,Partner File Exchange,Email Security Lead,DMZ,"5900,8443",Allowed,Yes,Server,Partner Data,No,High,Not Encrypted,Low
+AST-0074,App-0074,Financial Reporting,API Platform Lead,DMZ,"5900,6379",Allowed,Yes,Wireless,Operational Data,No,Low,Encrypted,High
+AST-0075,App-0075,Operations Support,Email Security Lead,Internal,"25,8080",Restricted,Yes,Mobile,Employee Data,Yes,Medium,Encrypted,None
+AST-0076,App-0076,Payments,DevOps Lead,Internal,"22,25,1521,8080",None,Yes,Server,Health Data,Yes,Medium,Encrypted,Low
+AST-0077,App-0077,Customer API Services,Network Ops Lead,Unknown,80,Restricted,Yes,Workstation,Public Data,No,Low,Not Encrypted,Low
+AST-0078,App-0078,R&D,Internal Apps Lead,VPN,"80,445",Restricted,Yes,Mobile,Operational Data,No,Medium,Encrypted,Low
+AST-0079,App-0079,Payments,Network Ops Lead,DMZ,"389,1433",Allowed,No,Workstation,Source Code,No,High,Unknown,None
+AST-0080,App-0080,Corporate Email,Data Platform Lead,DMZ,"389,5900,6379",Allowed,No,Database,Health Data,Yes,Medium,Not Encrypted,High
+AST-0081,App-0081,Corporate Email,IT Operations Lead,Internal,"389,5432",None,No,Database,Source Code,No,Low,Unknown,High
+AST-0082,App-0082,Patient Records,WebOps Lead,Internal,"25,1521",Restricted,No,Network Device,Public Data,No,Low,Not Encrypted,None
+AST-0083,App-0083,Online Sales,API Platform Lead,Internal,23,Restricted,No,Server,Partner Data,Yes,High,Encrypted,High
+AST-0084,App-0084,Core Banking,Payments Eng Lead,VPN,"1433,3306",Restricted,No,Network Device,Financial Data,Yes,Low,Not Encrypted,Low
+AST-0085,App-0085,Corporate Email,Identity Team Lead,Internal,"3306,5900",None,Yes,Server,Partner Data,No,Medium,Not Encrypted,Medium
+AST-0086,App-0086,Remote Connectivity,IT Operations Lead,Internet,80,Allowed,Yes,Workstation,Customer Data,Yes,Low,Encrypted,Medium
+AST-0087,App-0087,Partner Management,Network Security Lead,Internal,"22,443,8080",None,No,Server,Operational Data,No,Medium,Not Encrypted,High
+AST-0088,App-0088,Remote Connectivity,API Platform Lead,Internal,9090,Restricted,Yes,Network Device,Public Data,No,High,Unknown,Low
+AST-0089,App-0089,Customer API Services,Clinical IT Lead,DMZ,"3306,5432",Restricted,Yes,Network Device,Partner Data,Yes,High,Encrypted,None
+AST-0090,App-0090,Financial Reporting,HR IT Lead,Internal,"25,1433,6379,9000",Restricted,Yes,Server,Health Data,Yes,Medium,Not Encrypted,Medium
+AST-0091,App-0091,Operations Support,Clinical IT Lead,Internet,443,Restricted,No,Network Device,Source Code,No,Low,Encrypted,Medium
+AST-0092,App-0092,Online Sales,Payments Eng Lead,Internet,"3389,6379",Restricted,Yes,Workstation,Employee Access Data,Yes,Medium,Encrypted,None
+AST-0093,App-0093,Business Intelligence,Data Platform Lead,DMZ,"389,8080",Allowed,No,Mobile,Public Data,No,Medium,Unknown,None
+AST-0094,App-0094,Customer API Services,HR IT Lead,Internet,8443,Restricted,Yes,Server,Operational Data,No,Medium,Unknown,None
+AST-0095,App-0095,R&D,HR IT Lead,DMZ,"1433,5432",Allowed,No,Workstation,Customer Data,Yes,High,Unknown,None
+AST-0096,App-0096,Business Intelligence,Platform Eng Lead,DMZ,"445,5000,6379",Restricted,No,Server,Source Code,No,Medium,Unknown,High
+AST-0097,App-0097,Partner File Exchange,Payments Eng Lead,Internal,"22,9000",Restricted,No,Network Device,Partner Data,Yes,High,Unknown,Medium
+AST-0098,App-0098,Customer API Services,Data Platform Lead,DMZ,"1521,3306,5000",Allowed,No,Server,Internal Data,No,Medium,Encrypted,Medium
+AST-0099,App-0099,Financial Reporting,Identity Team Lead,Internal,25,Restricted,No,Workstation,Source Code,No,High,Not Encrypted,None
+AST-0100,App-0100,Corporate Email,R&D Lead,Internal,443,Restricted,Yes,Mobile,Source Code,No,High,Unknown,Medium
+AST-0101,App-0101,Online Sales,WebOps Lead,Internet,"3306,6379",Restricted,Yes,Server,HR Data,Yes,Low,Unknown,None
+AST-0102,App-0102,Corporate Email,Network Security Lead,DMZ,"389,445",Restricted,Yes,Database,Partner Data,Yes,High,Encrypted,Low
+AST-0103,App-0103,Online Sales,Clinical IT Lead,VPN,"80,1521,5000",Restricted,No,Server,Employee Data,Yes,Medium,Encrypted,Medium
+AST-0104,App-0104,Online Sales,Clinical IT Lead,Internal,"23,445,8090",None,No,Server,Partner Data,Yes,High,Not Encrypted,None
+AST-0105,App-0105,Knowledge Management,DBA Team Lead,Internet,9000,Allowed,Yes,Wireless,Source Code,No,Medium,Not Encrypted,Low
+AST-0106,App-0106,Online Sales,Data Platform Lead,Internal,443,None,Yes,Network Device,Customer Data,Yes,Low,Encrypted,Low
+AST-0107,App-0107,Customer API Services,Payments Eng Lead,DMZ,"25,3306,8443",Restricted,Yes,Server,Health Data,Yes,Medium,Encrypted,Low
+AST-0108,App-0108,Partner Management,Network Ops Lead,DMZ,"1521,5000",Restricted,Yes,Wireless,HR Data,Yes,Medium,Not Encrypted,Low
+AST-0109,App-0109,Field Operations,DevOps Lead,VPN,"22,5000,6379,8090",Restricted,No,Database,Source Code,No,Medium,Encrypted,Low
+AST-0110,App-0110,Remote Connectivity,WebOps Lead,Internet,"25,389",Restricted,Yes,Workstation,Public Data,No,Medium,Unknown,High
+AST-0111,App-0111,Email Security,Clinical IT Lead,Internal,"3389,5432,8090",Restricted,No,Server,Employee Data,Yes,High,Not Encrypted,Low
+AST-0112,App-0112,Business Intelligence,HR IT Lead,VPN,"25,5000,5900",Restricted,No,Mobile,Financial Data,Yes,Medium,Unknown,None
+AST-0113,App-0113,Remote Connectivity,Partner IT Lead,DMZ,"25,1521,3389",Restricted,Yes,Network Device,Employee Access Data,Yes,Medium,Unknown,None
+AST-0114,App-0114,Software Delivery,R&D Lead,DMZ,"22,1521,8080",Restricted,No,Network Device,Financial Data,Yes,Medium,Encrypted,None
+AST-0115,App-0115,Partner Management,Network Security Lead,Internal,"1433,6379",None,No,Workstation,Employee Access Data,Yes,Medium,Unknown,Medium
+AST-0116,App-0116,R&D,Email Security Lead,Internal,443,None,Yes,Server,Operational Data,No,Low,Not Encrypted,High
+AST-0117,App-0117,Core Banking,Infrastructure Lead,Internet,443,Allowed,No,Server,Source Code,No,High,Not Encrypted,None
+AST-0118,App-0118,Financial Reporting,Payments Eng Lead,DMZ,"23,1433",Restricted,No,Network Device,Internal Data,No,High,Unknown,High
+AST-0119,App-0119,Network Connectivity,Email Security Lead,Internal,"80,8090",Restricted,No,Server,Internal Data,No,Medium,Not Encrypted,Low
+AST-0120,App-0120,Remote Connectivity,IT Operations Lead,DMZ,"443,5900",Restricted,No,Server,Financial Data,Yes,Medium,Not Encrypted,High
+AST-0121,App-0121,Patient Records,Network Security Lead,VPN,"23,1433",Restricted,Yes,Server,Operational Data,No,High,Not Encrypted,Low
+AST-0122,App-0122,Knowledge Management,Network Ops Lead,Internet,"23,25,80,445",Restricted,Yes,Wireless,Customer Data,Yes,High,Unknown,Medium
+AST-0123,App-0123,Knowledge Management,API Platform Lead,Internal,443,None,No,Server,Payment Data,Yes,High,Unknown,None
+AST-0124,App-0124,Core Banking,Internal Apps Lead,DMZ,9090,Allowed,Yes,Workstation,Operational Data,No,High,Not Encrypted,Medium
+AST-0125,App-0125,Online Sales,Network Security Lead,Internal,"23,8443",Restricted,No,Database,Public Data,No,Medium,Encrypted,None
+AST-0126,App-0126,Knowledge Management,Partner IT Lead,DMZ,"443,3389,5900,8443",Allowed,Yes,Network Device,Source Code,No,Low,Not Encrypted,None
+AST-0127,App-0127,HR Operations,DevOps Lead,VPN,"3306,6379",Restricted,Yes,Server,HR Data,Yes,Medium,Encrypted,Low
+AST-0128,App-0128,Operations Support,HR IT Lead,Internal,"23,5432",Restricted,Yes,Server,Financial Data,Yes,Medium,Encrypted,High
+AST-0129,App-0129,Operations Support,HR IT Lead,DMZ,443,Restricted,No,Mobile,Employee Data,Yes,High,Encrypted,Medium
+AST-0130,App-0130,R&D,API Platform Lead,Internet,"22,443,5432",Allowed,Yes,Workstation,Source Code,No,Medium,Not Encrypted,None
+AST-0131,App-0131,Remote Connectivity,Partner IT Lead,Internet,80,Restricted,Yes,Server,Public Data,No,Medium,Unknown,High
+AST-0132,App-0132,Software Delivery,DBA Team Lead,Internal,"80,5900",Restricted,No,Server,Payment Data,Yes,Low,Encrypted,Medium
+AST-0133,App-0133,Software Delivery,Payments Eng Lead,Internal,389,Restricted,Yes,Server,Operational Data,No,Medium,Encrypted,Low
+AST-0134,App-0134,Knowledge Management,WebOps Lead,Internet,"22,3389,8080",Allowed,No,Server,Partner Data,Yes,High,Not Encrypted,High
+AST-0135,App-0135,HR Operations,Payments Eng Lead,Internal,443,Restricted,Yes,Database,Source Code,No,Medium,Encrypted,Medium
+AST-0136,App-0136,Network Connectivity,Platform Eng Lead,Internet,"25,445,3306",Allowed,Yes,Server,Payment Data,Yes,Low,Encrypted,None
+AST-0137,App-0137,HR Operations,HR IT Lead,Internet,"443,8443",Allowed,No,Mobile,Source Code,No,High,Encrypted,Medium
+AST-0138,App-0138,R&D,Network Ops Lead,VPN,1521,Restricted,Yes,Workstation,HR Data,No,Low,Encrypted,Medium
+AST-0139,App-0139,Partner Management,DevOps Lead,Internal,443,Restricted,No,Server,Financial Data,No,Medium,Encrypted,High
+AST-0140,App-0140,R&D,Infrastructure Lead,Internal,"8443,9000",Restricted,Yes,Server,Financial Data,Yes,Medium,Unknown,Low
+AST-0141,App-0141,Patient Records,HR IT Lead,DMZ,443,Restricted,No,Workstation,Employee Data,No,High,Not Encrypted,High
+AST-0142,App-0142,R&D,Platform Eng Lead,VPN,25,Restricted,Yes,Server,Partner Data,No,Medium,Unknown,None
+AST-0143,App-0143,Core Banking,Clinical IT Lead,Internet,"443,5000",Allowed,Yes,Server,Financial Data,No,High,Encrypted,High
+AST-0144,App-0144,Payments,Network Security Lead,DMZ,"445,8443",Restricted,No,Server,Employee Access Data,Yes,Medium,Encrypted,None
+AST-0145,App-0145,Corporate Email,Email Security Lead,Internal,8443,Restricted,Yes,Wireless,Partner Data,Yes,Medium,Not Encrypted,Medium
+AST-0146,App-0146,Customer API Services,Partner IT Lead,Internal,"443,3389",Restricted,No,Mobile,Internal Data,No,Medium,Unknown,None
+AST-0147,App-0147,Business Intelligence,Network Security Lead,Internet,"1521,9090",Allowed,No,Wireless,Financial Data,Yes,Medium,Not Encrypted,High
+AST-0148,App-0148,Partner Management,Network Ops Lead,Internet,1521,Restricted,No,Server,Operational Data,No,Medium,Not Encrypted,None
+AST-0149,App-0149,Network Connectivity,Payments Eng Lead,Internet,"3306,5432",Restricted,No,Server,Internal Data,No,Medium,Not Encrypted,Low
+AST-0150,App-0150,Operations Support,Identity Team Lead,VPN,"22,25,443",Restricted,Yes,Mobile,HR Data,Yes,Low,Encrypted,High
+AST-0151,App-0151,Email Security,Mainframe Team Lead,DMZ,25,Restricted,No,Network Device,Employee Data,Yes,High,Not Encrypted,None
+AST-0152,App-0152,Field Operations,Payments Eng Lead,Internal,"443,8090",Restricted,Yes,Server,Source Code,No,High,Encrypted,Medium
+AST-0153,App-0153,Payments,Email Security Lead,VPN,"80,3306,5000,6379",Restricted,No,Database,Operational Data,No,Medium,Not Encrypted,Medium
+AST-0154,App-0154,Business Intelligence,Mainframe Team Lead,Internal,443,Restricted,No,Server,Health Data,Yes,Low,Encrypted,High
+AST-0155,App-0155,Operations Support,Platform Eng Lead,VPN,"389,445,3306,8080",Restricted,Yes,Workstation,Source Code,No,Medium,Encrypted,None
+AST-0156,App-0156,Remote Connectivity,Email Security Lead,VPN,"25,80,6379",Restricted,Yes,Database,Operational Data,No,Medium,Not Encrypted,Low
+AST-0157,App-0157,Corporate Email,Clinical IT Lead,Internal,443,None,Yes,Network Device,Financial Data,Yes,Medium,Not Encrypted,Medium
+AST-0158,App-0158,Identity Management,WebOps Lead,Internal,"443,445,3306,8443",Restricted,Yes,Database,Employee Access Data,Yes,High,Encrypted,Low
+AST-0159,App-0159,Software Delivery,API Platform Lead,VPN,443,Restricted,Yes,Database,Source Code,No,Medium,Unknown,Low
+AST-0160,App-0160,Online Sales,DBA Team Lead,Internet,"445,5900,8090",Allowed,Yes,Server,Health Data,Yes,Low,Encrypted,High
+AST-0161,App-0161,Remote Connectivity,Identity Team Lead,VPN,"8443,9090",Restricted,Yes,Workstation,Source Code,No,Medium,Encrypted,High
+AST-0162,App-0162,Knowledge Management,WebOps Lead,Internal,"8080,8090",Restricted,Yes,Server,Public Data,No,Medium,Encrypted,High
+AST-0163,App-0163,Remote Connectivity,DBA Team Lead,DMZ,443,Restricted,Yes,Server,Operational Data,No,Medium,Not Encrypted,None
+AST-0164,App-0164,HR Operations,Email Security Lead,VPN,5000,Restricted,Yes,Database,Source Code,No,High,Unknown,None
+AST-0165,App-0165,Online Sales,Mainframe Team Lead,Internal,"8080,8090",None,Yes,Network Device,Public Data,No,High,Unknown,Low
+AST-0166,App-0166,Business Intelligence,Platform Eng Lead,Unknown,"25,443,6379",None,No,Wireless,Internal Data,No,Medium,Encrypted,None
+AST-0167,App-0167,Partner Management,Email Security Lead,Internal,"22,3389,8090",Restricted,No,Network Device,Public Data,No,High,Encrypted,None
+AST-0168,App-0168,Email Security,HR IT Lead,Internal,"25,8090",None,No,Server,Public Data,No,Medium,Not Encrypted,High
+AST-0169,App-0169,Remote Connectivity,Mobility Team Lead,Internal,"1433,5900",None,Yes,Database,Internal Data,No,High,Unknown,Medium
+AST-0170,App-0170,Field Operations,R&D Lead,Unknown,"25,8080",Restricted,Yes,Network Device,Source Code,No,Medium,Encrypted,High
+AST-0171,App-0171,Email Security,Identity Team Lead,Internal,"389,9090",Restricted,No,Database,Source Code,No,Medium,Unknown,Low
+AST-0172,App-0172,Network Connectivity,R&D Lead,VPN,"22,389,5000,6379",Restricted,Yes,Wireless,Financial Data,Yes,Medium,Encrypted,Low
+AST-0173,App-0173,R&D,API Platform Lead,DMZ,80,Restricted,Yes,Server,Operational Data,No,High,Encrypted,Low
+AST-0174,App-0174,R&D,Partner IT Lead,VPN,"445,8443,9090",Restricted,Yes,Network Device,Health Data,Yes,Medium,Encrypted,Low
+AST-0175,App-0175,Identity Management,DevOps Lead,Internal,"25,3389,5432,9090",Restricted,Yes,Server,Health Data,Yes,Medium,Encrypted,High
+AST-0176,App-0176,Payments,Platform Eng Lead,Internal,"389,8090",None,Yes,Network Device,HR Data,Yes,High,Not Encrypted,Low
+AST-0177,App-0177,Operations Support,WebOps Lead,Internet,"25,5432,8090",Restricted,Yes,Database,Internal Data,No,Medium,Not Encrypted,Low
+AST-0178,App-0178,Field Operations,R&D Lead,Internal,443,Restricted,Yes,Server,Source Code,No,Medium,Encrypted,Medium
+AST-0179,App-0179,Business Intelligence,Email Security Lead,Internet,"80,1521",Allowed,Yes,Server,Source Code,No,Medium,Unknown,None
+AST-0180,App-0180,Customer API Services,R&D Lead,VPN,"22,6379,8080,9090",Restricted,Yes,Workstation,Employee Access Data,Yes,High,Unknown,Medium
+AST-0181,App-0181,Customer API Services,Infrastructure Lead,Internal,6379,None,No,Server,HR Data,Yes,Low,Encrypted,Medium
+AST-0182,App-0182,Network Connectivity,Clinical IT Lead,DMZ,"8080,9090",Restricted,No,Database,Payment Data,Yes,Low,Encrypted,Medium
+AST-0183,App-0183,Patient Records,Email Security Lead,DMZ,3306,Allowed,Yes,Workstation,HR Data,Yes,Medium,Unknown,None
+AST-0184,App-0184,Patient Records,DevOps Lead,Internet,"23,8080,9090",Restricted,No,Workstation,Source Code,No,High,Not Encrypted,None
+AST-0185,App-0185,Network Connectivity,HR IT Lead,Unknown,"6379,8443",None,No,Network Device,Financial Data,Yes,Medium,Not Encrypted,High
+AST-0186,App-0186,HR Operations,Internal Apps Lead,Internal,"5432,5900",Restricted,No,Mobile,Financial Data,Yes,Medium,Not Encrypted,High
+AST-0187,App-0187,Identity Management,Mobility Team Lead,DMZ,"23,25,8090",Allowed,Yes,Server,Financial Data,Yes,Low,Encrypted,Medium
+AST-0188,App-0188,Knowledge Management,Identity Team Lead,Internet,"445,1521,8090",Restricted,Yes,Workstation,Financial Data,Yes,High,Unknown,High
+AST-0189,App-0189,Core Banking,Network Ops Lead,DMZ,"80,389,1521",Restricted,Yes,Server,Partner Data,Yes,Low,Encrypted,Medium
+AST-0190,App-0190,Customer API Services,Network Ops Lead,Unknown,"1521,5000,9090",Restricted,Yes,Server,Internal Data,No,Medium,Encrypted,Low
+AST-0191,App-0191,HR Operations,Mainframe Team Lead,Internal,"445,5432",Restricted,No,Server,Health Data,Yes,Low,Unknown,Low
+AST-0192,App-0192,Business Intelligence,Internal Apps Lead,VPN,"443,3389,8080",Restricted,Yes,Wireless,Payment Data,Yes,High,Encrypted,Medium
+AST-0193,App-0193,Email Security,Network Ops Lead,VPN,"389,1521,9090",Restricted,Yes,Database,Operational Data,No,Low,Encrypted,Medium
+AST-0194,App-0194,R&D,Network Security Lead,Internet,"25,1433,1521,9000",Allowed,No,Mobile,Partner Data,Yes,High,Encrypted,High
+AST-0195,App-0195,Partner Management,Data Platform Lead,Internal,8090,Restricted,Yes,Server,Operational Data,No,Low,Not Encrypted,None
+AST-0196,App-0196,R&D,Network Security Lead,Internal,8443,None,No,Network Device,Health Data,Yes,High,Unknown,Low
+AST-0197,App-0197,Knowledge Management,DBA Team Lead,DMZ,"25,5900",Allowed,No,Server,Payment Data,Yes,Medium,Encrypted,High
+AST-0198,App-0198,Corporate Email,R&D Lead,DMZ,"8080,8090",Restricted,No,Mobile,Internal Data,No,Low,Unknown,None
+AST-0199,App-0199,Core Banking,Network Ops Lead,Internal,"23,5000,5432",None,No,Server,Health Data,Yes,Medium,Encrypted,Low
+AST-0200,App-0200,Financial Reporting,Network Ops Lead,DMZ,"23,8090,9000",Restricted,Yes,Server,Financial Data,Yes,High,Encrypted,None
+AST-0201,App-0201,Online Sales,Platform Eng Lead,Internal,"25,8443",Restricted,Yes,Network Device,Operational Data,No,Medium,Not Encrypted,Low
+AST-0202,App-0202,Software Delivery,DevOps Lead,Internal,5000,None,No,Network Device,Public Data,No,Low,Not Encrypted,None
+AST-0203,App-0203,Partner Management,Platform Eng Lead,Internal,"445,8080",Restricted,Yes,Workstation,Health Data,Yes,Medium,Not Encrypted,None
+AST-0204,App-0204,Core Banking,Payments Eng Lead,Internet,"445,5900,9090",Allowed,Yes,Network Device,Customer Data,Yes,Low,Encrypted,High
+AST-0205,App-0205,Software Delivery,R&D Lead,Internal,"25,5000,5432,5900",Restricted,Yes,Network Device,Operational Data,No,Low,Unknown,Medium
+AST-0206,App-0206,Payments,Network Ops Lead,DMZ,"25,6379",Allowed,No,Server,Financial Data,Yes,Medium,Encrypted,None
+AST-0207,App-0207,Core Banking,Internal Apps Lead,DMZ,389,Allowed,No,Workstation,Partner Data,Yes,High,Unknown,Medium
+AST-0208,App-0208,Online Sales,R&D Lead,Internet,"22,1433,9090",Restricted,Yes,Network Device,Employee Access Data,Yes,High,Encrypted,High
+AST-0209,App-0209,Corporate Email,DevOps Lead,Internal,1433,Restricted,No,Network Device,Public Data,No,High,Not Encrypted,High
+AST-0210,App-0210,R&D,IT Operations Lead,DMZ,"1433,9090",Restricted,Yes,Server,Payment Data,Yes,Medium,Not Encrypted,Medium
+AST-0211,App-0211,Customer API Services,Network Security Lead,DMZ,"25,9000",Allowed,Yes,Server,Customer Data,Yes,Medium,Encrypted,Low
+AST-0212,App-0212,Patient Records,Data Platform Lead,Internet,"3306,6379",Allowed,No,Server,Operational Data,No,Medium,Encrypted,High
+AST-0213,App-0213,R&D,Payments Eng Lead,Internal,"389,5000",None,Yes,Network Device,Financial Data,Yes,High,Unknown,Low
+AST-0214,App-0214,Identity Management,Mobility Team Lead,VPN,"80,443",Restricted,Yes,Server,Employee Access Data,Yes,High,Not Encrypted,Low
+AST-0215,App-0215,Customer API Services,Platform Eng Lead,DMZ,443,Allowed,Yes,Workstation,Public Data,No,Low,Not Encrypted,High
+AST-0216,App-0216,Customer API Services,DBA Team Lead,Internal,1521,Restricted,Yes,Network Device,Employee Data,Yes,High,Encrypted,High
+AST-0217,App-0217,Field Operations,Mobility Team Lead,DMZ,443,Restricted,Yes,Wireless,Employee Access Data,No,Medium,Not Encrypted,Low
+AST-0218,App-0218,Operations Support,R&D Lead,DMZ,"80,445,1521,8080",Allowed,No,Server,Payment Data,Yes,Medium,Encrypted,Low
+AST-0219,App-0219,Partner Management,Network Ops Lead,DMZ,443,Allowed,No,Workstation,Internal Data,No,Medium,Unknown,Medium
+AST-0220,App-0220,Corporate Email,Internal Apps Lead,Internal,445,Restricted,Yes,Mobile,Customer Data,Yes,Medium,Encrypted,Low
+AST-0221,App-0221,Business Intelligence,Network Security Lead,Internet,"25,5900,8080",Allowed,No,Network Device,Internal Data,No,Low,Unknown,Low
+AST-0222,App-0222,Partner File Exchange,Platform Eng Lead,DMZ,"443,1521,5900,9090",Allowed,Yes,Mobile,Employee Data,Yes,Medium,Unknown,Low
+AST-0223,App-0223,Email Security,Identity Team Lead,Internet,443,Restricted,Yes,Workstation,Operational Data,No,High,Not Encrypted,High
+AST-0224,App-0224,Software Delivery,Payments Eng Lead,Internal,"25,3389,9090",Restricted,No,Workstation,Source Code,No,High,Unknown,High
+AST-0225,App-0225,Partner File Exchange,Infrastructure Lead,VPN,"25,443,5432,5900",Restricted,No,Server,Internal Data,No,Medium,Unknown,High
+AST-0226,App-0226,HR Operations,R&D Lead,Internal,"1433,6379,8080",None,No,Server,Health Data,Yes,Medium,Unknown,High
+AST-0227,App-0227,Operations Support,Identity Team Lead,Internal,443,Restricted,Yes,Network Device,Payment Data,Yes,Low,Encrypted,Medium
+AST-0228,App-0228,HR Operations,Email Security Lead,DMZ,1521,Restricted,No,Server,Operational Data,No,Medium,Unknown,Low
+AST-0229,App-0229,Business Intelligence,Infrastructure Lead,Internal,23,Restricted,Yes,Wireless,Source Code,No,Low,Unknown,Low
+AST-0230,App-0230,Field Operations,HR IT Lead,Unknown,"5000,6379,9000",None,Yes,Server,Employee Access Data,No,Medium,Not Encrypted,None
+AST-0231,App-0231,Payments,Data Platform Lead,Internal,9090,Restricted,Yes,Network Device,Internal Data,No,High,Not Encrypted,None
+AST-0232,App-0232,Partner Management,Email Security Lead,Internet,"80,3389",Allowed,Yes,Wireless,Partner Data,Yes,Medium,Encrypted,Medium
+AST-0233,App-0233,Identity Management,Infrastructure Lead,VPN,445,Restricted,Yes,Mobile,Source Code,No,Medium,Unknown,High
+AST-0234,App-0234,Partner Management,API Platform Lead,Internet,"1433,8090",Restricted,No,Server,Employee Access Data,Yes,High,Unknown,Medium
+AST-0235,App-0235,Corporate Email,Network Security Lead,VPN,"1521,6379",Restricted,Yes,Server,Customer Data,Yes,Low,Not Encrypted,Low
+AST-9001,Test Rig,Research,R&D Lead,Internal,22,Restricted,Yes,Server,Internal Data,No,Low,Unknown,None
+AST-9002,Mainframe,Core Banking,CTO,DMZ,"443,3270",Allowed,No,Server,Financial Data,Yes,High,Not Encrypted,High

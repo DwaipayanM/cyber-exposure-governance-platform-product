@@ -1,0 +1,78 @@
+timestamp,operator,action,asset_id,cve_id,details
+2026-06-20 04:26:11,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:26:13,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:26:13,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:26:15,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:26:15,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:26:16,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:26:16,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:27:58,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:27:58,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:28:08,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:28:09,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:28:09,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:29:58,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:35:32,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:35:33,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:35:33,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:36:14,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:36:15,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:36:36,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:36:37,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:36:37,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:38:52,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:38:52,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:42:42,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:42:43,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:42:43,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:46:16,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:46:17,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:46:17,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:47:52,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:47:52,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:48:45,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:48:46,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:48:46,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:53:15,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:53:16,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:53:16,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:54:29,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 04:54:30,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:54:30,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:54:44,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:54:44,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 04:59:44,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 04:59:44,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:04:05,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 05:04:06,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:04:06,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:13:26,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 05:13:28,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:13:28,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:14:48,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 05:14:49,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:14:49,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:15:47,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:15:47,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:15:49,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:15:49,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:15:54,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:15:54,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:18:22,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:18:22,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:20:44,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:20:45,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:20:48,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:20:48,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:25:51,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 05:25:52,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:25:52,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:26:49,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:26:49,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:26:50,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:26:50,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:29:59,analyst,Assessment completed,,,303 exposure rows assessed
+2026-06-20 05:30:00,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:30:01,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"
+2026-06-20 05:32:50,analyst,Simulation executed,,,Patch Top 5 Highest-Risk Exposures
+2026-06-20 05:32:50,analyst,Reports prepared,,,"Detailed, executive, and ticket export reports generated"

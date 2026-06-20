@@ -1,0 +1,7 @@
+asset_id,cve_id,exception_status,acceptance_reason,accepted_by,acceptance_expiry_date,compensating_control
+VHS-0005,CVE-2024-5053,Accepted,Compensating controls in place / patch scheduled,EHR Team,2026-05-31,Network restriction and monitoring enabled
+VHS-0022,CVE-2023-5011,Deferred,Compensating controls in place / patch scheduled,Network Team,2026-09-18,Network restriction and monitoring enabled
+VHS-0023,CVE-2021-5079,Deferred,Compensating controls in place / patch scheduled,Health IT Security,2026-08-19,Network restriction and monitoring enabled
+VHS-0016,CVE-2025-5110,Accepted,Compensating controls in place / patch scheduled,Network Team,2026-10-18,Network restriction and monitoring enabled
+VHS-0001,CVE-2021-5076,Deferred,Compensating controls in place / patch scheduled,Network Team,2026-07-20,Network restriction and monitoring enabled
+VHS-0009,CVE-2022-30190,Accepted,Compensating controls in place / patch scheduled,Infra Team,2026-09-18,Network restriction and monitoring enabled

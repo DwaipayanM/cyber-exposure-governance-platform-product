@@ -1,0 +1,7 @@
+asset_id,cve_id,exception_status,acceptance_reason,accepted_by,acceptance_expiry_date,compensating_control
+NWR-0005,CVE-2024-5115,Deferred,Compensating controls in place / patch scheduled,Retail IT,2026-05-31,Network restriction and monitoring enabled
+NWR-0009,CVE-2025-5071,Accepted,Compensating controls in place / patch scheduled,Data Platform,2026-08-19,Network restriction and monitoring enabled
+NWR-0016,CVE-2020-5072,Deferred,Compensating controls in place / patch scheduled,SRE Team,2026-10-18,Network restriction and monitoring enabled
+NWR-0026,CVE-2021-5086,Deferred,Compensating controls in place / patch scheduled,Retail IT,2026-08-19,Network restriction and monitoring enabled
+NWR-0015,CVE-2022-5002,Accepted,Compensating controls in place / patch scheduled,Data Platform,2026-09-18,Network restriction and monitoring enabled
+NWR-0006,CVE-2019-5098,Deferred,Compensating controls in place / patch scheduled,Payments Team,2026-09-18,Network restriction and monitoring enabled

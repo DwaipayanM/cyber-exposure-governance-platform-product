@@ -1,0 +1,1031 @@
+{
+ "CVE-2021-5084": {
+  "cvss_score": 7.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5041": {
+  "cvss_score": 3.7,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5017": {
+  "cvss_score": 8.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-26134": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "RCE in Confluence Server and Data Center.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5112": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-34362": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "SQL injection leading to RCE in MOVEit.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5006": {
+  "cvss_score": 8.2,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5076": {
+  "cvss_score": 4.2,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5105": {
+  "cvss_score": 7.4,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5069": {
+  "cvss_score": 7.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5002": {
+  "cvss_score": 8.5,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5055": {
+  "cvss_score": 8.2,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5079": {
+  "cvss_score": 4.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5056": {
+  "cvss_score": 9.0,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5089": {
+  "cvss_score": 8.3,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5104": {
+  "cvss_score": 7.1,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5078": {
+  "cvss_score": 5.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5003": {
+  "cvss_score": 9.2,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5058": {
+  "cvss_score": 3.5,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-11043": {
+  "cvss_score": 4.3,
+  "severity": "Medium",
+  "description": "Buffer underflow in PHP-FPM.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5042": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5022": {
+  "cvss_score": 2.1,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5115": {
+  "cvss_score": 6.5,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5071": {
+  "cvss_score": 9.0,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5010": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5101": {
+  "cvss_score": 8.4,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5061": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5086": {
+  "cvss_score": 4.9,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-44487": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "DoS via HTTP/2 rapid reset.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5114": {
+  "cvss_score": 6.5,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5068": {
+  "cvss_score": 8.3,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5040": {
+  "cvss_score": 4.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-27997": {
+  "cvss_score": 9.2,
+  "severity": "Critical",
+  "description": "Heap overflow in FortiOS SSL-VPN.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5077": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-1552": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Privilege escalation via extension scripts.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5072": {
+  "cvss_score": 9.9,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-23897": {
+  "cvss_score": 8.8,
+  "severity": "High",
+  "description": "Demonstration Jenkins vulnerability.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5021": {
+  "cvss_score": 7.4,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5012": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5103": {
+  "cvss_score": 5.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5111": {
+  "cvss_score": 8.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5087": {
+  "cvss_score": 9.3,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5106": {
+  "cvss_score": 8.3,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5004": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5038": {
+  "cvss_score": 8.1,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5031": {
+  "cvss_score": 2.3,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-30190": {
+  "cvss_score": 7.8,
+  "severity": "High",
+  "description": "RCE via MSDT (Follina).",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5109": {
+  "cvss_score": 7.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5093": {
+  "cvss_score": 7.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2018-15473": {
+  "cvss_score": 5.3,
+  "severity": "Medium",
+  "description": "User enumeration in OpenSSH.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5081": {
+  "cvss_score": 4.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-21887": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Command injection in Ivanti Connect Secure.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5090": {
+  "cvss_score": 5.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5001": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5082": {
+  "cvss_score": 9.5,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5027": {
+  "cvss_score": 6.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5118": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5009": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5083": {
+  "cvss_score": 9.7,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5046": {
+  "cvss_score": 9.9,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5014": {
+  "cvss_score": 4.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5018": {
+  "cvss_score": 6.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5016": {
+  "cvss_score": 10.0,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5085": {
+  "cvss_score": 9.7,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-3786": {
+  "cvss_score": 6.5,
+  "severity": "Medium",
+  "description": "Stack overflow in OpenSSL punycode decode.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5013": {
+  "cvss_score": 8.8,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-3400": {
+  "cvss_score": 10.0,
+  "severity": "Critical",
+  "description": "Command injection in PAN-OS GlobalProtect.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5102": {
+  "cvss_score": 8.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-1086": {
+  "cvss_score": 7.8,
+  "severity": "High",
+  "description": "Use-after-free in Linux netfilter.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-22965": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "RCE in Spring Framework (Spring4Shell).",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5026": {
+  "cvss_score": 9.9,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5044": {
+  "cvss_score": 4.5,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5097": {
+  "cvss_score": 8.1,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5107": {
+  "cvss_score": 9.6,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-6387": {
+  "cvss_score": 8.1,
+  "severity": "High",
+  "description": "Signal-handler race RCE in OpenSSH.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5025": {
+  "cvss_score": 8.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5002": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5054": {
+  "cvss_score": 4.9,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5113": {
+  "cvss_score": 8.2,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5119": {
+  "cvss_score": 5.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5073": {
+  "cvss_score": 6.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5051": {
+  "cvss_score": 3.7,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-23897": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "Arbitrary file read via Jenkins CLI.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5052": {
+  "cvss_score": 7.8,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5047": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-50164": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "Path traversal/file upload in Apache Struts.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5060": {
+  "cvss_score": 5.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5057": {
+  "cvss_score": 8.4,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-23017": {
+  "cvss_score": 7.7,
+  "severity": "High",
+  "description": "Off-by-one in NGINX resolver.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-20198": {
+  "cvss_score": 10.0,
+  "severity": "Critical",
+  "description": "Privilege escalation in IOS XE Web UI.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5005": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5032": {
+  "cvss_score": 9.1,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5015": {
+  "cvss_score": 7.2,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5064": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5034": {
+  "cvss_score": 4.9,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5080": {
+  "cvss_score": 9.9,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5036": {
+  "cvss_score": 7.3,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5045": {
+  "cvss_score": 4.7,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-3156": {
+  "cvss_score": 3.6,
+  "severity": "Low",
+  "description": "Heap overflow in sudo (low-impact context).",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5095": {
+  "cvss_score": 6.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-0286": {
+  "cvss_score": 7.8,
+  "severity": "High",
+  "description": "Type confusion in OpenSSL GENERAL_NAME.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5100": {
+  "cvss_score": 7.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5059": {
+  "cvss_score": 2.2,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5063": {
+  "cvss_score": 9.7,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5096": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5067": {
+  "cvss_score": 6.1,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-38545": {
+  "cvss_score": 8.0,
+  "severity": "High",
+  "description": "Heap overflow in curl SOCKS5 handshake.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5116": {
+  "cvss_score": 7.2,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5065": {
+  "cvss_score": 2.6,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5037": {
+  "cvss_score": 8.8,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5043": {
+  "cvss_score": 6.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5053": {
+  "cvss_score": 9.6,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5005": {
+  "cvss_score": 4.3,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5098": {
+  "cvss_score": 6.5,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-44228": {
+  "cvss_score": 10.0,
+  "severity": "Critical",
+  "description": "Remote code execution in Apache Log4j.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5039": {
+  "cvss_score": 3.6,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5099": {
+  "cvss_score": 5.4,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5000": {
+  "cvss_score": 4.7,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5024": {
+  "cvss_score": 7.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5110": {
+  "cvss_score": 5.7,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5023": {
+  "cvss_score": 7.9,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5033": {
+  "cvss_score": 8.0,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-4966": {
+  "cvss_score": 7.5,
+  "severity": "High",
+  "description": "Memory disclosure in NetScaler (Citrix Bleed).",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5049": {
+  "cvss_score": 7.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5050": {
+  "cvss_score": 4.0,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2025-5092": {
+  "cvss_score": 9.7,
+  "severity": "Critical",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5004": {
+  "cvss_score": 5.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5108": {
+  "cvss_score": 8.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5007": {
+  "cvss_score": 5.8,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-26855": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "SSRF in Microsoft Exchange.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-22515": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "Broken access control in Confluence.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5048": {
+  "cvss_score": 5.0,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5008": {
+  "cvss_score": 5.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5117": {
+  "cvss_score": 4.9,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5028": {
+  "cvss_score": 7.1,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5088": {
+  "cvss_score": 7.6,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-5019": {
+  "cvss_score": 2.8,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-5011": {
+  "cvss_score": 8.7,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-4034": {
+  "cvss_score": 7.8,
+  "severity": "High",
+  "description": "Local privilege escalation in polkit pkexec.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5094": {
+  "cvss_score": 3.5,
+  "severity": "Low",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2022-5062": {
+  "cvss_score": 7.1,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2020-1472": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "Elevation of privilege in Netlogon (Zerologon).",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2019-5075": {
+  "cvss_score": 8.3,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2023-2868": {
+  "cvss_score": 9.8,
+  "severity": "Critical",
+  "description": "Command injection in Barracuda ESG.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-34527": {
+  "cvss_score": 8.8,
+  "severity": "High",
+  "description": "RCE in Windows Print Spooler.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2021-5070": {
+  "cvss_score": 8.4,
+  "severity": "High",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ },
+ "CVE-2024-5066": {
+  "cvss_score": 6.6,
+  "severity": "Medium",
+  "description": "Synthetic test vulnerability record for dataset volume.",
+  "published": "2024-01-01",
+  "last_modified": "2025-01-01"
+ }
+}

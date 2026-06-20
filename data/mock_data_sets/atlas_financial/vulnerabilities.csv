@@ -1,0 +1,32 @@
+asset_id,asset_name,product,cve_id,business_criticality,internet_facing,environment,asset_owner,first_detected_date
+AFS-0001,Host-0001,SAP NetWeaver,CVE-2023-5039,Medium,No,Staging,DBA Team,2026-04-11
+AFS-0001,Host-0001,Windows Server,CVE-2024-6387,Medium,No,Staging,DBA Team,2026-04-11
+AFS-0002,Host-0002,Oracle WebLogic,CVE-2019-5095,High,No,Dev,Cloud Platform,2026-06-17
+AFS-0003,Host-0003,Spring Framework,CVE-2019-5001,High,No,Dev,Digital Channels,2026-03-17
+AFS-0004,Host-0004,Linux Kernel,CVE-2023-2868,Medium,Yes,Test,DBA Team,2026-05-16
+AFS-0005,Host-0005,Progress MOVEit,CVE-2020-5019,Low,No,Prod,Digital Channels,2026-06-12
+AFS-0006,Host-0006,Cisco IOS,CVE-2019-5021,Medium,No,Non-Prod,Cloud Platform,2026-05-16
+AFS-0006,Host-0006,Elasticsearch,CVE-2025-5005,Medium,No,Non-Prod,Cloud Platform,2026-06-06
+AFS-0007,Host-0007,MS Exchange,CVE-2024-5027,Medium,Yes,Test,CISO Office,2026-05-01
+AFS-0008,Host-0008,Progress MOVEit,CVE-2023-27997,Medium,No,Dev,Digital Channels,2026-06-06
+AFS-0009,Host-0009,Citrix ADC,CVE-2024-5080,Medium,No,Dev,Digital Channels,2026-03-17
+AFS-0009,Host-0009,Citrix ADC,CVE-2021-3156,Medium,No,Dev,Digital Channels,2026-02-20
+AFS-0010,Host-0010,PostgreSQL,CVE-2022-3786,Medium,Yes,Prod,Digital Channels,2026-03-17
+AFS-0011,Host-0011,OpenSSL,CVE-2021-26855,Low,No,Staging,Core Banking Team,2026-06-06
+AFS-0012,Host-0012,PostgreSQL,CVE-2020-5026,Medium,Yes,Staging,Cloud Platform,2026-05-16
+AFS-0013,Host-0013,VMware vCenter,CVE-2023-23897,Medium,Yes,Staging,CISO Office,2026-06-17
+AFS-0013,Host-0013,VMware vCenter,CVE-2025-5009,Medium,Yes,Staging,CISO Office,2026-02-20
+AFS-0014,Host-0014,Progress MOVEit,CVE-2023-5039,High,No,Staging,DBA Team,2026-06-12
+AFS-0015,Host-0015,PostgreSQL,CVE-2019-5095,Low,Yes,Dev,Core Banking Team,2026-05-16
+AFS-0016,Host-0016,Oracle WebLogic,CVE-2019-5001,Medium,Yes,Prod,Cloud Platform,2026-04-11
+AFS-0017,Host-0017,MS Exchange,CVE-2023-2868,Medium,No,Staging,Core Banking Team,2026-06-12
+AFS-0018,Host-0018,OpenSSL,CVE-2020-5019,Medium,No,Test,Digital Channels,2026-05-16
+AFS-0019,Host-0019,Elasticsearch,CVE-2019-5021,Medium,No,Prod,Cloud Platform,2026-03-17
+AFS-0019,Host-0019,MS Exchange,CVE-2025-5005,Medium,No,Prod,Cloud Platform,2026-06-06
+AFS-0020,Host-0020,Oracle WebLogic,CVE-2024-5027,High,No,Prod,DBA Team,2026-05-01
+AFS-0021,Host-0021,Cisco IOS,CVE-2023-27997,Low,No,Non-Prod,Digital Channels,2026-05-16
+AFS-0022,Host-0022,VMware vCenter,CVE-2024-5080,Low,Yes,Non-Prod,DBA Team,2026-03-17
+AFS-0023,Host-0023,Fortinet FortiOS,CVE-2022-3786,Low,Yes,Test,Core Banking Team,2026-05-01
+AFS-0024,Host-0024,MS Exchange,CVE-2021-26855,High,Yes,Dev,CISO Office,2026-02-20
+AFS-0025,Host-0025,SAP NetWeaver,CVE-2020-5026,High,Yes,Staging,DBA Team,2026-03-17
+AFS-0026,Host-0026,OpenSSL,CVE-2023-23897,High,No,Test,Core Banking Team,2026-06-17

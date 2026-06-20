@@ -1,0 +1,23 @@
+asset_id,cve_id,exception_status,acceptance_reason,accepted_by,acceptance_expiry_date,compensating_control
+AST-0089,CVE-2019-5032,Deferred,Compensating controls in place / patch scheduled,DBA Team Lead,2026-08-17,Network restriction and monitoring enabled
+AST-0123,CVE-2020-5116,Deferred,Compensating controls in place / patch scheduled,Partner IT Lead,2026-09-25,Network restriction and monitoring enabled
+AST-0048,CVE-2020-5083,Risk Accepted,Compensating controls in place / patch scheduled,WebOps Lead,2026-08-02,Network restriction and monitoring enabled
+AST-0081,CVE-2019-5095,Risk Accepted,Compensating controls in place / patch scheduled,Partner IT Lead,2026-07-28,Network restriction and monitoring enabled
+AST-0050,CVE-2020-5116,Deferred,Compensating controls in place / patch scheduled,Internal Apps Lead,2026-04-16,Network restriction and monitoring enabled
+AST-0033,CVE-2025-5044,Deferred,Compensating controls in place / patch scheduled,Internal Apps Lead,,Network restriction and monitoring enabled
+AST-0169,CVE-2021-5086,Deferred,Compensating controls in place / patch scheduled,DBA Team Lead,,Network restriction and monitoring enabled
+AST-0044,CVE-2020-5004,Deferred,Compensating controls in place / patch scheduled,Internal Apps Lead,,Network restriction and monitoring enabled
+AST-0032,CVE-2024-5118,Deferred,Compensating controls in place / patch scheduled,Identity Team Lead,2026-10-09,Network restriction and monitoring enabled
+AST-0009,CVE-2023-5096,Deferred,Compensating controls in place / patch scheduled,DBA Team Lead,2026-10-14,Network restriction and monitoring enabled
+AST-0194,CVE-2021-34527,Risk Accepted,Compensating controls in place / patch scheduled,Platform Eng Lead,2026-09-12,Network restriction and monitoring enabled
+AST-0172,CVE-2019-5036,Deferred,Compensating controls in place / patch scheduled,Email Security Lead,,Network restriction and monitoring enabled
+AST-0018,CVE-2021-34527,Deferred,Compensating controls in place / patch scheduled,Infrastructure Lead,,Network restriction and monitoring enabled
+AST-0075,CVE-2025-5092,Risk Accepted,Compensating controls in place / patch scheduled,API Platform Lead,2026-04-13,Network restriction and monitoring enabled
+AST-0042,CVE-2025-5045,Deferred,Compensating controls in place / patch scheduled,Mobility Team Lead,,Network restriction and monitoring enabled
+AST-0015,CVE-2019-5064,Risk Accepted,Compensating controls in place / patch scheduled,DBA Team Lead,2026-10-15,Network restriction and monitoring enabled
+AST-0207,CVE-2022-5003,Deferred,Compensating controls in place / patch scheduled,Network Ops Lead,2026-05-17,Network restriction and monitoring enabled
+AST-0025,CVE-2021-5081,Risk Accepted,Compensating controls in place / patch scheduled,R&D Lead,2026-03-02,Network restriction and monitoring enabled
+AST-0189,CVE-2023-22515,Deferred,Compensating controls in place / patch scheduled,Network Security Lead,,Network restriction and monitoring enabled
+AST-0045,CVE-2019-5064,Deferred,Compensating controls in place / patch scheduled,Data Platform Lead,2026-03-29,Network restriction and monitoring enabled
+AST-0100,CVE-2023-5096,Risk Accepted,Compensating controls in place / patch scheduled,Email Security Lead,2026-04-03,Network restriction and monitoring enabled
+AST-0019,CVE-2019-5002,Risk Accepted,Compensating controls in place / patch scheduled,Identity Team Lead,2026-09-18,Network restriction and monitoring enabled

@@ -1,0 +1,304 @@
+asset_id,asset_name,product,cve_id,business_criticality,internet_facing,environment,asset_owner,first_detected_date
+AST-0001,Host-0001,FortiOS,CVE-2020-5019,Medium,No,Prod,R&D,2026-02-25
+AST-0002,Host-0002,PostgreSQL,CVE-2022-5028,Medium,No,Prod,DevOps,2026-04-05
+AST-0002,Host-0002,Software,CVE-2021-5040,Low,No,Prod,DevOps,2026-05-01
+AST-0003,Host-0003,kube-apiserver,CVE-2019-5117,High,No,Prod,Data Platform,2026-02-21
+AST-0004,Host-0004,FortiOS,CVE-2020-5050,Medium,No,Stage,IT Operations,2026-02-22
+AST-0005,Host-0005,Software,CVE-2023-5103,Medium,Yes,Stage,Platform Eng,2026-06-03
+AST-0006,Host-0006,Software,CVE-2019-5025,Low,No,Stage,R&D,2026-04-30
+AST-0007,Host-0007,kube-apiserver,CVE-2019-5117,High,Yes,Prod,WebOps,2026-02-18
+AST-0008,Host-0008,Software,CVE-2024-5027,High,No,Prod,Data Platform,2026-06-04
+AST-0009,Host-0009,Software,CVE-2023-5096,High,No,Dev,Partner IT,2026-05-25
+AST-0009,Host-0009,MySQL,CVE-2023-5099,High,No,Prod,Partner IT,2026-03-25
+AST-0010,Host-0010,nginx,CVE-2019-5063,Medium,Yes,UAT,Email Security,2026-04-26
+AST-0011,Host-0011,Software,CVE-2022-5089,High,No,UAT,R&D,2026-02-17
+AST-0012,Host-0012,PAN-OS,CVE-2024-3400,Medium,No,Prod,Data Platform,2026-04-04
+AST-0013,Host-0013,Software,CVE-2023-5103,Medium,No,UAT,R&D,2026-04-03
+AST-0014,Host-0014,PAN-OS,CVE-2024-3400,Low,No,UAT,DBA Team,2026-04-16
+AST-0015,Host-0015,kube-apiserver,CVE-2019-5064,Low,Yes,UAT,R&D,2026-05-13
+AST-0016,Host-0016,Jira,CVE-2025-5006,Medium,No,Prod,Platform Eng,2026-04-17
+AST-0016,Host-0016,Software,CVE-2024-5038,Medium,No,Prod,Platform Eng,2026-05-23
+AST-0017,Host-0017,Software,CVE-2021-5108,Medium,No,Dev,API Platform,2026-02-02
+AST-0018,Host-0018,Windows Print Spooler,CVE-2021-34527,Medium,No,Prod,DBA Team,2026-02-28
+AST-0018,Host-0018,PHP,CVE-2025-5109,High,No,UAT,DBA Team,2026-02-02
+AST-0019,Host-0019,Software,CVE-2019-5002,Medium,No,Prod,Mobility Team,2026-03-01
+AST-0020,Host-0020,Software,CVE-2024-5118,High,No,Prod,Network Security,2026-06-13
+AST-0021,Host-0021,Exchange Server,CVE-2021-26855,Medium,Yes,Prod,Data Platform,2026-04-17
+AST-0022,Host-0022,Jira,CVE-2025-5014,Medium,Yes,Prod,Infrastructure,2026-04-07
+AST-0022,Host-0022,Software,CVE-2022-22965,High,Yes,Prod,Infrastructure,2026-03-26
+AST-0023,Host-0023,vCenter,CVE-2019-5041,Medium,No,Dev,Mobility Team,2026-03-12
+AST-0023,Host-0023,IOS XE,CVE-2023-20198,Medium,No,UAT,Mobility Team,2026-01-31
+AST-0024,Host-0024,Software,CVE-2020-5116,High,No,Prod,Infrastructure,2026-05-04
+AST-0025,Host-0025,Software,CVE-2021-5081,High,Yes,Stage,Payments Eng,2026-05-11
+AST-0026,Host-0026,Software,CVE-2019-5113,Low,Yes,Dev,Infrastructure,2026-03-15
+AST-0027,Host-0027,Software,CVE-2022-5065,Medium,No,Stage,Platform Eng,2026-02-22
+AST-0028,Host-0028,Jira,CVE-2019-5098,High,No,Dev,Mobility Team,2026-05-23
+AST-0029,Host-0029,NetScaler ADC,CVE-2023-4966,High,No,Dev,API Platform,2026-05-22
+AST-0029,Host-0029,Software,CVE-2019-5094,Medium,No,Prod,API Platform,2026-06-15
+AST-0030,Host-0030,PostgreSQL,CVE-2022-5028,High,Yes,Prod,R&D,2026-04-25
+AST-0031,Host-0031,NetScaler ADC,CVE-2023-4966,High,No,Prod,HR IT,2026-04-08
+AST-0032,Host-0032,Software,CVE-2024-5118,Medium,No,Prod,Data Platform,2026-02-26
+AST-0032,Host-0032,Confluence,CVE-2023-22515,Medium,No,Stage,Data Platform,2026-03-02
+AST-0033,Host-0033,nginx,CVE-2025-5044,Medium,Yes,Prod,HR IT,2026-04-21
+AST-0034,Host-0034,NetScaler,CVE-2022-5042,Medium,Yes,Dev,Infrastructure,2026-03-29
+AST-0034,Host-0034,PHP,CVE-2022-5002,Low,Yes,Prod,Infrastructure,2026-06-13
+AST-0035,Host-0035,Software,CVE-2025-5071,Medium,Yes,Prod,Network Ops,2026-03-26
+AST-0035,Host-0035,Jenkins,CVE-2024-5000,Medium,Yes,Dev,Network Ops,2026-05-24
+AST-0036,Host-0036,Software,CVE-2023-5096,High,Yes,UAT,Network Security,2026-03-19
+AST-0036,Host-0036,Software,CVE-2020-5056,Low,Yes,Dev,Network Security,2026-02-12
+AST-0037,Host-0037,Software,CVE-2021-4034,Medium,No,Prod,DBA Team,2026-04-23
+AST-0038,Host-0038,PostgreSQL,CVE-2023-5060,Medium,Yes,Prod,Network Ops,2026-04-08
+AST-0038,Host-0038,Software,CVE-2021-5004,Medium,Yes,Stage,Network Ops,2026-02-14
+AST-0039,Host-0039,nginx,CVE-2019-5069,Low,Yes,Stage,Partner IT,2026-03-27
+AST-0039,Host-0039,FortiOS,CVE-2023-27997,High,Yes,Prod,Partner IT,2026-05-25
+AST-0040,Host-0040,Software,CVE-2019-5033,Low,No,Prod,Payments Eng,2026-06-02
+AST-0041,Host-0041,Netlogon,CVE-2020-1472,High,No,Prod,Identity Team,2026-05-30
+AST-0041,Host-0041,Software,CVE-2022-5031,Low,No,Prod,Identity Team,2026-04-19
+AST-0042,Host-0042,Software,CVE-2025-5045,Medium,No,Prod,R&D,2026-04-20
+AST-0043,Host-0043,PHP,CVE-2025-5009,Low,No,Prod,WebOps,2026-04-24
+AST-0044,Host-0044,Software,CVE-2020-5004,High,No,UAT,IT Operations,2026-03-18
+AST-0044,Host-0044,Software,CVE-2021-5081,Low,No,UAT,IT Operations,2026-04-11
+AST-0045,Host-0045,kube-apiserver,CVE-2019-5064,Low,Yes,Prod,Network Security,2026-03-16
+AST-0045,Host-0045,PAN-OS,CVE-2024-3400,High,Yes,Dev,Network Security,2026-04-21
+AST-0046,Host-0046,Software,CVE-2020-5010,High,No,UAT,Email Security,2026-05-16
+AST-0047,Host-0047,Software,CVE-2024-5053,Medium,No,Prod,DBA Team,2026-05-22
+AST-0047,Host-0047,Software,CVE-2025-5046,Low,No,Stage,DBA Team,2026-03-20
+AST-0048,Host-0048,Software,CVE-2020-5083,Medium,Yes,Dev,IT Operations,2026-05-13
+AST-0049,Host-0049,PAN-OS,CVE-2024-3400,High,No,Prod,DBA Team,2026-03-04
+AST-0050,Host-0050,Software,CVE-2020-5116,Medium,No,Dev,Internal Apps,2026-02-26
+AST-0050,Host-0050,Software,CVE-2021-5086,High,No,Prod,Internal Apps,2026-03-29
+AST-0051,Host-0051,Jira,CVE-2019-5098,Medium,No,Prod,Internal Apps,2026-06-14
+AST-0051,Host-0051,PHP,CVE-2025-5009,Medium,No,Prod,Internal Apps,2026-05-26
+AST-0052,Host-0052,Software,CVE-2023-5096,Medium,No,Dev,Network Security,2026-03-03
+AST-0053,Host-0053,Software,CVE-2022-5062,High,No,Stage,Network Ops,2026-04-12
+AST-0053,Host-0053,Software,CVE-2019-5094,High,No,Prod,Network Ops,2026-04-11
+AST-0054,Host-0054,Software,CVE-2024-23897,Low,No,Stage,DevOps,2026-05-29
+AST-0055,Host-0055,ColdFusion,CVE-2024-5055,High,Yes,Prod,Mobility Team,2026-06-05
+AST-0056,Host-0056,Software,CVE-2023-0286,High,Yes,Prod,WebOps,2026-06-15
+AST-0057,Host-0057,Software,CVE-2022-5048,Medium,No,Prod,Data Platform,2026-03-25
+AST-0057,Host-0057,NetScaler,CVE-2022-5042,High,No,Prod,Data Platform,2026-05-07
+AST-0058,Host-0058,kube-apiserver,CVE-2021-5049,Medium,Yes,Dev,DevOps,2026-02-25
+AST-0059,Host-0059,Software,CVE-2025-5071,Low,No,Stage,Partner IT,2026-02-10
+AST-0060,Host-0060,Software,CVE-2020-5016,Medium,No,Prod,Mainframe Team,2026-02-05
+AST-0061,Host-0061,Software,CVE-2021-23017,Medium,No,Stage,Network Security,2026-03-11
+AST-0062,Host-0062,Software,CVE-2022-5093,High,Yes,Prod,Mobility Team,2026-05-31
+AST-0062,Host-0062,Software,CVE-2024-5118,Medium,Yes,Prod,Mobility Team,2026-02-10
+AST-0063,Host-0063,nginx,CVE-2025-5044,High,No,UAT,Mainframe Team,2026-04-19
+AST-0063,Host-0063,Jira,CVE-2020-5005,Medium,No,UAT,Mainframe Team,2026-05-01
+AST-0064,Host-0064,Exchange Server,CVE-2021-26855,High,No,Prod,Infrastructure,2026-05-29
+AST-0065,Host-0065,Software,CVE-2023-5073,High,No,Dev,Platform Eng,2026-03-26
+AST-0066,Host-0066,Software,CVE-2021-5040,High,Yes,Prod,Network Security,2026-03-04
+AST-0067,Host-0067,Software,CVE-2022-5048,Medium,No,Prod,Identity Team,2026-02-05
+AST-0068,Host-0068,ColdFusion,CVE-2024-5055,Medium,No,UAT,Platform Eng,2026-03-25
+AST-0069,Host-0069,Software,CVE-2024-5007,Medium,No,UAT,Email Security,2026-02-18
+AST-0070,Host-0070,kube-apiserver,CVE-2019-5064,Medium,Yes,Prod,Platform Eng,2026-03-03
+AST-0070,Host-0070,Exchange Server,CVE-2021-26855,High,Yes,Prod,Platform Eng,2026-05-04
+AST-0071,Host-0071,Software,CVE-2024-5007,High,No,Prod,Infrastructure,2026-05-14
+AST-0072,Host-0072,Software,CVE-2023-0286,Medium,No,Stage,Partner IT,2026-04-09
+AST-0073,Host-0073,Software,CVE-2024-5115,Medium,Yes,Dev,Email Security,2026-06-03
+AST-0073,Host-0073,Software,CVE-2023-5073,Low,Yes,UAT,Email Security,2026-04-06
+AST-0074,Host-0074,Jira,CVE-2024-5078,Medium,Yes,Prod,API Platform,2026-02-17
+AST-0075,Host-0075,HTTP Server,CVE-2025-5092,High,No,UAT,Email Security,2026-05-11
+AST-0075,Host-0075,Software,CVE-2022-5089,Medium,No,Prod,Email Security,2026-05-09
+AST-0076,Host-0076,ColdFusion,CVE-2024-5055,Low,No,Prod,DevOps,2026-04-27
+AST-0077,Host-0077,kube-apiserver,CVE-2020-5030,Medium,No,Prod,Network Ops,2026-03-24
+AST-0077,Host-0077,Software,CVE-2024-5023,Low,No,Prod,Network Ops,2026-03-31
+AST-0078,Host-0078,nginx,CVE-2023-5107,Medium,No,Stage,Internal Apps,2026-03-04
+AST-0079,Host-0079,Software,CVE-2021-5079,Medium,Yes,UAT,Network Ops,2026-02-19
+AST-0080,Host-0080,FortiOS,CVE-2023-27997,High,Yes,Prod,Data Platform,2026-03-16
+AST-0081,Host-0081,Software,CVE-2019-5095,Low,No,Dev,IT Operations,2026-04-04
+AST-0082,Host-0082,Software,CVE-2021-5070,Low,No,Prod,WebOps,2026-06-06
+AST-0083,Host-0083,Software,CVE-2020-5072,Low,No,Prod,API Platform,2026-03-28
+AST-0084,Host-0084,NetScaler ADC,CVE-2023-4966,Medium,No,UAT,Payments Eng,2026-03-22
+AST-0085,Host-0085,PostgreSQL,CVE-2022-5028,Medium,No,UAT,Identity Team,2026-04-11
+AST-0086,Host-0086,Samba,CVE-2023-5011,High,Yes,Prod,IT Operations,2026-02-18
+AST-0087,Host-0087,MSDT,CVE-2022-30190,High,No,Prod,Network Security,2026-04-04
+AST-0087,Host-0087,nginx,CVE-2023-5107,Low,No,Stage,Network Security,2026-05-23
+AST-0088,Host-0088,OpenSSH Server,CVE-2024-6387,Low,No,Dev,API Platform,2026-05-01
+AST-0089,Host-0089,Software,CVE-2019-5032,High,Yes,Prod,Clinical IT,2026-05-20
+AST-0090,Host-0090,Software,CVE-2022-5048,Medium,No,UAT,HR IT,2026-03-19
+AST-0091,Host-0091,Software,CVE-2021-5108,Medium,Yes,Prod,Clinical IT,2026-02-23
+AST-0092,Host-0092,Jenkins,CVE-2024-5000,High,Yes,Prod,Payments Eng,2026-03-07
+AST-0093,Host-0093,Software,CVE-2024-5038,Low,Yes,Prod,Data Platform,2026-02-04
+AST-0094,Host-0094,Software,CVE-2021-5067,Low,Yes,Dev,HR IT,2026-06-15
+AST-0095,Host-0095,Software,CVE-2019-5002,High,Yes,Stage,HR IT,2026-02-06
+AST-0096,Host-0096,Software,CVE-2024-5118,Medium,Yes,Dev,Platform Eng,2026-05-14
+AST-0097,Host-0097,PHP,CVE-2022-5002,High,No,Dev,Payments Eng,2026-04-25
+AST-0097,Host-0097,Software,CVE-2025-5058,Medium,No,Prod,Payments Eng,2026-03-26
+AST-0098,Host-0098,MySQL,CVE-2023-5099,Medium,Yes,Dev,Data Platform,2026-03-30
+AST-0098,Host-0098,Software,CVE-2021-5101,High,Yes,Prod,Data Platform,2026-03-31
+AST-0099,Host-0099,Software,CVE-2022-3786,Medium,No,Dev,Identity Team,2026-02-14
+AST-0100,Host-0100,Software,CVE-2023-5096,High,No,Stage,R&D,2026-04-21
+AST-0101,Host-0101,Software,CVE-2024-5038,High,Yes,UAT,WebOps,2026-05-12
+AST-0101,Host-0101,Software,CVE-2021-5086,High,Yes,Prod,WebOps,2026-02-05
+AST-0102,Host-0102,Software,CVE-2019-5037,Low,Yes,Prod,Network Security,2026-02-04
+AST-0102,Host-0102,Node,CVE-2023-5052,High,Yes,Prod,Network Security,2026-04-26
+AST-0103,Host-0103,Software,CVE-2025-5045,High,No,Dev,Clinical IT,2026-05-30
+AST-0104,Host-0104,OpenSSH Server,CVE-2024-6387,High,No,Dev,Clinical IT,2026-06-01
+AST-0105,Host-0105,Software,CVE-2024-5115,High,Yes,Prod,DBA Team,2026-02-25
+AST-0106,Host-0106,Software,CVE-2019-5036,High,No,Prod,Data Platform,2026-04-12
+AST-0107,Host-0107,Software,CVE-2019-5047,Medium,Yes,Prod,Payments Eng,2026-03-26
+AST-0107,Host-0107,Software,CVE-2019-5036,Medium,Yes,Stage,Payments Eng,2026-05-16
+AST-0108,Host-0108,Software,CVE-2023-5039,High,Yes,Prod,Network Ops,2026-04-06
+AST-0109,Host-0109,Software,CVE-2021-5086,High,No,Stage,DevOps,2026-03-21
+AST-0110,Host-0110,Software,CVE-2021-5034,Medium,Yes,Dev,WebOps,2026-02-11
+AST-0110,Host-0110,Software,CVE-2019-5095,High,Yes,Prod,WebOps,2026-06-13
+AST-0111,Host-0111,Software,CVE-2023-5114,High,No,Prod,Clinical IT,2026-05-23
+AST-0112,Host-0112,vCenter,CVE-2019-5041,High,No,Prod,HR IT,2026-06-03
+AST-0112,Host-0112,Software,CVE-2019-5001,Low,No,Prod,HR IT,2026-02-02
+AST-0113,Host-0113,Software,CVE-2019-5068,High,Yes,Prod,Partner IT,2026-05-21
+AST-0114,Host-0114,Software,CVE-2019-5033,High,Yes,Prod,R&D,2026-03-13
+AST-0115,Host-0115,Log4j,CVE-2021-44228,Low,No,Dev,Network Security,2026-06-07
+AST-0116,Host-0116,vCenter,CVE-2023-5105,Medium,No,Prod,Email Security,2026-03-22
+AST-0117,Host-0117,PostgreSQL,CVE-2022-5028,High,Yes,Prod,Infrastructure,2026-04-06
+AST-0118,Host-0118,Windows Print Spooler,CVE-2021-34527,Medium,No,Stage,Payments Eng,2026-03-05
+AST-0119,Host-0119,kube-apiserver,CVE-2019-5117,Medium,No,Prod,Email Security,2026-03-02
+AST-0120,Host-0120,Software,CVE-2020-5116,High,Yes,Dev,IT Operations,2026-05-17
+AST-0121,Host-0121,Software,CVE-2021-5084,High,No,UAT,Network Security,2026-05-31
+AST-0122,Host-0122,nginx,CVE-2022-5003,Low,Yes,UAT,Network Ops,2026-06-17
+AST-0123,Host-0123,Software,CVE-2020-5116,Medium,No,Prod,API Platform,2026-04-17
+AST-0124,Host-0124,Software,CVE-2025-5045,High,Yes,UAT,Internal Apps,2026-06-01
+AST-0124,Host-0124,Software,CVE-2023-44487,Low,Yes,Prod,Internal Apps,2026-03-19
+AST-0125,Host-0125,Software,CVE-2023-38545,High,No,Stage,Network Security,2026-02-02
+AST-0125,Host-0125,Software,CVE-2019-5100,Low,No,Stage,Network Security,2026-05-11
+AST-0126,Host-0126,Software,CVE-2020-5004,High,Yes,Prod,Partner IT,2026-05-15
+AST-0127,Host-0127,Windows Print Spooler,CVE-2021-34527,High,No,UAT,DevOps,2026-02-23
+AST-0128,Host-0128,nginx,CVE-2019-5069,Low,No,Dev,HR IT,2026-03-04
+AST-0129,Host-0129,Software,CVE-2024-23897,High,Yes,UAT,HR IT,2026-02-23
+AST-0130,Host-0130,Software,CVE-2022-5054,High,Yes,UAT,API Platform,2026-04-20
+AST-0130,Host-0130,Software,CVE-2020-5061,Medium,Yes,UAT,API Platform,2026-06-04
+AST-0131,Host-0131,Software,CVE-2019-5077,Medium,Yes,Prod,Partner IT,2026-03-31
+AST-0131,Host-0131,Software,CVE-2025-5046,Medium,Yes,Dev,Partner IT,2026-03-28
+AST-0132,Host-0132,PAN-OS,CVE-2024-3400,High,No,Prod,DBA Team,2026-04-03
+AST-0132,Host-0132,Software,CVE-2019-5068,Low,No,Prod,DBA Team,2026-04-25
+AST-0133,Host-0133,Software,CVE-2023-5039,High,No,Prod,Payments Eng,2026-05-19
+AST-0134,Host-0134,Software,CVE-2022-5106,Low,Yes,Prod,WebOps,2026-03-10
+AST-0135,Host-0135,FortiOS,CVE-2020-5050,Medium,No,UAT,Payments Eng,2026-02-17
+AST-0136,Host-0136,Software,CVE-2024-5027,High,Yes,Dev,Platform Eng,2026-04-09
+AST-0137,Host-0137,Software,CVE-2020-5004,High,Yes,Prod,HR IT,2026-03-30
+AST-0138,Host-0138,Software,CVE-2022-5048,Medium,No,Prod,Network Ops,2026-03-27
+AST-0139,Host-0139,Software,CVE-2021-5034,Medium,No,Stage,DevOps,2026-05-25
+AST-0140,Host-0140,Software,CVE-2022-5054,High,No,Prod,Infrastructure,2026-06-19
+AST-0140,Host-0140,OpenSSH Server,CVE-2024-6387,Low,No,Prod,Infrastructure,2026-06-11
+AST-0141,Host-0141,Kernel,CVE-2019-5017,High,No,Prod,HR IT,2026-06-02
+AST-0141,Host-0141,PAN-OS,CVE-2024-3400,Medium,No,Prod,HR IT,2026-05-23
+AST-0142,Host-0142,Jira,CVE-2019-5098,High,No,Prod,Platform Eng,2026-04-05
+AST-0143,Host-0143,Software,CVE-2023-5103,High,Yes,Prod,Clinical IT,2026-04-28
+AST-0143,Host-0143,Software,CVE-2020-5056,High,Yes,Prod,Clinical IT,2026-02-01
+AST-0144,Host-0144,Software,CVE-2024-5024,High,Yes,Prod,Network Security,2026-03-10
+AST-0145,Host-0145,Software,CVE-2020-5010,High,No,Dev,Email Security,2026-03-23
+AST-0146,Host-0146,HTTP Server,CVE-2021-5087,High,No,Prod,Partner IT,2026-05-18
+AST-0147,Host-0147,kube-apiserver,CVE-2020-5030,High,Yes,Prod,Network Security,2026-05-25
+AST-0148,Host-0148,Software,CVE-2023-0286,Medium,Yes,Dev,Network Ops,2026-04-20
+AST-0149,Host-0149,PHP,CVE-2025-5109,Medium,Yes,Prod,Payments Eng,2026-03-07
+AST-0150,Host-0150,Engine,CVE-2021-5003,High,No,Prod,Identity Team,2026-04-30
+AST-0151,Host-0151,Software,CVE-2023-5013,High,Yes,Prod,Mainframe Team,2026-06-12
+AST-0152,Host-0152,Software,CVE-2024-5118,Medium,No,Stage,Payments Eng,2026-04-02
+AST-0153,Host-0153,Software,CVE-2024-5023,High,No,Prod,Email Security,2026-04-10
+AST-0154,Host-0154,Software,CVE-2023-5013,Medium,No,Prod,Mainframe Team,2026-03-12
+AST-0155,Host-0155,Software,CVE-2024-5115,High,No,Prod,Platform Eng,2026-04-23
+AST-0156,Host-0156,Software,CVE-2021-5008,Medium,No,Prod,Email Security,2026-05-12
+AST-0156,Host-0156,Software,CVE-2019-5025,High,No,Prod,Email Security,2026-03-24
+AST-0157,Host-0157,NetScaler ADC,CVE-2023-4966,High,No,Prod,Clinical IT,2026-02-28
+AST-0158,Host-0158,HTTP Server,CVE-2025-5092,High,No,Prod,WebOps,2026-06-08
+AST-0158,Host-0158,Software,CVE-2022-5054,Medium,No,Prod,WebOps,2026-02-23
+AST-0159,Host-0159,MOVEit Transfer,CVE-2023-34362,Low,No,UAT,API Platform,2026-05-07
+AST-0160,Host-0160,Software,CVE-2019-5002,Medium,Yes,Stage,DBA Team,2026-05-25
+AST-0161,Host-0161,nginx,CVE-2019-5063,Medium,No,Prod,Identity Team,2026-06-09
+AST-0162,Host-0162,Software,CVE-2022-3786,High,No,Prod,WebOps,2026-04-05
+AST-0163,Host-0163,Software,CVE-2025-5005,Medium,Yes,Stage,DBA Team,2026-04-12
+AST-0164,Host-0164,Software,CVE-2019-5077,High,No,Prod,Email Security,2026-05-24
+AST-0165,Host-0165,NetScaler,CVE-2024-5043,High,No,Prod,Mainframe Team,2026-03-31
+AST-0165,Host-0165,ColdFusion,CVE-2024-5055,High,No,Dev,Mainframe Team,2026-02-05
+AST-0166,Host-0166,HTTP Server,CVE-2021-5087,Medium,No,Prod,Platform Eng,2026-04-19
+AST-0166,Host-0166,Software,CVE-2019-11043,Medium,No,Prod,Platform Eng,2026-06-07
+AST-0167,Host-0167,nginx,CVE-2019-5069,Low,No,Prod,Email Security,2026-05-27
+AST-0167,Host-0167,Software,CVE-2019-5094,Low,No,Stage,Email Security,2026-04-03
+AST-0168,Host-0168,Software,CVE-2023-5114,High,No,Prod,HR IT,2026-03-24
+AST-0168,Host-0168,Software,CVE-2020-5010,Medium,No,Stage,HR IT,2026-04-06
+AST-0169,Host-0169,Software,CVE-2021-5086,Medium,No,Prod,Mobility Team,2026-05-19
+AST-0170,Host-0170,Software,CVE-2021-3156,Low,No,Stage,R&D,2026-06-08
+AST-0171,Host-0171,Software,CVE-2021-5081,High,No,Stage,Identity Team,2026-04-06
+AST-0172,Host-0172,Software,CVE-2019-5036,High,No,Prod,R&D,2026-06-05
+AST-0173,Host-0173,Software,CVE-2025-5046,Medium,Yes,Dev,API Platform,2026-06-07
+AST-0173,Host-0173,Software,CVE-2021-5108,Medium,Yes,Prod,API Platform,2026-03-05
+AST-0174,Host-0174,Software,CVE-2024-5080,High,No,Prod,Partner IT,2026-04-09
+AST-0175,Host-0175,Confluence,CVE-2023-22515,High,No,UAT,DevOps,2026-05-10
+AST-0176,Host-0176,Software,CVE-2022-5057,Medium,No,Prod,Platform Eng,2026-04-18
+AST-0177,Host-0177,HTTP Server,CVE-2021-5087,Low,Yes,UAT,WebOps,2026-06-18
+AST-0178,Host-0178,Log4j,CVE-2021-44228,Medium,No,Prod,R&D,2026-05-28
+AST-0179,Host-0179,Software,CVE-2025-5005,Low,Yes,Prod,Email Security,2026-04-06
+AST-0180,Host-0180,PHP,CVE-2022-5002,High,No,UAT,R&D,2026-03-11
+AST-0181,Host-0181,nginx,CVE-2023-5107,High,No,Prod,Infrastructure,2026-05-25
+AST-0182,Host-0182,Software,CVE-2020-5116,High,No,Prod,Clinical IT,2026-03-31
+AST-0183,Host-0183,PAN-OS,CVE-2024-3400,High,Yes,Dev,Email Security,2026-05-31
+AST-0184,Host-0184,Jira,CVE-2025-5014,Low,Yes,Dev,DevOps,2026-05-08
+AST-0185,Host-0185,Jenkins,CVE-2024-5000,High,No,Prod,HR IT,2026-03-29
+AST-0185,Host-0185,Engine,CVE-2021-5003,High,No,Dev,HR IT,2026-02-06
+AST-0186,Host-0186,HTTP Server,CVE-2025-5092,High,No,Prod,Internal Apps,2026-05-08
+AST-0187,Host-0187,ColdFusion,CVE-2024-5055,High,Yes,UAT,Mobility Team,2026-05-09
+AST-0188,Host-0188,HTTP Server,CVE-2021-5087,Medium,Yes,Prod,Identity Team,2026-06-02
+AST-0189,Host-0189,Confluence,CVE-2023-22515,Medium,Yes,Prod,Network Ops,2026-02-04
+AST-0189,Host-0189,Software,CVE-2021-5067,Medium,Yes,Prod,Network Ops,2026-02-16
+AST-0190,Host-0190,Software,CVE-2024-5080,High,No,Dev,Network Ops,2026-05-23
+AST-0191,Host-0191,Software,CVE-2022-5054,Low,No,Prod,Mainframe Team,2026-03-10
+AST-0192,Host-0192,Software,CVE-2019-5037,High,No,Prod,Internal Apps,2026-04-24
+AST-0192,Host-0192,Software,CVE-2024-5115,Medium,No,Prod,Internal Apps,2026-06-10
+AST-0193,Host-0193,Software,CVE-2019-5032,High,No,Stage,Network Ops,2026-06-19
+AST-0194,Host-0194,Windows Print Spooler,CVE-2021-34527,Medium,Yes,Prod,Network Security,2026-03-07
+AST-0194,Host-0194,vCenter,CVE-2019-5041,Low,Yes,Prod,Network Security,2026-06-01
+AST-0195,Host-0195,Software,CVE-2023-5114,High,No,Prod,Data Platform,2026-04-24
+AST-0195,Host-0195,Software,CVE-2023-5013,High,No,Prod,Data Platform,2026-03-06
+AST-0196,Host-0196,PHP,CVE-2025-5109,Medium,No,Dev,Network Security,2026-04-29
+AST-0197,Host-0197,kube-apiserver,CVE-2021-5049,Low,No,Prod,DBA Team,2026-02-14
+AST-0198,Host-0198,Kernel,CVE-2019-5017,High,Yes,Dev,R&D,2026-04-27
+AST-0199,Host-0199,Software,CVE-2022-5031,High,No,UAT,Network Ops,2026-04-22
+AST-0199,Host-0199,ESG,CVE-2023-2868,High,No,Dev,Network Ops,2026-04-11
+AST-0200,Host-0200,Software,CVE-2022-5104,High,No,Prod,Network Ops,2026-02-18
+AST-0201,Host-0201,IOS XE,CVE-2023-20198,Medium,No,Dev,Platform Eng,2026-02-09
+AST-0202,Host-0202,NetScaler,CVE-2022-5042,High,No,Prod,DevOps,2026-04-22
+AST-0203,Host-0203,NetScaler,CVE-2022-5042,High,No,Prod,Platform Eng,2026-03-10
+AST-0204,Host-0204,Software,CVE-2021-5076,High,Yes,Stage,Payments Eng,2026-03-20
+AST-0205,Host-0205,Software,CVE-2024-5053,Medium,No,Prod,R&D,2026-03-06
+AST-0206,Host-0206,Software,CVE-2023-5096,Low,Yes,Prod,Network Ops,2026-03-10
+AST-0207,Host-0207,nginx,CVE-2022-5003,High,Yes,Prod,Internal Apps,2026-04-06
+AST-0208,Host-0208,Confluence,CVE-2022-26134,Medium,Yes,Prod,R&D,2026-03-24
+AST-0209,Host-0209,Confluence,CVE-2022-26134,High,No,Prod,DevOps,2026-02-26
+AST-0209,Host-0209,Software,CVE-2021-5040,High,No,Dev,DevOps,2026-06-11
+AST-0210,Host-0210,Software,CVE-2019-5037,Medium,Yes,Prod,IT Operations,2026-05-08
+AST-0211,Host-0211,Software,CVE-2025-5005,High,Yes,Dev,Network Security,2026-02-02
+AST-0212,Host-0212,Software,CVE-2019-5075,High,Yes,UAT,Data Platform,2026-03-22
+AST-0213,Host-0213,Jira,CVE-2025-5014,Medium,No,Dev,Payments Eng,2026-06-03
+AST-0214,Host-0214,vCenter,CVE-2023-5105,High,No,Prod,Mobility Team,2026-02-15
+AST-0215,Host-0215,NetScaler,CVE-2022-5042,High,Yes,Prod,Platform Eng,2026-03-05
+AST-0215,Host-0215,MySQL,CVE-2023-5099,Medium,Yes,Dev,Platform Eng,2026-06-05
+AST-0216,Host-0216,Software,CVE-2021-5086,Medium,No,Dev,DBA Team,2026-02-22
+AST-0216,Host-0216,Windows Print Spooler,CVE-2021-34527,Medium,No,Prod,DBA Team,2026-05-08
+AST-0217,Host-0217,Samba,CVE-2023-5011,Medium,Yes,Prod,Mobility Team,2026-02-25
+AST-0217,Host-0217,Software,CVE-2022-3786,Medium,Yes,Prod,Mobility Team,2026-06-11
+AST-0218,Host-0218,Software,CVE-2024-5066,High,Yes,Prod,R&D,2026-04-15
+AST-0219,Host-0219,Software,CVE-2022-5089,Medium,Yes,Prod,Network Ops,2026-02-28
+AST-0220,Host-0220,Jira,CVE-2020-5005,Low,No,Prod,Internal Apps,2026-04-24
+AST-0220,Host-0220,Windows Print Spooler,CVE-2021-34527,Medium,No,Prod,Internal Apps,2026-03-11
+AST-0221,Host-0221,Software,CVE-2022-5062,Low,Yes,Dev,Network Security,2026-06-08
+AST-0222,Host-0222,ColdFusion,CVE-2024-5055,High,Yes,Dev,Platform Eng,2026-03-16
+AST-0222,Host-0222,Software,CVE-2020-5083,High,Yes,Dev,Platform Eng,2026-05-29
+AST-0223,Host-0223,FortiOS,CVE-2020-5019,Low,Yes,Dev,Identity Team,2026-04-14
+AST-0224,Host-0224,Software,CVE-2019-5032,High,No,Prod,Payments Eng,2026-04-06
+AST-0225,Host-0225,Software,CVE-2020-5112,Medium,No,Dev,Infrastructure,2026-03-21
+AST-0226,Host-0226,ESG,CVE-2023-2868,High,No,Prod,R&D,2026-04-01
+AST-0227,Host-0227,nginx,CVE-2022-5003,Low,No,UAT,Identity Team,2026-05-20
+AST-0228,Host-0228,Software,CVE-2020-5083,High,Yes,Dev,Email Security,2026-06-13
+AST-0229,Host-0229,Software,CVE-2023-5096,High,No,Dev,Infrastructure,2026-04-29
+AST-0230,Host-0230,Engine,CVE-2021-5003,High,No,UAT,HR IT,2026-02-02
+AST-0230,Host-0230,PHP,CVE-2022-5002,Medium,No,Dev,HR IT,2026-06-09
+AST-0231,Host-0231,Software,CVE-2023-5039,Medium,No,Prod,Data Platform,2026-02-11
+AST-0232,Host-0232,Jira,CVE-2019-5098,Medium,Yes,Prod,Email Security,2026-02-05
+AST-0233,Host-0233,Software,CVE-2022-5054,Medium,No,Prod,Infrastructure,2026-05-04
+AST-0233,Host-0233,Software,CVE-2019-5113,High,No,Prod,Infrastructure,2026-04-29
+AST-0234,Host-0234,Software,CVE-2021-5079,High,Yes,Prod,API Platform,2026-06-05
+AST-0235,Host-0235,Software,CVE-2021-5070,High,No,Prod,Network Security,2026-04-04
+AST-0235,Host-0235,Software,CVE-2019-5032,Medium,No,Prod,Network Security,2026-03-14
+AST-0001,Host-0001,FortiOS,CVE-2020-5019,Medium,No,Prod,R&D,2026-02-25
+AST-9001,Quantum Test Rig,Experimental,CVE-2024-NOTREAL,Medium,No,Dev,R&D,2026-06-15
+AST-9002,Tier0 Mainframe,Legacy Core,CVE-2022-26134,Critical,Yes,Prod,Mainframe Team,2026-04-26

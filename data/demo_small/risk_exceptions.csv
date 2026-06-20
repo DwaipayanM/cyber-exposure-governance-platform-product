@@ -1,0 +1,6 @@
+asset_id,cve_id,exception_status,acceptance_reason,accepted_by,acceptance_expiry_date,compensating_control
+AST-003,CVE-2022-26134,Deferred,Patch scheduled in next maintenance window,IT Manager,2026-07-31,Restricted network access and monitoring enabled
+AST-006,CVE-2023-23897,Risk Accepted,Dev-only server with restricted access,Engineering Manager,2026-07-15,VPN-only access and build network monitoring
+AST-013,CVE-2021-34527,Risk Accepted,"Internal print server, compensating controls in place",IT Manager,2026-05-01,Host firewall + segmented print VLAN
+AST-019,CVE-2024-1086,Deferred,"UAT node, kernel upgrade planned",Data Director,,Isolated UAT subnet
+AST-029,CVE-2021-3156,Risk Accepted,Legacy dev host pending decommission,Infra Lead,2026-09-30,"Scheduled for decommission, restricted access"

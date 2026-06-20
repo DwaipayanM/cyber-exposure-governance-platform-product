@@ -1,0 +1,27 @@
+asset_id,application_name,business_process,business_owner,network_zone,open_ports,firewall_status,vpn_required,asset_type,data_type,pii_present,data_sensitivity,encryption_status,regulatory_impact
+NWR-0001,App-0001,Store POS,Web Platform Team,VPN,6379,Restricted,No,Database,Marketing Data,No,High,Encrypted,Low
+NWR-0002,App-0002,Inventory Sync,Retail IT,Internal,"8080,8443",Allowed,No,Database,Marketing Data,Yes,Low,Encrypted,Low
+NWR-0003,App-0003,Inventory Sync,Data Platform,Internal,"22,3389",Allowed,Yes,Network Device,Order Data,No,High,Encrypted,High
+NWR-0004,App-0004,Store POS,Data Platform,Internet,"53,389",Restricted,No,Database,Marketing Data,Yes,High,Encrypted,High
+NWR-0005,App-0005,Inventory Sync,Data Platform,Internet,"21,22",Restricted,No,Server,Customer PII,Yes,Medium,Not Encrypted,High
+NWR-0006,App-0006,E-Commerce Checkout,SRE Team,VPN,"80,443",Restricted,Yes,Database,Marketing Data,Yes,High,Unknown,High
+NWR-0007,App-0007,Payment Gateway,Web Platform Team,DMZ,"445,139",Allowed,No,Mobile,Payment Card Data,Yes,Medium,Unknown,Medium
+NWR-0008,App-0008,E-Commerce Checkout,SRE Team,Internet,6379,Blocked,No,Workstation,Payment Card Data,Yes,Medium,Encrypted,High
+NWR-0009,App-0009,Marketing Platform,Payments Team,Internal,1433,Allowed,Yes,Server,Order Data,Yes,Medium,Not Encrypted,High
+NWR-0010,App-0010,Loyalty Program,Web Platform Team,Internal,"80,443",Restricted,Yes,Server,Order Data,No,Low,Not Encrypted,Low
+NWR-0011,App-0011,Payment Gateway,Payments Team,DMZ,"22,3389",Restricted,No,Mobile,Customer PII,Yes,Low,Encrypted,Medium
+NWR-0012,App-0012,Payment Gateway,SRE Team,DMZ,"8080,8443",Blocked,Yes,Server,Customer PII,Yes,High,Unknown,High
+NWR-0013,App-0013,Loyalty Program,Retail IT,Internet,3306,Blocked,Yes,Network Device,Payment Card Data,Yes,High,Unknown,High
+NWR-0014,App-0014,E-Commerce Checkout,Payments Team,DMZ,"22,3389",Restricted,Yes,Database,Marketing Data,Yes,Medium,Not Encrypted,High
+NWR-0015,App-0015,Payment Gateway,Web Platform Team,Internet,6379,Restricted,Yes,Database,Customer PII,Yes,Low,Encrypted,High
+NWR-0016,App-0016,Loyalty Program,SRE Team,Internal,"445,139",Blocked,Yes,Server,Marketing Data,Yes,Medium,Unknown,High
+NWR-0017,App-0017,Store POS,Payments Team,Internet,"22,3389",Allowed,No,Server,Order Data,Yes,Low,Encrypted,Medium
+NWR-0018,App-0018,Inventory Sync,Web Platform Team,Internal,6379,Restricted,No,Workstation,Marketing Data,No,High,Encrypted,Medium
+NWR-0019,App-0019,Store POS,Retail IT,Internet,443,Blocked,Yes,Server,Customer PII,Yes,Low,Not Encrypted,High
+NWR-0020,App-0020,Store POS,Web Platform Team,Internal,443,Allowed,Yes,Server,Marketing Data,No,High,Encrypted,High
+NWR-0021,App-0021,Store POS,Payments Team,Internet,443,Allowed,Yes,Database,Marketing Data,No,Medium,Encrypted,Low
+NWR-0022,App-0022,Loyalty Program,SRE Team,Internal,6379,Restricted,No,Database,Order Data,No,Low,Unknown,High
+NWR-0023,App-0023,Marketing Platform,Payments Team,VPN,"8080,8443",Restricted,Yes,Database,Marketing Data,No,Medium,Unknown,Low
+NWR-0024,App-0024,Store POS,Web Platform Team,Internet,"8080,8443",Restricted,No,Network Device,Order Data,Yes,Medium,Encrypted,High
+NWR-0025,App-0025,Customer Accounts,Web Platform Team,Internal,3306,Restricted,Yes,Database,Marketing Data,Yes,Medium,Not Encrypted,Medium
+NWR-0026,App-0026,Payment Gateway,Retail IT,Internet,"22,3389",Blocked,No,Network Device,Payment Card Data,Yes,Medium,Not Encrypted,High

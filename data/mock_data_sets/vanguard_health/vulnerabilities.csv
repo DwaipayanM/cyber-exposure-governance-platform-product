@@ -1,0 +1,34 @@
+asset_id,asset_name,product,cve_id,business_criticality,internet_facing,environment,asset_owner,first_detected_date
+VHS-0001,Host-0001,Cisco IOS,CVE-2021-5076,High,Yes,Dev,Health IT Security,2026-06-17
+VHS-0002,Host-0002,Apache HTTP Server,CVE-2021-5087,Medium,No,Prod,Clinical Systems,2026-05-29
+VHS-0003,Host-0003,Cisco IOS,CVE-2025-5110,High,No,Prod,Network Team,2026-03-17
+VHS-0003,Host-0003,Oracle WebLogic,CVE-2024-21887,High,No,Prod,Network Team,2026-06-17
+VHS-0004,Host-0004,Spring Framework,CVE-2023-5039,High,Yes,Staging,EHR Team,2026-06-06
+VHS-0005,Host-0005,Cisco IOS,CVE-2024-5053,Medium,No,Prod,Infra Team,2026-05-16
+VHS-0006,Host-0006,OpenSSL,CVE-2023-5103,Medium,Yes,Test,Health IT Security,2026-06-12
+VHS-0007,Host-0007,Apache HTTP Server,CVE-2020-5050,Medium,Yes,Test,EHR Team,2026-06-12
+VHS-0007,Host-0007,Citrix ADC,CVE-2019-5098,Medium,Yes,Test,EHR Team,2026-05-29
+VHS-0008,Host-0008,Jenkins,CVE-2024-5023,High,No,Test,EHR Team,2026-05-01
+VHS-0009,Host-0009,Oracle WebLogic,CVE-2023-5011,Medium,Yes,Test,EHR Team,2026-05-16
+VHS-0009,Host-0009,Progress MOVEit,CVE-2022-30190,Medium,Yes,Test,EHR Team,2026-06-12
+VHS-0010,Host-0010,Apache Tomcat,CVE-2021-5079,Low,Yes,Staging,Network Team,2026-05-16
+VHS-0011,Host-0011,Citrix ADC,CVE-2024-5078,High,Yes,Prod,Clinical Systems,2026-05-29
+VHS-0012,Host-0012,Spring Framework,CVE-2024-3400,Low,No,Prod,Clinical Systems,2026-05-01
+VHS-0012,Host-0012,Jenkins,CVE-2020-5019,Low,No,Prod,Clinical Systems,2026-06-06
+VHS-0013,Host-0013,Atlassian Confluence,CVE-2019-5069,Low,No,Prod,Clinical Systems,2026-05-01
+VHS-0014,Host-0014,PostgreSQL,CVE-2021-5076,Medium,No,Prod,Network Team,2026-04-11
+VHS-0015,Host-0015,Atlassian Confluence,CVE-2021-5087,Medium,No,Prod,Health IT Security,2026-04-11
+VHS-0015,Host-0015,Citrix ADC,CVE-2025-5085,Medium,No,Prod,Health IT Security,2026-04-11
+VHS-0016,Host-0016,MS Exchange,CVE-2025-5110,Medium,No,Dev,Infra Team,2026-06-06
+VHS-0016,Host-0016,PostgreSQL,CVE-2024-21887,Medium,No,Dev,Infra Team,2026-05-01
+VHS-0017,Host-0017,Windows Server,CVE-2023-5039,High,Yes,Prod,EHR Team,2026-06-06
+VHS-0018,Host-0018,Citrix ADC,CVE-2024-5053,Medium,No,Non-Prod,Health IT Security,2026-05-01
+VHS-0019,Host-0019,Jenkins,CVE-2023-5103,Low,No,UAT,Infra Team,2026-03-17
+VHS-0020,Host-0020,Fortinet FortiOS,CVE-2020-5050,Low,Yes,Test,EHR Team,2026-06-06
+VHS-0021,Host-0021,Windows Server,CVE-2024-5023,High,No,Test,Clinical Systems,2026-06-06
+VHS-0022,Host-0022,nginx,CVE-2023-5011,High,Yes,Prod,Infra Team,2026-05-29
+VHS-0023,Host-0023,Linux Kernel,CVE-2021-5079,High,Yes,Prod,Network Team,2026-06-12
+VHS-0024,Host-0024,Apache HTTP Server,CVE-2024-5078,High,No,Test,Clinical Systems,2026-05-01
+VHS-0025,Host-0025,Apache Tomcat,CVE-2024-3400,Medium,No,Prod,Clinical Systems,2026-02-20
+VHS-0026,Host-0026,VMware vCenter,CVE-2019-5069,High,No,Dev,Infra Team,2026-05-16
+VHS-0026,Host-0026,Apache HTTP Server,CVE-2025-5046,High,No,Dev,Infra Team,2026-05-16

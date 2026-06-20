@@ -1,0 +1,27 @@
+asset_id,application_name,business_process,business_owner,network_zone,open_ports,firewall_status,vpn_required,asset_type,data_type,pii_present,data_sensitivity,encryption_status,regulatory_impact
+VHS-0001,App-0001,Clinician Workstations,Health IT Security,Internet,6379,Restricted,Yes,Server,PHI,Yes,High,Encrypted,Low
+VHS-0002,App-0002,Pharmacy Mgmt,Clinical Systems,Internal,"53,389",Blocked,No,Server,Clinical Notes,Yes,High,Not Encrypted,High
+VHS-0003,App-0003,Clinician Workstations,Network Team,DMZ,"21,22",Allowed,Yes,Database,Patient PII,Yes,High,Encrypted,High
+VHS-0004,App-0004,Appointment Scheduling,EHR Team,Internet,"80,443",Restricted,Yes,Server,Patient PII,Yes,High,Not Encrypted,Medium
+VHS-0005,App-0005,Appointment Scheduling,Infra Team,DMZ,6379,Restricted,Yes,Network Device,Insurance Data,No,High,Encrypted,High
+VHS-0006,App-0006,Imaging (PACS),Health IT Security,Internet,443,Restricted,No,Database,Clinical Notes,Yes,High,Not Encrypted,Medium
+VHS-0007,App-0007,Telehealth Portal,EHR Team,Internet,3306,Restricted,Yes,Server,Insurance Data,No,High,Unknown,Medium
+VHS-0008,App-0008,Billing & Claims,EHR Team,VPN,"21,22",Restricted,Yes,Database,Clinical Notes,No,High,Encrypted,Low
+VHS-0009,App-0009,Billing & Claims,EHR Team,Internet,"53,389",Restricted,Yes,Database,Clinical Notes,Yes,High,Encrypted,Medium
+VHS-0010,App-0010,Appointment Scheduling,Network Team,Internet,3306,Allowed,No,Wireless,Patient PII,Yes,High,Encrypted,Medium
+VHS-0011,App-0011,Imaging (PACS),Clinical Systems,Internet,3306,Blocked,Yes,Server,Patient PII,Yes,High,Encrypted,High
+VHS-0012,App-0012,Patient Records,Clinical Systems,DMZ,1433,Restricted,Yes,Server,Patient PII,Yes,Low,Unknown,High
+VHS-0013,App-0013,Lab Results,Clinical Systems,DMZ,443,Restricted,No,Network Device,Insurance Data,Yes,High,Encrypted,Low
+VHS-0014,App-0014,Appointment Scheduling,Network Team,DMZ,"22,3389",Allowed,No,Server,Clinical Notes,Yes,High,Not Encrypted,High
+VHS-0015,App-0015,Imaging (PACS),Health IT Security,VPN,"53,389",Blocked,Yes,Server,Insurance Data,No,High,Unknown,High
+VHS-0016,App-0016,Appointment Scheduling,Infra Team,VPN,"21,22",Restricted,No,Mobile,Patient PII,Yes,High,Encrypted,Low
+VHS-0017,App-0017,Patient Records,EHR Team,Internet,"21,22",Restricted,No,Mobile,Clinical Notes,Yes,High,Unknown,Low
+VHS-0018,App-0018,Lab Results,Health IT Security,Internal,443,Restricted,Yes,Database,PHI,Yes,High,Not Encrypted,High
+VHS-0019,App-0019,Billing & Claims,Infra Team,VPN,443,Allowed,Yes,Workstation,Clinical Notes,No,Medium,Encrypted,Medium
+VHS-0020,App-0020,Appointment Scheduling,EHR Team,Internet,"445,139",Restricted,Yes,Network Device,Patient PII,Yes,Low,Encrypted,High
+VHS-0021,App-0021,Lab Results,Clinical Systems,Internal,"22,3389",Allowed,No,Network Device,Clinical Notes,Yes,High,Encrypted,Medium
+VHS-0022,App-0022,Lab Results,Infra Team,Internet,"21,22",Restricted,No,Network Device,Insurance Data,No,Low,Encrypted,Low
+VHS-0023,App-0023,Patient Records,Network Team,Internet,"8080,8443",Blocked,No,Server,Insurance Data,No,Low,Encrypted,High
+VHS-0024,App-0024,Telehealth Portal,Clinical Systems,VPN,6379,Restricted,No,Workstation,Insurance Data,Yes,High,Not Encrypted,High
+VHS-0025,App-0025,Patient Records,Clinical Systems,Internal,443,Restricted,No,Server,Clinical Notes,No,Low,Encrypted,Medium
+VHS-0026,App-0026,Appointment Scheduling,Infra Team,VPN,"80,443",Blocked,Yes,Server,Insurance Data,No,High,Encrypted,Medium

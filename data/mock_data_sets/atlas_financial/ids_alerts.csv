@@ -1,0 +1,27 @@
+alert_id,asset_id,alert_type,alert_severity,source_ip,destination_ip,timestamp,signature_name,confidence
+IDS-AFS-0001,AFS-0002,SQL Injection Attempt,Critical,45.227.41.95,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Low
+IDS-AFS-0002,AFS-0002,Brute Force,Critical,45.75.241.91,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Low
+IDS-AFS-0003,AFS-0002,Exploit Attempt,Medium,45.22.67.202,10.0.0.1,2026-06-20 12:00:00,SMB Lateral,High
+IDS-AFS-0004,AFS-0018,Malware Callback,Medium,45.60.174.192,10.0.0.1,2026-06-20 12:00:00,Recon Scan,Low
+IDS-AFS-0005,AFS-0012,Data Exfil Attempt,High,45.105.66.100,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,Medium
+IDS-AFS-0006,AFS-0023,Suspicious Web Request,High,45.216.37.235,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Medium
+IDS-AFS-0007,AFS-0015,Brute Force,Medium,45.50.238.214,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,High
+IDS-AFS-0008,AFS-0015,Malware Callback,Medium,45.45.200.115,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,Medium
+IDS-AFS-0009,AFS-0016,Data Exfil Attempt,High,45.96.83.211,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Medium
+IDS-AFS-0010,AFS-0016,Data Exfil Attempt,Medium,45.46.85.57,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,High
+IDS-AFS-0011,AFS-0003,Suspicious Web Request,High,45.48.69.108,10.0.0.1,2026-06-20 12:00:00,SQLi Pattern,High
+IDS-AFS-0012,AFS-0003,Suspicious Web Request,Critical,45.156.215.76,10.0.0.1,2026-06-20 12:00:00,C2 Beacon,High
+IDS-AFS-0013,AFS-0013,Data Exfil Attempt,High,45.133.30.40,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Low
+IDS-AFS-0014,AFS-0004,Brute Force,High,45.223.74.31,10.0.0.1,2026-06-20 12:00:00,Recon Scan,High
+IDS-AFS-0015,AFS-0004,Malware Callback,High,45.76.62.237,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,High
+IDS-AFS-0016,AFS-0020,SQL Injection Attempt,Medium,45.24.214.186,10.0.0.1,2026-06-20 12:00:00,Recon Scan,High
+IDS-AFS-0017,AFS-0009,Exploit Attempt,High,45.139.88.131,10.0.0.1,2026-06-20 12:00:00,Malformed HTTP,Medium
+IDS-AFS-0018,AFS-0009,Exploit Attempt,Medium,45.144.74.48,10.0.0.1,2026-06-20 12:00:00,C2 Beacon,Medium
+IDS-AFS-0019,AFS-0009,Exploit Attempt,Low,45.65.71.147,10.0.0.1,2026-06-20 12:00:00,Malformed HTTP,High
+IDS-AFS-0020,AFS-0006,Brute Force,Medium,45.60.154.21,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,Low
+IDS-AFS-0021,AFS-0006,Lateral Movement,Medium,45.54.53.36,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Low
+IDS-AFS-0022,AFS-0010,Exploit Attempt,Critical,45.197.134.105,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Low
+IDS-AFS-0023,AFS-0025,Malware Callback,High,45.173.222.243,10.0.0.1,2026-06-20 12:00:00,SMB Lateral,High
+IDS-AFS-0024,AFS-0025,Exploit Attempt,High,45.205.123.35,10.0.0.1,2026-06-20 12:00:00,Recon Scan,High
+IDS-AFS-0025,AFS-0011,Malware Callback,Critical,45.189.96.148,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Medium
+IDS-AFS-0026,AFS-0026,Lateral Movement,Low,45.28.31.92,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Medium

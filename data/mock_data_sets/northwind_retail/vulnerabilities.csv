@@ -1,0 +1,37 @@
+asset_id,asset_name,product,cve_id,business_criticality,internet_facing,environment,asset_owner,first_detected_date
+NWR-0001,Host-0001,PostgreSQL,CVE-2023-5097,Low,No,Dev,Web Platform Team,2026-03-17
+NWR-0001,Host-0001,Citrix ADC,CVE-2019-5117,Low,No,Dev,Web Platform Team,2026-06-12
+NWR-0002,Host-0002,Fortinet FortiOS,CVE-2022-5012,Low,No,Test,Retail IT,2026-03-17
+NWR-0003,Host-0003,PostgreSQL,CVE-2020-5072,High,No,Staging,Data Platform,2026-05-29
+NWR-0004,Host-0004,Windows Server,CVE-2025-5058,Low,Yes,Prod,Data Platform,2026-04-11
+NWR-0005,Host-0005,Oracle WebLogic,CVE-2024-5115,Medium,Yes,Prod,Data Platform,2026-02-20
+NWR-0005,Host-0005,Jenkins,CVE-2021-44228,Medium,Yes,Prod,Data Platform,2026-06-17
+NWR-0006,Host-0006,Citrix ADC,CVE-2019-5098,High,No,Staging,SRE Team,2026-02-20
+NWR-0007,Host-0007,MS Exchange,CVE-2024-5066,Medium,No,Prod,Web Platform Team,2026-06-12
+NWR-0008,Host-0008,Linux Kernel,CVE-2022-5089,Medium,Yes,Prod,SRE Team,2026-06-12
+NWR-0008,Host-0008,Apache Tomcat,CVE-2022-5031,Medium,Yes,Prod,SRE Team,2026-02-20
+NWR-0009,Host-0009,Apache HTTP Server,CVE-2025-5071,Medium,No,Test,Payments Team,2026-05-01
+NWR-0010,Host-0010,Progress MOVEit,CVE-2023-5105,Medium,No,Staging,Web Platform Team,2026-05-01
+NWR-0011,Host-0011,Fortinet FortiOS,CVE-2020-5019,Medium,No,Staging,Payments Team,2026-05-01
+NWR-0011,Host-0011,Jenkins,CVE-2019-5047,Medium,No,Staging,Payments Team,2026-04-11
+NWR-0012,Host-0012,Apache HTTP Server,CVE-2022-5042,Low,No,Test,SRE Team,2026-06-06
+NWR-0013,Host-0013,Linux Kernel,CVE-2019-5041,Medium,Yes,Test,Retail IT,2026-05-01
+NWR-0013,Host-0013,Cisco IOS,CVE-2021-5086,Medium,Yes,Test,Retail IT,2026-02-20
+NWR-0014,Host-0014,WordPress,CVE-2023-5097,Medium,No,Test,Payments Team,2026-06-12
+NWR-0015,Host-0015,Jenkins,CVE-2022-5012,Medium,Yes,Dev,Web Platform Team,2026-06-12
+NWR-0015,Host-0015,Oracle WebLogic,CVE-2022-5002,Medium,Yes,Dev,Web Platform Team,2026-05-01
+NWR-0016,Host-0016,Jenkins,CVE-2020-5072,Medium,No,Test,SRE Team,2026-04-11
+NWR-0017,Host-0017,VMware vCenter,CVE-2025-5058,High,Yes,Dev,Payments Team,2026-06-12
+NWR-0018,Host-0018,VMware vCenter,CVE-2024-5115,High,No,Dev,Web Platform Team,2026-06-17
+NWR-0019,Host-0019,Cisco IOS,CVE-2019-5098,Low,Yes,Dev,Retail IT,2026-06-06
+NWR-0020,Host-0020,Oracle WebLogic,CVE-2024-5066,Low,No,Staging,Web Platform Team,2026-06-12
+NWR-0020,Host-0020,Fortinet FortiOS,CVE-2019-11043,Low,No,Staging,Web Platform Team,2026-05-29
+NWR-0021,Host-0021,PostgreSQL,CVE-2022-5089,Medium,Yes,Prod,Payments Team,2026-05-16
+NWR-0022,Host-0022,Citrix ADC,CVE-2025-5071,Medium,No,Prod,SRE Team,2026-03-17
+NWR-0023,Host-0023,Fortinet FortiOS,CVE-2023-5105,Low,No,Dev,Payments Team,2026-06-17
+NWR-0023,Host-0023,Cisco IOS,CVE-2022-3786,Low,No,Dev,Payments Team,2026-05-16
+NWR-0024,Host-0024,nginx,CVE-2020-5019,Medium,Yes,Prod,Web Platform Team,2026-02-20
+NWR-0024,Host-0024,OpenSSL,CVE-2019-5047,Medium,Yes,Prod,Web Platform Team,2026-05-29
+NWR-0025,Host-0025,VMware vCenter,CVE-2022-5042,High,No,Prod,Web Platform Team,2026-06-17
+NWR-0026,Host-0026,OpenSSL,CVE-2019-5041,High,Yes,Prod,Retail IT,2026-06-06
+NWR-0026,Host-0026,Cisco IOS,CVE-2021-5086,High,Yes,Prod,Retail IT,2026-02-20

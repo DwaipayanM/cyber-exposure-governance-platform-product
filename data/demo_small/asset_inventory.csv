@@ -1,0 +1,38 @@
+asset_id,application_name,business_process,business_owner,network_zone,open_ports,firewall_status,vpn_required,asset_type,data_type,pii_present,data_sensitivity,encryption_status,regulatory_impact
+AST-001,Customer Portal,Online Sales,Sales Director,Internet,"443,22",Allowed,No,Server,Customer Data,Yes,High,Encrypted,High
+AST-002,Mail Platform,Corporate Email,IT Head,DMZ,"443,25",Allowed,No,Server,Employee Data,Yes,High,Unknown,High
+AST-003,Internal Wiki,Knowledge Management,IT Manager,Internal,443,Restricted,Yes,Server,Internal Data,No,Medium,Encrypted,Low
+AST-004,Remote Access Gateway,Remote Connectivity,CISO,Internet,"443,8443",Allowed,No,Network Device,Employee Access Data,Yes,High,Unknown,High
+AST-005,Finance Database,Financial Reporting,CFO,Internal,5432,Restricted,Yes,Database,Financial Data,Yes,High,Encrypted,High
+AST-006,Build Automation,Software Delivery,Engineering Manager,Internal,"8080,50000",Restricted,Yes,Server,Source Code,No,Medium,Unknown,Medium
+AST-007,SFTP Service,Partner File Exchange,Operations Head,Internet,22,Allowed,No,Server,Partner Data,Yes,High,Encrypted,High
+AST-008,API Gateway,Customer API Services,Product Director,Internet,"443,80",Allowed,No,Server,Customer Data,Yes,High,Encrypted,High
+AST-009,HR Self-Service,HR Operations,HR Director,DMZ,443,Allowed,No,Server,HR Data,Yes,High,Not Encrypted,High
+AST-010,Payment Processing,Payments,VP Payments,Internet,443,Allowed,No,Server,Payment Data,Yes,High,Encrypted,High
+AST-011,Virtual Apps Gateway,Remote Connectivity,CISO,Internet,443,Allowed,No,Network Device,Employee Access Data,Yes,High,Unknown,High
+AST-012,Active Directory,Identity Management,IT Head,Internal,"445,389",Restricted,Yes,Server,Employee Data,Yes,High,Encrypted,High
+AST-013,Print Services,Office Productivity,IT Manager,Internal,445,Restricted,Yes,Server,Internal Data,No,Low,Unknown,Low
+AST-014,Perimeter Firewall,Network Security,CISO,Internet,443,Allowed,No,Network Device,Operational Data,No,Medium,Encrypted,Medium
+AST-015,Core Network,Network Connectivity,Network Director,Internet,"443,22",Allowed,No,Network Device,Operational Data,No,Medium,Unknown,Medium
+AST-016,MFT Platform,B2B Data Exchange,Operations Head,Internet,443,Allowed,No,Server,Customer Data,Yes,High,Encrypted,High
+AST-017,Legacy CRM,Customer Management,Sales Director,Internal,8090,Restricted,Yes,Server,Customer Data,Yes,Medium,Unknown,Medium
+AST-018,Public Website,Brand Marketing,Marketing Head,Internet,"443,80",Allowed,No,Server,Public Data,No,Low,Encrypted,Low
+AST-019,Analytics Cluster,Business Intelligence,Data Director,Internal,9090,Restricted,Yes,Server,Internal Data,No,Medium,Encrypted,Low
+AST-020,Identity Provider,Authentication,Security Architect,DMZ,443,Allowed,No,Server,Employee Access Data,Yes,High,Encrypted,High
+AST-021,Image Registry,Software Delivery,Engineering Manager,Internal,5000,Restricted,Yes,Server,Source Code,No,Medium,Encrypted,Low
+AST-022,Bastion Host,Privileged Access,Infra Lead,VPN,22,Restricted,Yes,Server,Operational Data,No,Medium,Unknown,Medium
+AST-023,EHR System,Patient Records,Clinical Director,Internal,443,Restricted,Yes,Server,Health Data,Yes,High,Not Encrypted,High
+AST-024,Email Gateway,Email Security,IT Head,DMZ,"443,25",Allowed,No,Network Device,Employee Data,Yes,High,Encrypted,High
+AST-025,SSL VPN,Remote Connectivity,CISO,Internet,443,Allowed,No,Network Device,Employee Access Data,Yes,High,Unknown,High
+AST-026,Wireless LAN,Guest Connectivity,Network Director,Internal,"22,443",Restricted,No,Wireless,Public Data,No,Low,Encrypted,Low
+AST-027,Mobile Devices,Field Operations,Operations Head,VPN,443,Restricted,No,Mobile,Operational Data,No,Low,Unknown,Low
+AST-028,Report Portal,Management Reporting,Data Director,Internal,"443,8080",Restricted,Yes,Server,Internal Data,No,Medium,Encrypted,Low
+AST-029,Legacy Host,Legacy Workloads,Infra Lead,Internal,22,Restricted,Yes,Server,Internal Data,No,Low,Unknown,Low
+AST-030,Internal Tooling,Operations Support,Apps Manager,Internal,8080,Restricted,Yes,Server,Internal Data,No,Medium,Unknown,Low
+AST-031,Research Sandbox,R&D,R&D Lead,Internal,9000,None,Yes,Server,Internal Data,No,Low,Unknown,None
+AST-032,Partner Portal,Partner Management,Operations Head,Internet,443,Allowed,No,Server,Partner Data,Yes,High,Not Encrypted,High
+AST-033,CI Cache,Software Delivery,Engineering Manager,Internal,8080,Restricted,Yes,Server,Source Code,No,Medium,Unknown,Medium
+AST-034,Customer DB,Customer Management,CFO,Internal,5432,Restricted,Yes,Database,Customer Data,Yes,High,Encrypted,High
+AST-035,Reverse Proxy,Web Delivery,Platform Lead,DMZ,"443,80",Allowed,No,Server,Public Data,No,Low,Encrypted,Low
+AST-036,Test Rig,Research,R&D Lead,Internal,22,Restricted,Yes,Server,Internal Data,No,Low,Unknown,None
+AST-037,Mainframe,Core Banking,CTO,DMZ,"443,3270",Allowed,No,Server,Financial Data,Yes,High,Not Encrypted,High

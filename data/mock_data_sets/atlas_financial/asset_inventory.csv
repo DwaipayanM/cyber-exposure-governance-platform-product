@@ -1,0 +1,27 @@
+asset_id,application_name,business_process,business_owner,network_zone,open_ports,firewall_status,vpn_required,asset_type,data_type,pii_present,data_sensitivity,encryption_status,regulatory_impact
+AFS-0001,App-0001,Customer Onboarding,DBA Team,DMZ,443,Restricted,Yes,Workstation,Customer PII,Yes,Medium,Not Encrypted,High
+AFS-0002,App-0002,Wire Transfers,Cloud Platform,Internal,3306,Restricted,No,Server,KYC Data,Yes,High,Not Encrypted,High
+AFS-0003,App-0003,Fraud Detection,Digital Channels,Internal,"80,443",Restricted,No,Server,KYC Data,Yes,Low,Encrypted,High
+AFS-0004,App-0004,Online Banking,DBA Team,Internet,"21,22",Blocked,No,Workstation,KYC Data,Yes,Medium,Encrypted,High
+AFS-0005,App-0005,Customer Onboarding,Digital Channels,DMZ,"445,139",Restricted,Yes,Server,Transaction Data,No,High,Encrypted,Low
+AFS-0006,App-0006,Fraud Detection,Cloud Platform,Internal,1433,Restricted,No,Wireless,KYC Data,Yes,Medium,Encrypted,High
+AFS-0007,App-0007,Wire Transfers,CISO Office,Internet,3306,Allowed,No,Workstation,Transaction Data,No,Medium,Encrypted,Medium
+AFS-0008,App-0008,Trading Platform,Digital Channels,Internal,"22,3389",Restricted,No,Database,Customer PII,Yes,Low,Not Encrypted,High
+AFS-0009,App-0009,Treasury,Digital Channels,Internal,1433,Blocked,Yes,Mobile,Financial Data,Yes,Medium,Unknown,Low
+AFS-0010,App-0010,Core Banking,Digital Channels,Internet,"22,3389",Allowed,No,Workstation,Financial Data,Yes,Medium,Unknown,High
+AFS-0011,App-0011,Fraud Detection,Core Banking Team,Internal,"80,443",Allowed,No,Database,Financial Data,Yes,High,Encrypted,High
+AFS-0012,App-0012,Fraud Detection,Cloud Platform,Internet,"53,389",Allowed,No,Network Device,Transaction Data,No,Medium,Not Encrypted,High
+AFS-0013,App-0013,Loan Origination,CISO Office,Internet,"22,3389",Blocked,Yes,Database,Transaction Data,No,Low,Not Encrypted,High
+AFS-0014,App-0014,Customer Onboarding,DBA Team,DMZ,"21,22",Allowed,Yes,Server,Customer PII,Yes,Low,Encrypted,High
+AFS-0015,App-0015,Fraud Detection,Core Banking Team,Internet,"22,3389",Restricted,No,Database,Financial Data,Yes,Medium,Unknown,High
+AFS-0016,App-0016,Customer Onboarding,Cloud Platform,Internet,"445,139",Blocked,Yes,Server,Financial Data,Yes,Medium,Not Encrypted,Medium
+AFS-0017,App-0017,Core Banking,Core Banking Team,Internal,"80,443",Restricted,Yes,Workstation,Financial Data,Yes,Medium,Encrypted,High
+AFS-0018,App-0018,Online Banking,Digital Channels,Internal,3306,Allowed,No,Database,Customer PII,Yes,Low,Encrypted,Medium
+AFS-0019,App-0019,Core Banking,Cloud Platform,DMZ,"8080,8443",Allowed,No,Server,Financial Data,Yes,High,Encrypted,Low
+AFS-0020,App-0020,Fraud Detection,DBA Team,DMZ,3306,Restricted,No,Wireless,KYC Data,Yes,Medium,Not Encrypted,High
+AFS-0021,App-0021,Treasury,Digital Channels,DMZ,3306,Restricted,Yes,Server,KYC Data,Yes,Low,Encrypted,High
+AFS-0022,App-0022,Treasury,DBA Team,Internet,"8080,8443",Allowed,Yes,Workstation,Transaction Data,Yes,Low,Unknown,High
+AFS-0023,App-0023,Customer Onboarding,Core Banking Team,Internet,"445,139",Restricted,Yes,Network Device,Transaction Data,Yes,Medium,Encrypted,High
+AFS-0024,App-0024,Fraud Detection,CISO Office,Internet,"21,22",Restricted,No,Database,Transaction Data,No,Medium,Encrypted,High
+AFS-0025,App-0025,Core Banking,DBA Team,Internet,"80,443",Allowed,Yes,Database,KYC Data,Yes,Low,Encrypted,High
+AFS-0026,App-0026,Fraud Detection,Core Banking Team,Internal,1433,Blocked,Yes,Server,KYC Data,Yes,Medium,Unknown,High

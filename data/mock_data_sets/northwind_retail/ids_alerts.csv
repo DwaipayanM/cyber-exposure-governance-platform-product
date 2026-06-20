@@ -1,0 +1,26 @@
+alert_id,asset_id,alert_type,alert_severity,source_ip,destination_ip,timestamp,signature_name,confidence
+IDS-NWR-0001,NWR-0024,Lateral Movement,High,45.170.5.161,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Medium
+IDS-NWR-0002,NWR-0023,Lateral Movement,Medium,45.201.239.129,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,Low
+IDS-NWR-0003,NWR-0017,Lateral Movement,High,45.29.217.68,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Low
+IDS-NWR-0004,NWR-0005,Brute Force,Medium,45.127.127.217,10.0.0.1,2026-06-20 12:00:00,SQLi Pattern,High
+IDS-NWR-0005,NWR-0005,Lateral Movement,Low,45.83.197.12,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,High
+IDS-NWR-0006,NWR-0026,Malware Callback,High,45.200.178.78,10.0.0.1,2026-06-20 12:00:00,Malformed HTTP,High
+IDS-NWR-0007,NWR-0022,Lateral Movement,High,45.182.26.178,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Low
+IDS-NWR-0008,NWR-0019,Port Scan,High,45.129.197.31,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,Medium
+IDS-NWR-0009,NWR-0001,Lateral Movement,Critical,45.127.20.210,10.0.0.1,2026-06-20 12:00:00,SMB Lateral,Medium
+IDS-NWR-0010,NWR-0001,SQL Injection Attempt,High,45.63.20.149,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,High
+IDS-NWR-0011,NWR-0001,Port Scan,Low,45.43.155.210,10.0.0.1,2026-06-20 12:00:00,Recon Scan,High
+IDS-NWR-0012,NWR-0008,Brute Force,High,45.234.125.101,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,High
+IDS-NWR-0013,NWR-0008,Exploit Attempt,Low,45.184.116.104,10.0.0.1,2026-06-20 12:00:00,Recon Scan,Low
+IDS-NWR-0014,NWR-0003,Malware Callback,High,45.40.216.85,10.0.0.1,2026-06-20 12:00:00,Known Exploit Signature,Medium
+IDS-NWR-0015,NWR-0020,SQL Injection Attempt,Critical,45.60.183.4,10.0.0.1,2026-06-20 12:00:00,Recon Scan,Medium
+IDS-NWR-0016,NWR-0020,Malware Callback,Critical,45.109.223.151,10.0.0.1,2026-06-20 12:00:00,Outbound Anomaly,Medium
+IDS-NWR-0017,NWR-0016,Port Scan,Medium,45.81.27.14,10.0.0.1,2026-06-20 12:00:00,Recon Scan,Low
+IDS-NWR-0018,NWR-0016,Suspicious Web Request,High,45.78.112.131,10.0.0.1,2026-06-20 12:00:00,C2 Beacon,High
+IDS-NWR-0019,NWR-0016,Malware Callback,Medium,45.119.227.8,10.0.0.1,2026-06-20 12:00:00,SQLi Pattern,Low
+IDS-NWR-0020,NWR-0021,Data Exfil Attempt,Critical,45.197.106.116,10.0.0.1,2026-06-20 12:00:00,Malformed HTTP,Low
+IDS-NWR-0021,NWR-0011,Lateral Movement,Critical,45.150.33.44,10.0.0.1,2026-06-20 12:00:00,SMB Lateral,Medium
+IDS-NWR-0022,NWR-0011,Malware Callback,High,45.75.190.190,10.0.0.1,2026-06-20 12:00:00,Recon Scan,Medium
+IDS-NWR-0023,NWR-0006,Port Scan,High,45.181.101.31,10.0.0.1,2026-06-20 12:00:00,Malformed HTTP,Low
+IDS-NWR-0024,NWR-0006,Suspicious Web Request,Critical,45.138.232.208,10.0.0.1,2026-06-20 12:00:00,SMB Lateral,Low
+IDS-NWR-0025,NWR-0002,Malware Callback,Low,45.125.110.36,10.0.0.1,2026-06-20 12:00:00,Credential Stuffing,High

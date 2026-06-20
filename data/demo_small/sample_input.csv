@@ -1,0 +1,42 @@
+asset_id,asset_name,product,cve_id,business_criticality,internet_facing,environment,asset_owner,first_detected_date
+AST-001,Customer Portal Server,Apache Log4j,CVE-2021-44228,High,Yes,Prod,WebOps,2026-05-21
+AST-002,Mail Server,Microsoft Exchange,CVE-2021-26855,High,Yes,Prod,IT Operations,2026-05-06
+AST-003,Internal Wiki,Atlassian Confluence,CVE-2022-26134,Medium,No,Prod,Collaboration Team,2026-06-04
+AST-004,VPN Gateway,Fortinet FortiOS,CVE-2023-27997,High,Yes,Prod,Network Security,2026-05-13
+AST-005,Finance Database,PostgreSQL,CVE-2022-1552,High,No,Prod,DBA Team,2026-06-10
+AST-006,Developer Build Server,Jenkins,CVE-2023-23897,Medium,No,Dev,DevOps,2026-06-11
+AST-007,File Transfer Server,OpenSSH,CVE-2024-6387,High,Yes,Prod,Infrastructure,2026-06-15
+AST-008,Customer API Gateway,NGINX,CVE-2021-23017,High,Yes,Prod,API Platform,2026-06-03
+AST-009,HR Portal,Spring Framework,CVE-2022-22965,High,Yes,Prod,HR IT,2026-05-29
+AST-010,Payments Service,Apache Struts,CVE-2023-50164,High,Yes,Prod,Payments Eng,2026-06-08
+AST-011,Citrix Access,Citrix NetScaler,CVE-2023-4966,High,Yes,Prod,Network Security,2026-05-25
+AST-012,Domain Controller,Microsoft Netlogon,CVE-2020-1472,High,No,Prod,Identity Team,2026-04-21
+AST-013,Print Server,Windows Print Spooler,CVE-2021-34527,Medium,No,Prod,End User Compute,2026-05-11
+AST-014,Edge Firewall,Palo Alto PAN-OS,CVE-2024-3400,High,Yes,Prod,Network Security,2026-06-14
+AST-015,Core Router,Cisco IOS XE,CVE-2023-20198,High,Yes,Prod,Network Ops,2026-06-12
+AST-016,Managed File Transfer,Progress MOVEit,CVE-2023-34362,High,Yes,Prod,Integration Team,2026-05-18
+AST-017,Legacy CRM,Confluence Legacy,CVE-2023-22515,Medium,No,Prod,Sales Ops,2026-06-06
+AST-018,Marketing Site,HTTP/2 Web Stack,CVE-2023-44487,Low,Yes,Prod,Marketing IT,2026-05-31
+AST-019,Analytics Node,Linux Kernel,CVE-2024-1086,Medium,No,UAT,Data Platform,2026-06-09
+AST-020,Auth Service,OpenSSL,CVE-2023-0286,High,Yes,Prod,Platform Security,2026-05-27
+AST-021,Container Registry,curl/libcurl,CVE-2023-38545,Medium,No,Prod,Platform Eng,2026-06-07
+AST-022,Linux Jump Host,Polkit pkexec,CVE-2021-4034,Medium,No,Prod,Infrastructure,2026-05-01
+AST-023,Health Records App,MSDT/Office,CVE-2022-30190,High,No,Prod,Clinical IT,2026-05-23
+AST-024,Email Security GW,Barracuda ESG,CVE-2023-2868,High,Yes,Prod,Email Security,2026-06-01
+AST-025,Ivanti VPN,Ivanti Connect Secure,CVE-2024-21887,High,Yes,Prod,Network Security,2026-06-13
+AST-026,Guest WiFi Controller,Wireless Controller,CVE-2018-15473,Low,No,Prod,Network Ops,2026-04-11
+AST-027,Field Tablet Fleet,Mobile MDM,CVE-2019-11043,Low,No,Prod,Mobility Team,2026-04-01
+AST-028,Reporting Portal,PHP-FPM,CVE-2019-11043,Medium,No,Stage,BI Team,2026-05-24
+AST-029,Old Sudo Host,sudo,CVE-2021-3156,Low,No,Dev,Infrastructure,2026-03-22
+AST-030,Internal Tool,Custom App,CVE-2025-31001,Medium,No,Prod,Internal Apps,2026-06-05
+AST-031,Lab Sandbox,Custom App,CVE-2025-31002,Low,No,Dev,R&D,2026-06-16
+AST-032,Partner Portal,Spring Framework,CVE-2022-22965,High,Yes,Prod,Partner IT,2026-06-17
+AST-033,Build Cache,Jenkins,CVE-2024-23897,Medium,No,Dev,DevOps,2026-06-18
+AST-034,Customer DB Replica,PostgreSQL,CVE-2022-1552,High,No,Prod,DBA Team,2026-06-19
+AST-035,DMZ Web Proxy,NGINX,CVE-2021-23017,Medium,Yes,Prod,Platform Eng,2026-05-30
+AST-001,Customer Portal Server,OpenSSL,CVE-2023-0286,High,Yes,Prod,WebOps,2026-06-02
+AST-004,VPN Gateway,OpenSSH,CVE-2024-6387,High,Yes,Prod,Network Security,2026-06-14
+AST-012,Domain Controller,Windows Print Spooler,CVE-2021-34527,High,No,Prod,Identity Team,2026-05-11
+AST-005,Finance Database,PostgreSQL,CVE-2022-1552,High,No,Prod,DBA Team,2026-06-10
+AST-036,Quantum Test Rig,Experimental,CVE-2024-NOTREAL,Medium,No,Dev,R&D,2026-06-15
+AST-037,Tier0 Mainframe,Legacy Core,CVE-2022-26134,Critical,Yes,Prod,Mainframe Team,2026-04-26

@@ -834,8 +834,6 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
     """
     from datetime import datetime
     from xml.sax.saxutils import escape
-    import plotly.express as _px
-    import plotly.graph_objects as _go
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.units import cm
     from reportlab.lib import colors
@@ -856,76 +854,137 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
     def t(x):
         return escape(str(x)).replace("\n", "<br/>")
 
-    # ---- Rebuild the executive figures (mirrors the Executive tab; does not touch it) ----
-    figs = []  # (title, fig, width_px, height_px, full_width)
+    # ---- Render the executive charts with matplotlib (headless; no kaleido/Chrome needed) ----
+    images, aspect, charts_ok = {}, {}, False
     try:
-        cvss_labels = ["Low 0\u20133.9", "Medium 4\u20136.9", "High 7\u20138.9", "Critical 9\u201310"]
-        epss_labels = ["Low <0.50", "Medium 0.50\u20130.79", "High 0.80\u20130.94", "Very High \u22650.95"]
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import numpy as np
+        from matplotlib.colors import LinearSegmentedColormap
 
-        def _cb(v):
-            v = float(v or 0)
-            return 3 if v >= 9 else 2 if v >= 7 else 1 if v >= 4 else 0
+        plt.rcParams.update({
+            "font.size": 9, "axes.titlesize": 11, "axes.titleweight": "bold",
+            "axes.titlecolor": "#15315C", "axes.labelcolor": "#5B6675",
+            "axes.edgecolor": "#D6DBE3", "xtick.color": "#5B6675", "ytick.color": "#5B6675",
+            "grid.color": "#ECEFF3", "grid.linewidth": 0.8,
+            "figure.facecolor": "white", "axes.facecolor": "white",
+        })
+        PMAP = {"Critical": RED, "High": YELLOW, "Medium": BLUE, "Low": "#2E7D5B"}
 
-        def _eb(p):
-            p = float(p or 0)
-            return 3 if p >= 0.95 else 2 if p >= 0.80 else 1 if p >= 0.50 else 0
+        def _store(name, fig, w_in, h_in):
+            b = BytesIO()
+            fig.savefig(b, format="png", dpi=150, bbox_inches="tight", facecolor="white")
+            plt.close(fig)
+            images[name] = b.getvalue()
+            aspect[name] = h_in / w_in
 
-        counts = [[0] * 4 for _ in range(4)]
-        for _, r in df.iterrows():
-            counts[_eb(r.get("epss_percentile", 0))][_cb(r.get("cvss_score", 0))] += 1
-        tier = [[(x + y) / 6 for x in range(4)] for y in range(4)]
-        text = [[str(counts[y][x]) if counts[y][x] else "" for x in range(4)] for y in range(4)]
-        mtx = _go.Figure(_go.Heatmap(
-            z=tier, x=cvss_labels, y=epss_labels, text=text, texttemplate="%{text}",
-            textfont=dict(size=18, color="#15315C"), showscale=False, xgap=4, ygap=4,
-            colorscale=[[0.0, "#DCEFE6"], [0.34, "#EFF3D9"], [0.5, "#F6ECC9"], [0.72, "#EFC9A6"], [1.0, "#EBB4B4"]],
-            zmin=0, zmax=1))
-        mtx = style_fig(mtx)
-        mtx.update_layout(title="Executive Risk Matrix \u2014 Severity \u00d7 Exploitation Likelihood", height=430)
-        mtx.update_xaxes(title="CVSS severity \u2192"); mtx.update_yaxes(title="EPSS likelihood \u2192")
-        figs.append(("matrix", mtx, 1000, 470, True))
+        # 1) Risk matrix (CVSS severity x EPSS likelihood)
+        try:
+            def _cb(v):
+                v = float(v or 0)
+                return 3 if v >= 9 else 2 if v >= 7 else 1 if v >= 4 else 0
 
-        pc = df["priority"].value_counts().reset_index()
-        pc.columns = ["Priority", "Count"]
-        donut = _px.pie(pc, names="Priority", values="Count", hole=0.55, title="Priority Mix",
-                        color="Priority", color_discrete_map=PRIORITY_COLORS,
-                        category_orders={"Priority": ["Critical", "High", "Medium", "Low"]})
-        donut.update_traces(textinfo="label+percent"); donut = style_fig(donut); donut.update_layout(showlegend=False)
-        figs.append(("donut", donut, 560, 420, False))
+            def _eb(p):
+                p = float(p or 0)
+                return 3 if p >= 0.95 else 2 if p >= 0.80 else 1 if p >= 0.50 else 0
 
-        tb = df.groupby("business_process", dropna=False)["final_score"].sum().sort_values(ascending=False).head(10).reset_index()
-        tbfig = style_fig(_px.bar(tb, x="final_score", y="business_process", orientation="h", title="Top Business Processes by Aggregate Risk"), GREEN)
-        tbfig.update_yaxes(autorange="reversed", title=""); tbfig.update_xaxes(title="Aggregate risk score")
-        figs.append(("bp", tbfig, 560, 420, False))
+            counts = [[0] * 4 for _ in range(4)]
+            for _, r in df.iterrows():
+                counts[_eb(r.get("epss_percentile", 0))][_cb(r.get("cvss_score", 0))] += 1
+            tier = np.array([[(x + y) / 6 for x in range(4)] for y in range(4)])
+            cmap = LinearSegmentedColormap.from_list("risk", ["#DCEFE6", "#EFF3D9", "#F6ECC9", "#EFC9A6", "#EBB4B4"])
+            fig, ax = plt.subplots(figsize=(10, 4.3))
+            ax.imshow(tier, cmap=cmap, vmin=0, vmax=1, aspect="auto", origin="lower")
+            ax.set_xticks(range(4)); ax.set_yticks(range(4))
+            ax.set_xticklabels(["Low\n0\u20133.9", "Medium\n4\u20136.9", "High\n7\u20138.9", "Critical\n9\u201310"])
+            ax.set_yticklabels(["Low\n<0.50", "Medium\n0.50\u20130.79", "High\n0.80\u20130.94", "Very High\n\u22650.95"])
+            for y in range(4):
+                for x in range(4):
+                    if counts[y][x]:
+                        ax.text(x, y, str(counts[y][x]), ha="center", va="center",
+                                color="#15315C", fontsize=13, fontweight="bold")
+            ax.set_xticks(np.arange(-.5, 4, 1), minor=True)
+            ax.set_yticks(np.arange(-.5, 4, 1), minor=True)
+            ax.grid(which="minor", color="white", linewidth=3)
+            ax.grid(which="major", visible=False)
+            ax.tick_params(which="minor", length=0)
+            ax.set_xlabel("CVSS severity \u2192"); ax.set_ylabel("EPSS likelihood \u2192")
+            ax.set_title("Executive Risk Matrix \u2014 Severity \u00d7 Exploitation Likelihood")
+            _store("matrix", fig, 10, 4.3)
+        except Exception:
+            pass
 
-        kc = df["kev_status"].value_counts().reindex(["Yes", "No"]).fillna(0).reset_index()
-        kc.columns = ["KEV", "Count"]
-        kc["KEV"] = kc["KEV"].map({"Yes": "Known Exploited", "No": "Not in KEV"})
-        kfig = style_fig(_px.bar(kc, x="KEV", y="Count", color="KEV", title="CISA KEV vs Non-KEV",
-                                 color_discrete_map={"Known Exploited": RED, "Not in KEV": GREY}))
-        kfig.update_layout(showlegend=False)
-        figs.append(("kev", kfig, 560, 420, False))
+        def _hbar(name, ser, color, title, xlabel):
+            ser = ser.sort_values(ascending=True)
+            fig, ax = plt.subplots(figsize=(5.2, 3.9))
+            ax.barh([str(i) for i in ser.index], ser.values, color=color)
+            ax.set_title(title); ax.set_xlabel(xlabel)
+            ax.grid(axis="x"); ax.grid(axis="y", visible=False)
+            _store(name, fig, 5.2, 3.9)
 
-        hfig = style_fig(_px.histogram(df, x="epss_percentile", nbins=20, title="EPSS Percentile Distribution"), BLUE)
-        hfig.update_layout(bargap=0.05); hfig.update_xaxes(title="EPSS percentile"); hfig.update_yaxes(title="Exposures")
-        figs.append(("epss", hfig, 560, 420, False))
+        # 2) Priority mix donut
+        try:
+            order = ["Critical", "High", "Medium", "Low"]
+            vc = df["priority"].value_counts()
+            keep = [(o, int(vc.get(o, 0)), PMAP[o]) for o in order if int(vc.get(o, 0)) > 0]
+            fig, ax = plt.subplots(figsize=(5.2, 3.9))
+            ax.pie([v for _, v, _ in keep], labels=[o for o, _, _ in keep],
+                   colors=[c for _, _, c in keep], autopct="%1.1f%%", startangle=90,
+                   wedgeprops=dict(width=0.45, edgecolor="white"), textprops=dict(fontsize=8))
+            ax.set_title("Priority Mix"); ax.axis("equal")
+            _store("donut", fig, 5.2, 3.9)
+        except Exception:
+            pass
 
-        ev = df.groupby("environment")["final_score"].sum().sort_values(ascending=False).reset_index()
-        efig = style_fig(_px.bar(ev, x="environment", y="final_score", title="Aggregate Risk by Environment"), GREEN)
-        efig.update_yaxes(title="Total risk score")
-        figs.append(("env", efig, 560, 420, False))
+        # 3) Top business processes by aggregate risk
+        try:
+            tb = df.groupby("business_process", dropna=False)["final_score"].sum().sort_values(ascending=False).head(10)
+            _hbar("bp", tb, GREEN, "Top Business Processes by Aggregate Risk", "Aggregate risk score")
+        except Exception:
+            pass
 
-        ta = df.groupby("asset_name")["final_score"].sum().sort_values(ascending=False).head(10).reset_index()
-        tafig = style_fig(_px.bar(ta, x="final_score", y="asset_name", orientation="h", title="Top 10 Riskiest Assets"), RED)
-        tafig.update_yaxes(autorange="reversed", title=""); tafig.update_xaxes(title="Aggregate risk score")
-        figs.append(("assets", tafig, 560, 420, False))
-    except Exception:
-        figs = []
+        # 4) CISA KEV vs non-KEV
+        try:
+            kv = df["kev_status"].value_counts()
+            fig, ax = plt.subplots(figsize=(5.2, 3.9))
+            ax.bar(["Known Exploited", "Not in KEV"], [int(kv.get("Yes", 0)), int(kv.get("No", 0))], color=[RED, GREY])
+            ax.set_title("CISA KEV vs Non-KEV"); ax.set_ylabel("Count")
+            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
+            _store("kev", fig, 5.2, 3.9)
+        except Exception:
+            pass
 
-    images, charts_ok = {}, True
-    try:
-        for name, fig, w, h, full in figs:
-            images[name] = fig.to_image(format="png", width=w, height=h, scale=2)
+        # 5) EPSS percentile distribution
+        try:
+            vals = pd.to_numeric(df["epss_percentile"], errors="coerce").dropna()
+            fig, ax = plt.subplots(figsize=(5.2, 3.9))
+            ax.hist(vals, bins=20, color=BLUE)
+            ax.set_title("EPSS Percentile Distribution"); ax.set_xlabel("EPSS percentile"); ax.set_ylabel("Exposures")
+            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
+            _store("epss", fig, 5.2, 3.9)
+        except Exception:
+            pass
+
+        # 6) Aggregate risk by environment
+        try:
+            ev = df.groupby("environment")["final_score"].sum().sort_values(ascending=False)
+            fig, ax = plt.subplots(figsize=(5.2, 3.9))
+            ax.bar([str(i) for i in ev.index], ev.values, color=GREEN)
+            ax.set_title("Aggregate Risk by Environment"); ax.set_ylabel("Total risk score")
+            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
+            _store("env", fig, 5.2, 3.9)
+        except Exception:
+            pass
+
+        # 7) Top 10 riskiest assets
+        try:
+            ta = df.groupby("asset_name")["final_score"].sum().sort_values(ascending=False).head(10)
+            _hbar("assets", ta, RED, "Top 10 Riskiest Assets", "Aggregate risk score")
+        except Exception:
+            pass
+
+        charts_ok = len(images) > 0
     except Exception:
         charts_ok = False
 
@@ -993,11 +1052,7 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
         png = images.get(name)
         if not png:
             return Paragraph("(chart unavailable)", cap)
-        # preserve aspect ratio
-        for nm, fig, w, h, full in figs:
-            if nm == name:
-                return RLImage(BytesIO(png), width=width, height=width * h / w)
-        return RLImage(BytesIO(png), width=width)
+        return RLImage(BytesIO(png), width=width, height=width * aspect.get(name, 0.72))
 
     if charts_ok and images:
         story += [Paragraph("Risk Matrix \u2014 fix-first is the top-right band", sec),
@@ -1014,7 +1069,7 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
             story.append(row)
     else:
         story.append(Paragraph("Charts could not be rendered in this environment "
-                               "(install <b>kaleido</b> to embed visualisations). KPIs and data tables follow.", body))
+                               "(install <b>matplotlib</b> to embed visualisations). KPIs and data tables follow.", body))
 
     # ---- Data analysis: top exposures table (fixed width, wrapped) ----
     story += [Spacer(1, 6), Paragraph("Top 15 Business-Critical Exposures", sec)]
@@ -1350,7 +1405,7 @@ with tabs[0]:
         st.caption("HMAC-SHA256")
         st.code(generate_sha256(exec_pdf), language="text")
     except ImportError:
-        st.warning("PDF export needs the `reportlab` package (and `kaleido` for embedded charts). "
+        st.warning("PDF export needs the `reportlab` package (and `matplotlib` for embedded charts). "
                    "Add them to requirements.txt and rebuild.")
     except Exception as exc:
         st.warning(f"Executive PDF unavailable: {exc}")

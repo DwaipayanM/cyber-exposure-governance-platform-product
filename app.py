@@ -854,139 +854,166 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
     def t(x):
         return escape(str(x)).replace("\n", "<br/>")
 
-    # ---- Render the executive charts with matplotlib (headless; no kaleido/Chrome needed) ----
-    images, aspect, charts_ok = {}, {}, False
+    # ---- Render the executive charts with reportlab's native graphics ----
+    # Uses ONLY reportlab (already required to build this PDF), so the charts render
+    # wherever the PDF does - no kaleido, no matplotlib, nothing extra to install.
+    from reportlab.graphics.shapes import Drawing, Rect, String
+    from reportlab.graphics.charts.barcharts import VerticalBarChart, HorizontalBarChart
+    from reportlab.graphics.charts.piecharts import Pie
+
+    def _RC(h):
+        return colors.HexColor(h)
+
+    PMAP = {"Critical": _RC(RED), "High": _RC(YELLOW), "Medium": _RC(BLUE), "Low": _RC("#2E7D5B")}
+    COLW = (USABLE - 8) / 2.0          # width of one 2-up cell
+    CHART_W = COLW - 6                  # drawing width (fits inside the cell)
+    CH = 190                           # 2-up chart height
+    AX = _RC("#5B6675"); TITLE = _RC("#15315C"); GRID = _RC("#E7ECF2")
+
+    def _title(d, w, txt):
+        d.add(String(w / 2.0, d.height - 11, txt, fontName="Helvetica-Bold",
+                     fontSize=9, fillColor=TITLE, textAnchor="middle"))
+
+    def _vbar_chart(values, cats, color, title, w=CHART_W, h=CH):
+        d = Drawing(w, h); _title(d, w, title)
+        bc = VerticalBarChart()
+        bc.x, bc.y = 30, 26
+        bc.width, bc.height = w - 44, h - 52
+        bc.data = [list(values)]
+        bc.categoryAxis.categoryNames = [str(c) for c in cats]
+        bc.categoryAxis.labels.fontSize = 6.5
+        bc.categoryAxis.labels.fillColor = AX
+        bc.categoryAxis.labels.dy = -2
+        bc.categoryAxis.strokeColor = GRID
+        bc.valueAxis.valueMin = 0
+        bc.valueAxis.labels.fontSize = 6.5
+        bc.valueAxis.labels.fillColor = AX
+        bc.valueAxis.strokeColor = GRID
+        bc.valueAxis.gridStrokeColor = GRID
+        bc.bars[0].fillColor = color
+        bc.barSpacing = 1
+        d.add(bc); return d
+
+    def _hbar_chart(values, cats, color, title, w=CHART_W, h=CH):
+        pairs = sorted(zip(cats, values), key=lambda p: p[1])     # ascending -> largest on top
+        cats = [(str(c)[:20]) for c, _ in pairs]; values = [v for _, v in pairs]
+        d = Drawing(w, h); _title(d, w, title)
+        bc = HorizontalBarChart()
+        bc.x, bc.y = 100, 16
+        bc.width, bc.height = w - 112, h - 38
+        bc.data = [list(values)]
+        bc.categoryAxis.categoryNames = cats
+        bc.categoryAxis.labels.fontSize = 6
+        bc.categoryAxis.labels.fillColor = AX
+        bc.categoryAxis.labels.boxAnchor = "e"
+        bc.categoryAxis.strokeColor = GRID
+        bc.valueAxis.valueMin = 0
+        bc.valueAxis.labels.fontSize = 6.5
+        bc.valueAxis.labels.fillColor = AX
+        bc.valueAxis.strokeColor = GRID
+        bc.valueAxis.gridStrokeColor = GRID
+        bc.bars[0].fillColor = color
+        bc.barSpacing = 1
+        d.add(bc); return d
+
+    def _pie_chart(values, labels, slice_colors, title, w=CHART_W, h=CH):
+        d = Drawing(w, h); _title(d, w, title)
+        pie = Pie()
+        pie.width = pie.height = h - 58
+        pie.x = (w - pie.width) / 2.0; pie.y = 16
+        pie.data = list(values)
+        pie.labels = ["%s %d" % (l, v) for l, v in zip(labels, values)]
+        pie.sideLabels = 1
+        pie.slices.strokeColor = colors.white
+        pie.slices.strokeWidth = 1
+        pie.slices.fontSize = 6.5
+        pie.slices.fontColor = AX
+        for k, c in enumerate(slice_colors):
+            pie.slices[k].fillColor = c
+        d.add(pie); return d
+
+    def _matrix_drawing(counts, w=USABLE, h=230):
+        d = Drawing(w, h)
+        _title(d, w, "Executive Risk Matrix \u2014 Severity \u00d7 Exploitation Likelihood")
+        left, bottom, top, right = 96, 36, 22, 8
+        gw = w - left - right; gh = h - bottom - top
+        cw = gw / 4.0; chh = gh / 4.0
+        stops = [(0.0, (0xDC, 0xEF, 0xE6)), (0.34, (0xEF, 0xF3, 0xD9)), (0.5, (0xF6, 0xEC, 0xC9)),
+                 (0.72, (0xEF, 0xC9, 0xA6)), (1.0, (0xEB, 0xB4, 0xB4))]
+
+        def _col(v):
+            for k in range(len(stops) - 1):
+                v0, c0 = stops[k]; v1, c1 = stops[k + 1]
+                if v <= v1:
+                    f = (v - v0) / (v1 - v0) if v1 > v0 else 0
+                    return colors.Color((c0[0] + (c1[0] - c0[0]) * f) / 255.0,
+                                        (c0[1] + (c1[1] - c0[1]) * f) / 255.0,
+                                        (c0[2] + (c1[2] - c0[2]) * f) / 255.0)
+            return colors.Color(*[x / 255.0 for x in stops[-1][1]])
+
+        for yi in range(4):
+            for xi in range(4):
+                x = left + xi * cw; y = bottom + yi * chh
+                d.add(Rect(x, y, cw - 3, chh - 3, fillColor=_col((xi + yi) / 6.0),
+                           strokeColor=colors.white, strokeWidth=1.5))
+                if counts[yi][xi]:
+                    d.add(String(x + (cw - 3) / 2.0, y + (chh - 3) / 2.0 - 4, str(counts[yi][xi]),
+                                 fontName="Helvetica-Bold", fontSize=11, fillColor=TITLE, textAnchor="middle"))
+        for yi, lab in enumerate(["Low <0.50", "Med 0.50-0.79", "High 0.80-0.94", "V.High \u22650.95"]):
+            d.add(String(left - 6, bottom + yi * chh + chh / 2.0 - 3, lab, fontName="Helvetica",
+                         fontSize=6.5, fillColor=AX, textAnchor="end"))
+        for xi, lab in enumerate(["Low", "Medium", "High", "Critical"]):
+            d.add(String(left + xi * cw + cw / 2.0, bottom - 13, lab, fontName="Helvetica",
+                         fontSize=7, fillColor=AX, textAnchor="middle"))
+        d.add(String(left + gw / 2.0, 5, "CVSS severity \u2192", fontName="Helvetica",
+                     fontSize=7, fillColor=AX, textAnchor="middle"))
+        return d
+
+    draw, charts_ok, chart_err = {}, False, ""
     try:
-        import matplotlib
-        matplotlib.use("Agg")
-        import matplotlib.pyplot as plt
-        import numpy as np
-        from matplotlib.colors import LinearSegmentedColormap
+        def _cb(v):
+            v = float(v or 0)
+            return 3 if v >= 9 else 2 if v >= 7 else 1 if v >= 4 else 0
 
-        plt.rcParams.update({
-            "font.size": 9, "axes.titlesize": 11, "axes.titleweight": "bold",
-            "axes.titlecolor": "#15315C", "axes.labelcolor": "#5B6675",
-            "axes.edgecolor": "#D6DBE3", "xtick.color": "#5B6675", "ytick.color": "#5B6675",
-            "grid.color": "#ECEFF3", "grid.linewidth": 0.8,
-            "figure.facecolor": "white", "axes.facecolor": "white",
-        })
-        PMAP = {"Critical": RED, "High": YELLOW, "Medium": BLUE, "Low": "#2E7D5B"}
+        def _eb(p):
+            p = float(p or 0)
+            return 3 if p >= 0.95 else 2 if p >= 0.80 else 1 if p >= 0.50 else 0
 
-        def _store(name, fig, w_in, h_in):
-            b = BytesIO()
-            fig.savefig(b, format="png", dpi=150, bbox_inches="tight", facecolor="white")
-            plt.close(fig)
-            images[name] = b.getvalue()
-            aspect[name] = h_in / w_in
+        counts = [[0] * 4 for _ in range(4)]
+        for _, r in df.iterrows():
+            counts[_eb(r.get("epss_percentile", 0))][_cb(r.get("cvss_score", 0))] += 1
+        draw["matrix"] = _matrix_drawing(counts)
 
-        # 1) Risk matrix (CVSS severity x EPSS likelihood)
-        try:
-            def _cb(v):
-                v = float(v or 0)
-                return 3 if v >= 9 else 2 if v >= 7 else 1 if v >= 4 else 0
+        order = ["Critical", "High", "Medium", "Low"]
+        vc = df["priority"].value_counts()
+        keep = [(o, int(vc.get(o, 0))) for o in order if int(vc.get(o, 0)) > 0]
+        draw["donut"] = _pie_chart([v for _, v in keep], [o for o, _ in keep],
+                                   [PMAP[o] for o, _ in keep], "Priority Mix")
 
-            def _eb(p):
-                p = float(p or 0)
-                return 3 if p >= 0.95 else 2 if p >= 0.80 else 1 if p >= 0.50 else 0
+        tb = df.groupby("business_process", dropna=False)["final_score"].sum().sort_values(ascending=False).head(8)
+        draw["bp"] = _hbar_chart(list(tb.values), list(tb.index), _RC(GREEN), "Top Business Processes by Risk")
 
-            counts = [[0] * 4 for _ in range(4)]
-            for _, r in df.iterrows():
-                counts[_eb(r.get("epss_percentile", 0))][_cb(r.get("cvss_score", 0))] += 1
-            tier = np.array([[(x + y) / 6 for x in range(4)] for y in range(4)])
-            cmap = LinearSegmentedColormap.from_list("risk", ["#DCEFE6", "#EFF3D9", "#F6ECC9", "#EFC9A6", "#EBB4B4"])
-            fig, ax = plt.subplots(figsize=(10, 4.3))
-            ax.imshow(tier, cmap=cmap, vmin=0, vmax=1, aspect="auto", origin="lower")
-            ax.set_xticks(range(4)); ax.set_yticks(range(4))
-            ax.set_xticklabels(["Low\n0\u20133.9", "Medium\n4\u20136.9", "High\n7\u20138.9", "Critical\n9\u201310"])
-            ax.set_yticklabels(["Low\n<0.50", "Medium\n0.50\u20130.79", "High\n0.80\u20130.94", "Very High\n\u22650.95"])
-            for y in range(4):
-                for x in range(4):
-                    if counts[y][x]:
-                        ax.text(x, y, str(counts[y][x]), ha="center", va="center",
-                                color="#15315C", fontsize=13, fontweight="bold")
-            ax.set_xticks(np.arange(-.5, 4, 1), minor=True)
-            ax.set_yticks(np.arange(-.5, 4, 1), minor=True)
-            ax.grid(which="minor", color="white", linewidth=3)
-            ax.grid(which="major", visible=False)
-            ax.tick_params(which="minor", length=0)
-            ax.set_xlabel("CVSS severity \u2192"); ax.set_ylabel("EPSS likelihood \u2192")
-            ax.set_title("Executive Risk Matrix \u2014 Severity \u00d7 Exploitation Likelihood")
-            _store("matrix", fig, 10, 4.3)
-        except Exception:
-            pass
+        kv = df["kev_status"].value_counts()
+        draw["kev"] = _vbar_chart([int(kv.get("Yes", 0)), int(kv.get("No", 0))],
+                                  ["Known Exploited", "Not in KEV"], _RC(RED), "CISA KEV vs Non-KEV")
 
-        def _hbar(name, ser, color, title, xlabel):
-            ser = ser.sort_values(ascending=True)
-            fig, ax = plt.subplots(figsize=(5.2, 3.9))
-            ax.barh([str(i) for i in ser.index], ser.values, color=color)
-            ax.set_title(title); ax.set_xlabel(xlabel)
-            ax.grid(axis="x"); ax.grid(axis="y", visible=False)
-            _store(name, fig, 5.2, 3.9)
+        ep = pd.to_numeric(df["epss_percentile"], errors="coerce").dropna()
+        ebins = [0] * 10
+        for v in ep:
+            ebins[min(int(float(v) * 10), 9)] += 1
+        draw["epss"] = _vbar_chart(ebins, ["0", "", ".2", "", ".4", "", ".6", "", ".8", ""],
+                                   _RC(BLUE), "EPSS Percentile Distribution")
 
-        # 2) Priority mix donut
-        try:
-            order = ["Critical", "High", "Medium", "Low"]
-            vc = df["priority"].value_counts()
-            keep = [(o, int(vc.get(o, 0)), PMAP[o]) for o in order if int(vc.get(o, 0)) > 0]
-            fig, ax = plt.subplots(figsize=(5.2, 3.9))
-            ax.pie([v for _, v, _ in keep], labels=[o for o, _, _ in keep],
-                   colors=[c for _, _, c in keep], autopct="%1.1f%%", startangle=90,
-                   wedgeprops=dict(width=0.45, edgecolor="white"), textprops=dict(fontsize=8))
-            ax.set_title("Priority Mix"); ax.axis("equal")
-            _store("donut", fig, 5.2, 3.9)
-        except Exception:
-            pass
+        ev = df.groupby("environment")["final_score"].sum().sort_values(ascending=False)
+        draw["env"] = _vbar_chart(list(ev.values), list(ev.index), _RC(GREEN), "Aggregate Risk by Environment")
 
-        # 3) Top business processes by aggregate risk
-        try:
-            tb = df.groupby("business_process", dropna=False)["final_score"].sum().sort_values(ascending=False).head(10)
-            _hbar("bp", tb, GREEN, "Top Business Processes by Aggregate Risk", "Aggregate risk score")
-        except Exception:
-            pass
+        ta = df.groupby("asset_name")["final_score"].sum().sort_values(ascending=False).head(8)
+        draw["assets"] = _hbar_chart(list(ta.values), list(ta.index), _RC(RED), "Top Riskiest Assets")
 
-        # 4) CISA KEV vs non-KEV
-        try:
-            kv = df["kev_status"].value_counts()
-            fig, ax = plt.subplots(figsize=(5.2, 3.9))
-            ax.bar(["Known Exploited", "Not in KEV"], [int(kv.get("Yes", 0)), int(kv.get("No", 0))], color=[RED, GREY])
-            ax.set_title("CISA KEV vs Non-KEV"); ax.set_ylabel("Count")
-            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
-            _store("kev", fig, 5.2, 3.9)
-        except Exception:
-            pass
-
-        # 5) EPSS percentile distribution
-        try:
-            vals = pd.to_numeric(df["epss_percentile"], errors="coerce").dropna()
-            fig, ax = plt.subplots(figsize=(5.2, 3.9))
-            ax.hist(vals, bins=20, color=BLUE)
-            ax.set_title("EPSS Percentile Distribution"); ax.set_xlabel("EPSS percentile"); ax.set_ylabel("Exposures")
-            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
-            _store("epss", fig, 5.2, 3.9)
-        except Exception:
-            pass
-
-        # 6) Aggregate risk by environment
-        try:
-            ev = df.groupby("environment")["final_score"].sum().sort_values(ascending=False)
-            fig, ax = plt.subplots(figsize=(5.2, 3.9))
-            ax.bar([str(i) for i in ev.index], ev.values, color=GREEN)
-            ax.set_title("Aggregate Risk by Environment"); ax.set_ylabel("Total risk score")
-            ax.grid(axis="y"); ax.grid(axis="x", visible=False)
-            _store("env", fig, 5.2, 3.9)
-        except Exception:
-            pass
-
-        # 7) Top 10 riskiest assets
-        try:
-            ta = df.groupby("asset_name")["final_score"].sum().sort_values(ascending=False).head(10)
-            _hbar("assets", ta, RED, "Top 10 Riskiest Assets", "Aggregate risk score")
-        except Exception:
-            pass
-
-        charts_ok = len(images) > 0
-    except Exception:
+        charts_ok = len(draw) > 0
+    except Exception as _e:
         charts_ok = False
+        chart_err = str(_e)
 
     # ---- Document ----
     buf = BytesIO()
@@ -1048,28 +1075,27 @@ def to_executive_pdf_bytes(df: pd.DataFrame, generated_by: str = "system") -> by
 
     story = [title_tbl, Spacer(1, 8), kpi_tbl, Spacer(1, 6)]
 
-    def _img(name, width):
-        png = images.get(name)
-        if not png:
-            return Paragraph("(chart unavailable)", cap)
-        return RLImage(BytesIO(png), width=width, height=width * aspect.get(name, 0.72))
+    def _cell(name):
+        d = draw.get(name)
+        return d if d is not None else Paragraph("(chart unavailable)", cap)
 
-    if charts_ok and images:
+    if charts_ok and draw:
         story += [Paragraph("Risk Matrix \u2014 fix-first is the top-right band", sec),
-                  _img("matrix", USABLE),
+                  _cell("matrix"),
                   Paragraph("Each cell counts exposures in that CVSS severity \u00d7 EPSS likelihood band.", cap),
                   Spacer(1, 6), Paragraph("Posture Breakdown", sec)]
-        pairs = [("donut", "bp"), ("kev", "epss"), ("env", "assets")]
         colw = (USABLE - 8) / 2.0
-        for a, b in pairs:
-            row = Table([[_img(a, colw - 6), _img(b, colw - 6)]], colWidths=[colw, colw])
+        for a, b in [("donut", "bp"), ("kev", "epss"), ("env", "assets")]:
+            row = Table([[_cell(a), _cell(b)]], colWidths=[colw, colw])
             row.setStyle(TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 2), ("RIGHTPADDING", (0, 0), (-1, -1), 2),
-                                     ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                                     ("TOPPADDING", (0, 0), (-1, -1), 2), ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
                                      ("VALIGN", (0, 0), (-1, -1), "TOP")]))
             story.append(row)
     else:
-        story.append(Paragraph("Charts could not be rendered in this environment "
-                               "(install <b>matplotlib</b> to embed visualisations). KPIs and data tables follow.", body))
+        msg = "Charts could not be rendered; KPIs and data tables follow."
+        if chart_err:
+            msg += " (reason: %s)" % t(chart_err)
+        story.append(Paragraph(msg, body))
 
     # ---- Data analysis: top exposures table (fixed width, wrapped) ----
     story += [Spacer(1, 6), Paragraph("Top 15 Business-Critical Exposures", sec)]

@@ -1,262 +1,158 @@
-# Cyber Exposure Governance Platform
+# Cyber Exposure Governance Platform (CEGP)
 
-A lightweight cybersecurity product prototype that converts vulnerability data into business-aligned cyber exposure decisions.
+A lightweight, risk-based **cyber exposure governance** platform built with Streamlit. It does **not** replace a vulnerability scanner — it consumes scanner-style vulnerability data and helps a team decide **what to fix first, who owns it, when it is due, and what risk reduction is achievable**, backed by audit-ready, tamper-evident evidence.
 
-## Product Positioning
+**Authors:** Dwaipayan Mojumder · Deblina Das — M.Sc. Cyber Security (4th Sem), under the guidance of Prof. Sanjay Pal.
 
-This platform is not a vulnerability scanner. It is a **risk-based cyber exposure governance and remediation decision-support product**.
+---
 
-It ingests vulnerability records, enriches CVEs with threat intelligence, correlates business/network/IDS/privacy context, calculates cyber exposure risk, assigns SLA, generates remediation playbooks, supports risk exceptions, simulates risk reduction, and exports audit-ready reports with tamper-evident HMAC-SHA256 integrity signatures.
+## What it does
 
-## Final Project Folder Name
+CEGP enriches CVEs with public threat intelligence and correlates them with asset, network, IDS/IPS, and privacy context to produce a single, explainable **0–100 exposure score**, SLA governance, remediation guidance, and signed reports.
 
-Recommended local Windows folder:
+- **Threat enrichment** — CISA KEV (known exploited), FIRST EPSS (exploitation likelihood), NVD (CVSS + description). Live feeds with bundled offline fallbacks for a stable demo.
+- **Context scoring** — business impact, network exposure, IDS/IPS correlation, privacy/regulatory impact, and SLA governance, combined via configurable weights in `data/risk_policy.json`.
+- **Remediation Action Plan** — plain-language, prioritised action items per exposure (what it is, why it matters, how to fix it, interim mitigation), downloadable as **CSV / Excel / PDF** (the PDF follows a consulting document standard).
+- **Assessment History** — every run is archived with metrics and input fingerprints; reopen a past run, diff it against the previous one, and re-download its signed reports.
+- **What-if simulation** — model risk reduction from patching/isolation scenarios.
+- **Tamper-evident evidence** — every export is sanitised against CSV/formula injection and signed with HMAC-SHA256; a full operator-attributed audit log.
 
-```powershell
-C:\cyber-exposure-governance-platform-product
+---
+
+## Project structure
+
 ```
-
-## Core Capabilities
-
-| Capability | Description |
-|---|---|
-| Vulnerability intake | Upload standard or scanner-style CSV |
-| Threat intelligence | CISA KEV, FIRST EPSS, NVD CVE enrichment with offline fallback |
-| Asset context | Business process, owner, criticality, environment |
-| Network exposure | Network zone, open ports, firewall status, VPN requirement |
-| IDS/IPS correlation | Correlates alert evidence with vulnerable assets |
-| Privacy impact | PII, data sensitivity, encryption status, regulatory impact |
-| Configurable policy | Risk weights, SLA rules, priority thresholds in JSON |
-| Final exposure scoring | Explainable 100-point cyber exposure score |
-| Remediation governance | SLA, due date, breach status, owner, escalation |
-| Playbook engine | Recommended action, temporary mitigation, validation |
-| Risk exceptions | Accepted/deferred risks with expiry and compensating controls |
-| Control mapping | Maps exposures to cybersecurity control areas |
-| What-if simulator | Shows risk reduction from remediation scenarios |
-| Ticket export | Jira/ServiceNow-style CSV export |
-| Audit log | Logs assessment, simulation, and report activity with operator attribution |
-| Report integrity | Tamper-evident HMAC-SHA256 signing and verification |
-| Export safety | CSV/formula-injection sanitisation on all exported files |
-
-## Folder Structure
-
-```text
-cyber-exposure-governance-platform-product/
-├── app.py
+cyber-exposure-governance-platform/
+├── app.py                       # Streamlit application (entry point)
 ├── requirements.txt
+├── verify_pipeline.py           # offline end-to-end pipeline sanity check
 ├── README.md
-├── core/
-│   ├── asset_context_engine.py
-│   ├── audit_logger.py
-│   ├── control_mapping_engine.py
-│   ├── exception_engine.py
-│   ├── ids_correlation_engine.py
-│   ├── import_normalizer.py
-│   ├── network_exposure_engine.py
-│   ├── playbook_engine.py
-│   ├── policy_engine.py
-│   ├── privacy_impact_engine.py
-│   ├── remediation_governance.py
-│   ├── report_integrity.py
-│   ├── scoring_engine.py
-│   ├── simulation_engine.py
-│   ├── ticket_exporter.py
-│   ├── trend_engine.py
-│   └── validator.py
-├── services/
-│   ├── cisa_kev_service.py
-│   ├── epss_service.py
-│   └── nvd_service.py
-├── data/
-│   ├── sample_input.csv
-│   ├── asset_inventory.csv
-│   ├── ids_alerts.csv
-│   ├── risk_policy.json
-│   ├── risk_exceptions.csv
-│   ├── fallback_kev.json
-│   ├── fallback_epss.json
-│   ├── fallback_nvd.json
-│   ├── audit_log.csv
-│   ├── risk_snapshots.csv
-│   └── cache/
+├── .streamlit/
+│   └── config.toml              # theme + upload limit
+├── core/                        # scoring & governance engines (+ __init__.py)
+│   ├── scoring_engine.py        privacy_impact_engine.py   policy_engine.py
+│   ├── network_exposure_engine.py  ids_correlation_engine.py  asset_context_engine.py
+│   ├── remediation_governance.py   playbook_engine.py     control_mapping_engine.py
+│   ├── exception_engine.py     import_normalizer.py       validator.py
+│   ├── simulation_engine.py    trend_engine.py            ticket_exporter.py
+│   ├── report_integrity.py     csv_security.py            audit_logger.py
+│   ├── run_history.py           # NEW — per-run archive (local or Cloud Storage)
+│   └── storage_backend.py       # NEW — pluggable local/GCS storage
+├── services/                    # public threat-intel enrichment (+ __init__.py)
+│   ├── cisa_kev_service.py  epss_service.py  nvd_service.py
+├── data/                        # sample inputs, policy, offline fallbacks, logs
+│   ├── sample_input.csv  asset_inventory.csv  ids_alerts.csv  risk_exceptions.csv
+│   ├── risk_policy.json  fallback_kev.json  fallback_epss.json  fallback_nvd.json
+│   ├── audit_log.csv  risk_snapshots.csv  .integrity_key
+│   └── runs/                    # created at runtime — Assessment History archive
 └── docs/
-    ├── demo_script.md
-    ├── project_report_outline.md
-    ├── syllabus_mapping.md
-    └── test_cases.md
+    ├── project_documentation.md       gcp_deployment_guide.md   demo_script.md
+    ├── project_report_outline.md      syllabus_mapping.md       test_cases.md
+    ├── windows_c_drive_setup.md        ui_preview.html          CEGP_Project_Report.docx
 ```
 
-## Windows Setup in C Drive
+`core/` and `services/` each contain an empty `__init__.py`. `data/runs/` is created automatically on the first run.
 
-### Step 1: Extract the ZIP
+---
 
-Extract the downloaded ZIP to:
+## Prerequisites
 
-```powershell
-C:\
-```
+- **Python 3.10+** (developed/containerised on 3.12).
+- The bundled `data/` folder (sample inputs + offline threat-intel fallbacks).
 
-Final path should be:
+---
 
-```powershell
-C:\cyber-exposure-governance-platform-product
-```
+## Quick start (local)
 
-### Step 2: Open PowerShell
-
-```powershell
-cd C:\cyber-exposure-governance-platform-product
-```
-
-### Step 3: Create Python Virtual Environment
-
-```powershell
+```bash
+# 1. From the project root, create and activate a virtual environment
 python -m venv .venv
-```
-
-### Step 4: Activate Virtual Environment
-
-```powershell
+# macOS/Linux:
+source .venv/bin/activate
+# Windows (PowerShell):
 .\.venv\Scripts\activate
-```
 
-### Step 5: Install Dependencies
-
-```powershell
+# 2. Install dependencies
 pip install -r requirements.txt
-```
 
-### Step 6: Run the Application
-
-```powershell
+# 3. Launch the app
 streamlit run app.py
 ```
 
-The app should open at:
+Then open the URL Streamlit prints (default <http://localhost:8501>).
 
-```text
-http://localhost:8501
+In the app: set an **Operator name** in the sidebar, keep **"Use bundled sample files"** enabled, and click **Run Cyber Exposure Assessment**. Live public feeds are off by default (offline fallbacks are used) for a stable demo; toggle them on under **Advanced options**.
+
+> Windows users: see `docs/windows_c_drive_setup.md` for a step-by-step C:\ setup.
+
+---
+
+## Verify the install
+
+Run the offline pipeline check (no Streamlit, no network) to confirm the codebase is healthy:
+
+```bash
+python verify_pipeline.py
 ```
 
-## Recommended Demo Settings
+Expected: `Pipeline verification completed successfully! Codebase is healthy.`
 
-For a stable demo:
+---
 
-- Keep **Use bundled sample files** enabled.
-- Keep **Use live public feeds when available** disabled.
-- Click **Run Cyber Exposure Assessment**.
+## Using the app
 
-Offline fallback threat intelligence is included so the demo works without internet access.
+The dashboard is organised into tabs: **Executive View · Analyst View · Network Exposure · IDS/IPS Correlation · Privacy Impact · Remediation Governance · Action Plan · Simulation · Reports & Integrity · Audit Log · Assessment History.**
 
-## Security Hardening (v1)
+- **Action Plan** — prioritised, plain-language remediation cards; download the plan as CSV, Excel, or PDF (all HMAC-signed).
+- **Reports & Integrity** — detailed/executive/ticket reports with signatures, plus a verifier to detect tampering.
+- **Assessment History** — browse past runs, compare a run with the previous one (new / resolved / still-open exposures), reopen full results, and re-download that run's signed Action Plan.
 
-This build closes three weaknesses that matter for a security tool:
+### Bringing your own data
 
-- **Tamper-evident integrity (HMAC-SHA256).** Reports are signed with a secret key, so an edited report cannot be re-signed by anyone without the key. Set the key via the `REPORT_INTEGRITY_KEY` environment variable in production; otherwise a strong key is generated and stored locally at `data/.integrity_key` (git-ignored, never ship it).
-- **CSV / formula-injection protection.** All exported CSVs are sanitised (`core/csv_security.py`) so a malicious cell beginning with `= + - @` cannot execute as a formula when the file is opened in Excel / Sheets / LibreOffice.
-- **Operator attribution on the audit log.** Every logged action records the operator name (set in the sidebar) and timestamp, so the audit trail can answer *who* did *what*.
+Turn off **"Use bundled sample files"** and upload your own **vulnerability**, **asset inventory**, **IDS/IPS**, and optional **risk exceptions** files (CSV or Excel). Required columns are validated; see `core/validator.py` and `docs/test_cases.md`. Scoring weights, SLA windows, and priority thresholds are configurable in `data/risk_policy.json`.
 
-Out of scope for v1 (documented future scope): SSO/RBAC, database backend, live scanner/ITSM API connectors, REST API, containerised deployment.
+---
 
-## Optional Live Feeds
+## Deploying to Google Cloud
 
-The app can attempt live public enrichment from:
+A complete, beginner-proof guide is in **`docs/gcp_deployment_guide.md`** — it covers containerising the app, deploying to Cloud Run, storing the signing key in Secret Manager, and locking access down with Identity-Aware Proxy (IAP).
 
-- CISA Known Exploited Vulnerabilities feed
-- FIRST EPSS API
-- NVD CVE API
+**Cloud-persistent history (optional):** on Cloud Run the local `data/` resets on restart. To persist the Assessment History archive to a bucket instead:
 
-For the NVD API, an API key is optional. Without it, public rate limits may apply. The app still works using fallback data.
+1. Uncomment `google-cloud-storage` in `requirements.txt` and rebuild.
+2. Grant the service account access to the bucket.
+3. Set environment variables on the service:
+   ```bash
+   gcloud run services update cegp --region REGION \
+     --set-env-vars CEGP_GCS_BUCKET=YOUR_BUCKET,CEGP_GCS_PREFIX=cegp
+   ```
 
-## Datasets and Upload Formats
+When `CEGP_GCS_BUCKET` is unset (the local default), the app uses the filesystem with no change in behaviour. See the guide, **Part 11**, for details.
 
-- **Bundled dataset:** `data/sample_input.csv` (+ asset/IDS/exception files) ships with ~1,000 exposures across ~800 assets, engineered to exercise every scoring path (all priorities, KEV/EPSS/CVSS bands, network zones, IDS exploit/multi-alert, privacy levels, SLA breached/due-soon/within, and valid/expired/no-expiry exceptions). Offline fallback enrichment covers all CVEs, so it runs deterministically with live feeds off.
-- **Small demo set:** `data/demo_small/` holds the original ~41-row set (CSV) plus `sample_input.xlsx` to quickly test Excel upload.
-- **Upload formats:** the four uploaders (sidebar, after turning *Use bundled sample files* off) accept **CSV and Excel** (`.csv`, `.xlsx`, `.xls`). Excel files are read from the first sheet.
-- **Data-quality notices:** non-blocking validation messages (invalid CVE format, unexpected values, duplicates) are shown on the **Audit Log** tab, not on the main screen.
+---
 
-## Input Files
+## Security notes
 
-### `data/sample_input.csv`
+- **Report integrity** — exports are signed with HMAC-SHA256 using a key resolved from the `REPORT_INTEGRITY_KEY` environment variable, or a local `data/.integrity_key` file that is auto-generated on first run if absent. **Treat that key as a secret** — do not commit it to public source control. In the cloud, supply it via Secret Manager (see the GCP guide).
+- **Export safety** — all CSV/Excel exports pass through a formula-injection sanitiser (`core/csv_security.py`).
+- **Audit trail** — every run, report, simulation, export, and history action is logged with operator and timestamp.
 
-Main vulnerability exposure file.
+---
 
-Required fields:
+## Documentation index (`docs/`)
 
-```text
-asset_id, asset_name, product, cve_id, business_criticality, internet_facing, environment, asset_owner
-```
-
-Optional field:
-
-```text
-first_detected_date
-```
-
-### `data/asset_inventory.csv`
-
-Business, network, and privacy context.
-
-Important fields:
-
-```text
-asset_id, application_name, business_process, business_owner, network_zone, open_ports,
-firewall_status, vpn_required, asset_type, data_type, pii_present,
-data_sensitivity, encryption_status, regulatory_impact
-```
-
-### `data/ids_alerts.csv`
-
-IDS/IPS alert correlation input.
-
-Important fields:
-
-```text
-alert_id, asset_id, alert_type, alert_severity, source_ip, destination_ip,
-timestamp, signature_name, confidence
-```
-
-### `data/risk_policy.json`
-
-Configurable policy file for risk weights, SLA days, and priority thresholds.
-
-## Processing Pipeline
-
-```text
-Validate input
-→ Normalize scanner-style data
-→ Enrich CVEs with KEV, EPSS, and NVD
-→ Merge asset/business context
-→ Calculate network exposure
-→ Correlate IDS/IPS alerts
-→ Calculate privacy impact
-→ Calculate final cyber exposure score
-→ Assign SLA and escalation
-→ Generate remediation playbook
-→ Apply risk exceptions
-→ Map controls
-→ Generate dashboards/reports
-→ Generate HMAC-SHA256 report signature
-→ Write audit log
-```
-
-## Final Project Statement
-
-This project implements a cyber exposure governance platform that automatically correlates vulnerability intelligence, asset criticality, network exposure, IDS/IPS alerts, privacy impact, and SLA governance to prioritize remediation, generate playbooks, simulate risk reduction, support risk exceptions, and produce cryptographically verifiable audit reports.
-
-## College Syllabus Coverage
-
-| Subject Area | Coverage |
+| File | Purpose |
 |---|---|
-| Information Security Risk Management | Risk scoring, SLA governance, remediation prioritization |
-| Network Security | Internet/DMZ/Internal zones, ports, firewall/VPN context |
-| IDS/IPS | IDS alert correlation and escalation |
-| Data Privacy | PII, sensitivity, encryption, regulatory impact |
-| Cryptography | HMAC-SHA256 tamper-evident report integrity |
-| Computer Networks | Ports, IPs, zones, exposed services |
-| Operating Systems / Linux Security | OS/product CVEs and remediation context |
-| Algorithms | Scoring, classification, prioritization, normalization |
-| Pattern Recognition / ML Concepts | Risk classification, prioritization logic, what-if simulation |
-| Python Lab | Streamlit + pandas + modular Python implementation |
+| `project_documentation.md` | Full project documentation (also viewable in-app). |
+| `gcp_deployment_guide.md` | Step-by-step Google Cloud deployment (Cloud Run + IAP + Secret Manager). |
+| `project_report_outline.md` | Academic report outline. |
+| `syllabus_mapping.md` | Mapping of features to the M.Sc. Cyber Security curriculum. |
+| `test_cases.md` | Functional test scenarios and expected results. |
+| `demo_script.md` | Suggested live-demo flow. |
+| `windows_c_drive_setup.md` | Windows setup walkthrough. |
+| `ui_preview.html` | Static preview of the app theme. |
+| `CEGP_Project_Report.docx` | Project report (Word). |
 
-Biometric security is intentionally not forced into scope because it is not naturally aligned with this product problem.
+---
+
+*Cyber Exposure Governance Platform — an M.Sc. Cyber Security project by Dwaipayan Mojumder and Deblina Das, under the guidance of Prof. Sanjay Pal.*
